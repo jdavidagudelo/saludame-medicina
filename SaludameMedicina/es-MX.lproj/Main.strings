@@ -1,0 +1,225 @@
+
+/* Class = "UILabel"; text = "Dispositivos"; ObjectID = "0JR-gy-wEq"; */
+"0JR-gy-wEq.text" = "Dispositivos";
+
+/* Class = "UINavigationItem"; title = "Menú principal"; ObjectID = "0zL-JL-Ig3"; */
+"0zL-JL-Ig3.title" = "Menú principal";
+
+/* Class = "UILabel"; text = "Fórmulas médicas"; ObjectID = "1wb-fb-uzv"; */
+"1wb-fb-uzv.text" = "Fórmulas médicas";
+
+/* Class = "UILabel"; text = "Recomendaciones generales:"; ObjectID = "2gJ-0Z-z7i"; */
+"2gJ-0Z-z7i.text" = "Recomendaciones generales:";
+
+/* Class = "UILabel"; text = "Tomar betametasona a hoy 11:26 AM"; ObjectID = "3JR-Ha-gm4"; */
+"3JR-Ha-gm4.text" = "Tomar betametasona a hoy 11:26 AM";
+
+/* Class = "UILabel"; text = "Consulte y modifique los medicamentos que toma"; ObjectID = "3Z1-OU-p1X"; */
+"3Z1-OU-p1X.text" = "Consulte y modifique los medicamentos que toma";
+
+/* Class = "UITextField"; placeholder = "Número de la fórmula"; ObjectID = "3rI-3G-ua9"; */
+"3rI-3G-ua9.placeholder" = "Número de la fórmula";
+
+/* Class = "UINavigationItem"; title = "Tratamiento"; ObjectID = "3sj-NE-eQ2"; */
+"3sj-NE-eQ2.title" = "Tratamiento";
+
+/* Class = "UILabel"; text = "Próxima cita de control:"; ObjectID = "4V3-Ej-r9X"; */
+"4V3-Ej-r9X.text" = "Próxima cita de control:";
+
+/* Class = "UINavigationItem"; title = "FÓRMULAS MÉDICAS"; ObjectID = "5N3-0k-TUc"; */
+"5N3-0k-TUc.title" = "FÓRMULAS MÉDICAS";
+
+/* Class = "UILabel"; text = "Próxima acción:"; ObjectID = "5e5-jx-oh1"; */
+"5e5-jx-oh1.text" = "Próxima acción:";
+
+/* Class = "UITextField"; placeholder = "Nombre de la institución donde asignaron la fórmula"; ObjectID = "628-Kp-hnP"; */
+"628-Kp-hnP.placeholder" = "Nombre de la institución donde asignaron la fórmula";
+
+/* Class = "UILabel"; text = "Horarios de toma de medicamentos"; ObjectID = "6Tq-ho-r2C"; */
+"6Tq-ho-r2C.text" = "Horarios de toma de medicamentos";
+
+/* Class = "UILabel"; text = "No tiene citas"; ObjectID = "6uF-Ja-bx9"; */
+"6uF-Ja-bx9.text" = "No tiene citas";
+
+/* Class = "UILabel"; text = "Medicamentos"; ObjectID = "7B2-7k-NJJ"; */
+"7B2-7k-NJJ.text" = "Medicamentos";
+
+/* Class = "UILabel"; text = "Consulte y modifique sus fórmulas médicas"; ObjectID = "8ge-5l-19K"; */
+"8ge-5l-19K.text" = "Consulte y modifique sus fórmulas médicas";
+
+/* Class = "UILabel"; text = "Ingresar nueva fórmula médica"; ObjectID = "9AL-Bi-KEe"; */
+"9AL-Bi-KEe.text" = "Ingresar nueva fórmula médica";
+
+/* Class = "UILabel"; text = "Ver níveles de adherencia"; ObjectID = "9eK-5v-Gom"; */
+"9eK-5v-Gom.text" = "Ver níveles de adherencia";
+
+/* Class = "UIButton"; normalTitle = "Agenda"; ObjectID = "B16-rv-1yJ"; */
+"B16-rv-1yJ.normalTitle" = "Agenda";
+
+/* Class = "UIButton"; normalTitle = "Notificaciones"; ObjectID = "Bl8-AE-5Kc"; */
+"Bl8-AE-5Kc.normalTitle" = "Notificaciones";
+
+/* Class = "UILabel"; text = "Fecha:"; ObjectID = "C5e-dd-4Hr"; */
+"C5e-dd-4Hr.text" = "Fecha:";
+
+/* Class = "UILabel"; text = "Ingrese la información de la fórmula médica"; ObjectID = "EFJ-1i-yBt"; */
+"EFJ-1i-yBt.text" = "Ingrese la información de la fórmula médica";
+
+/* Class = "UILabel"; text = "Institución (*):"; ObjectID = "F2x-39-lTz"; */
+"F2x-39-lTz.text" = "Institución (*):";
+
+/* Class = "UILabel"; text = "Nombre médico:"; ObjectID = "GnG-dG-TDq"; */
+"GnG-dG-TDq.text" = "Nombre médico:";
+
+/* Class = "UILabel"; text = "Próxima acción:"; ObjectID = "JYM-HC-ica"; */
+"JYM-HC-ica.text" = "Próxima acción:";
+
+/* Class = "UIButton"; normalTitle = "Paciente"; ObjectID = "Jcp-5Q-aFz"; */
+"Jcp-5Q-aFz.normalTitle" = "Paciente";
+
+/* Class = "UIButton"; normalTitle = "Paciente"; ObjectID = "LP3-Oa-cvs"; */
+"LP3-Oa-cvs.normalTitle" = "Paciente";
+
+/* Class = "UILabel"; text = "Fórmulas médicas"; ObjectID = "LP9-H2-XXU"; */
+"LP9-H2-XXU.text" = "Fórmulas médicas";
+
+/* Class = "UILabel"; text = "Próxima cita de control:"; ObjectID = "MKb-aa-Bjh"; */
+"MKb-aa-Bjh.text" = "Próxima cita de control:";
+
+/* Class = "UILabel"; text = "Número de fórmula (*):"; ObjectID = "MRD-gb-TLz"; */
+"MRD-gb-TLz.text" = "Número de fórmula (*):";
+
+/* Class = "UIButton"; normalTitle = "MODIFICAR"; ObjectID = "Mjd-c4-d3Q"; */
+"Mjd-c4-d3Q.normalTitle" = "MODIFICAR";
+
+/* Class = "UILabel"; text = "Registrar"; ObjectID = "NUa-zC-C7J"; */
+"NUa-zC-C7J.text" = "Registrar";
+
+/* Class = "UIButton"; highlightedTitle = "CANCELAR"; ObjectID = "PU3-wy-rys"; */
+"PU3-wy-rys.highlightedTitle" = "CANCELAR";
+
+/* Class = "UIButton"; normalTitle = "CANCELAR"; ObjectID = "PU3-wy-rys"; */
+"PU3-wy-rys.normalTitle" = "CANCELAR";
+
+/* Class = "UILabel"; text = "Consulte y modifique sus fórmulas médicas"; ObjectID = "Q0w-ZY-VA2"; */
+"Q0w-ZY-VA2.text" = "Consulte y modifique sus fórmulas médicas";
+
+/* Class = "UILabel"; text = "No se han registrado citas"; ObjectID = "QID-Pc-AgH"; */
+"QID-Pc-AgH.text" = "No se han registrado citas";
+
+/* Class = "UIButton"; normalTitle = "NUEVA"; ObjectID = "Rzh-gm-1nS"; */
+"Rzh-gm-1nS.normalTitle" = "NUEVA";
+
+/* Class = "UILabel"; text = "Gestionar dispositivos"; ObjectID = "SlX-on-qsV"; */
+"SlX-on-qsV.text" = "Gestionar dispositivos";
+
+/* Class = "UILabel"; text = "Modifique los horarios en que se debe tomar sus medicamentos"; ObjectID = "W7I-SH-Fpx"; */
+"W7I-SH-Fpx.text" = "Modifique los horarios en que se debe tomar sus medicamentos";
+
+/* Class = "UIButton"; normalTitle = "GUARDAR"; ObjectID = "WEd-Qv-QK2"; */
+"WEd-Qv-QK2.normalTitle" = "GUARDAR";
+
+/* Class = "UIButton"; normalTitle = "Agenda"; ObjectID = "X2a-JO-Cl9"; */
+"X2a-JO-Cl9.normalTitle" = "Agenda";
+
+/* Class = "UIViewController"; title = "Salúdame Medicina"; ObjectID = "YC6-TI-o3o"; */
+"YC6-TI-o3o.title" = "Salúdame Medicina";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "YqT-0g-0Dv"; */
+"YqT-0g-0Dv.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Agenda"; ObjectID = "aNd-Cb-55c"; */
+"aNd-Cb-55c.normalTitle" = "Agenda";
+
+/* Class = "UIButton"; normalTitle = "Tratamiento"; ObjectID = "aUc-SL-x6Q"; */
+"aUc-SL-x6Q.normalTitle" = "Tratamiento";
+
+/* Class = "UIButton"; normalTitle = "Tratamiento"; ObjectID = "aoO-RE-GkO"; */
+"aoO-RE-GkO.normalTitle" = "Tratamiento";
+
+/* Class = "UIButton"; highlightedTitle = "CANCELAR"; ObjectID = "bKb-h3-QaG"; */
+"bKb-h3-QaG.highlightedTitle" = "CANCELAR";
+
+/* Class = "UIButton"; normalTitle = "CANCELAR"; ObjectID = "bKb-h3-QaG"; */
+"bKb-h3-QaG.normalTitle" = "CANCELAR";
+
+/* Class = "UILabel"; text = "Registrar"; ObjectID = "bvZ-El-4GW"; */
+"bvZ-El-4GW.text" = "Registrar";
+
+/* Class = "UILabel"; text = "Tomar betametasona a las 11:00 AM"; ObjectID = "c8F-ik-xAS"; */
+"c8F-ik-xAS.text" = "Tomar betametasona a las 11:00 AM";
+
+/* Class = "UIButton"; normalTitle = "Tratamiento"; ObjectID = "dHc-aJ-OyP"; */
+"dHc-aJ-OyP.normalTitle" = "Tratamiento";
+
+/* Class = "UINavigationItem"; title = "FÓRMULAS MÉDICAS"; ObjectID = "f0n-gl-seM"; */
+"f0n-gl-seM.title" = "FÓRMULAS MÉDICAS";
+
+/* Class = "UILabel"; text = "Registrar"; ObjectID = "flQ-kE-qWf"; */
+"flQ-kE-qWf.text" = "Registrar";
+
+/* Class = "UITextField"; placeholder = "Nombre del médico"; ObjectID = "hAR-l4-z3k"; */
+"hAR-l4-z3k.placeholder" = "Nombre del médico";
+
+/* Class = "UIButton"; normalTitle = "ELIMINAR TODAS"; ObjectID = "hrT-nX-cRl"; */
+"hrT-nX-cRl.normalTitle" = "ELIMINAR TODAS";
+
+/* Class = "UIButton"; normalTitle = "NUEVA"; ObjectID = "jf6-ZD-v9f"; */
+"jf6-ZD-v9f.normalTitle" = "NUEVA";
+
+/* Class = "UILabel"; text = "Dispositivos"; ObjectID = "jvP-Sf-6J7"; */
+"jvP-Sf-6J7.text" = "Dispositivos";
+
+/* Class = "UILabel"; text = "REGISTRAR FÓRMULA MÉDICA"; ObjectID = "k0R-Xs-19m"; */
+"k0R-Xs-19m.text" = "REGISTRAR FÓRMULA MÉDICA";
+
+/* Class = "UILabel"; text = "Gestionar manualmente las fórmulas"; ObjectID = "m8v-cH-bSD"; */
+"m8v-cH-bSD.text" = "Gestionar manualmente las fórmulas";
+
+/* Class = "UINavigationItem"; title = "CREAR FÓRMULA"; ObjectID = "mZc-q1-GdI"; */
+"mZc-q1-GdI.title" = "CREAR FÓRMULA";
+
+/* Class = "UILabel"; text = "Medicamentos"; ObjectID = "nLA-LV-Mk7"; */
+"nLA-LV-Mk7.text" = "Medicamentos";
+
+/* Class = "UINavigationItem"; title = "FÓRMULAS MÉDICAS"; ObjectID = "qBg-O4-CfJ"; */
+"qBg-O4-CfJ.title" = "FÓRMULAS MÉDICAS";
+
+/* Class = "UIButton"; normalTitle = "Paciente"; ObjectID = "qpb-Gm-Yj0"; */
+"qpb-Gm-Yj0.normalTitle" = "Paciente";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qs8-xl-LOb"; */
+"qs8-xl-LOb.text" = "Label";
+
+/* Class = "UILabel"; text = "Fórmulas médicas"; ObjectID = "qzu-9C-MgS"; */
+"qzu-9C-MgS.text" = "Fórmulas médicas";
+
+/* Class = "UILabel"; text = "Consulte y modifique los medicamentos que toma"; ObjectID = "rcS-MD-NOs"; */
+"rcS-MD-NOs.text" = "Consulte y modifique los medicamentos que toma";
+
+/* Class = "UIButton"; normalTitle = "Notificaciones"; ObjectID = "tLt-oz-lOe"; */
+"tLt-oz-lOe.normalTitle" = "Notificaciones";
+
+/* Class = "UIButton"; normalTitle = "ELIMINAR TODAS"; ObjectID = "tr0-iH-EnC"; */
+"tr0-iH-EnC.normalTitle" = "ELIMINAR TODAS";
+
+/* Class = "UILabel"; text = "FECHA DE REGISTRO DE LA FÓRMULA MÉDICA"; ObjectID = "u6L-u5-KnS"; */
+"u6L-u5-KnS.text" = "FECHA DE REGISTRO DE LA FÓRMULA MÉDICA";
+
+/* Class = "UILabel"; text = "Consulte y modifique sus fórmulas médicas"; ObjectID = "uis-tL-Pac"; */
+"uis-tL-Pac.text" = "Consulte y modifique sus fórmulas médicas";
+
+/* Class = "UILabel"; text = "Gestionar dispositivos"; ObjectID = "vZq-tZ-M0i"; */
+"vZq-tZ-M0i.text" = "Gestionar dispositivos";
+
+/* Class = "UILabel"; text = "Ver níveles de adherencia"; ObjectID = "vo7-Um-ygc"; */
+"vo7-Um-ygc.text" = "Ver níveles de adherencia";
+
+/* Class = "UILabel"; text = "Horarios de toma de medicamentos"; ObjectID = "wE2-ed-aFG"; */
+"wE2-ed-aFG.text" = "Horarios de toma de medicamentos";
+
+/* Class = "UILabel"; text = "Modifique los horarios en los que se debe tomar sus medicamentos"; ObjectID = "xEq-av-Ggm"; */
+"xEq-av-Ggm.text" = "Modifique los horarios en los que se debe tomar sus medicamentos";
+
+/* Class = "UIButton"; normalTitle = "Notificaciones"; ObjectID = "yej-DK-MyN"; */
+"yej-DK-MyN.normalTitle" = "Notificaciones";

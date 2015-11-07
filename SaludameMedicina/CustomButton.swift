@@ -17,7 +17,22 @@ class CustomButton: UIButton {
             }
         }
     }
-    
+    @IBInspectable
+    var imageNormal: UIImage? = nil{
+        didSet{
+            if imageNormal != nil{
+                setBackgroundImage(imageNormal, forState: UIControlState.Normal)
+            }
+        }
+    }
+    @IBInspectable
+    var imagePressed: UIImage? = nil{
+        didSet{
+            if imagePressed != nil{
+                setBackgroundImage(imagePressed, forState: UIControlState.Highlighted)
+            }
+        }
+    }
     @IBInspectable
     var borderWidth : CGFloat = 1{
         didSet{
@@ -31,9 +46,9 @@ class CustomButton: UIButton {
         }
     }
     @IBInspectable
-    var borderColor = UIColor.blackColor().CGColor{
+    var borderColor: UIColor = UIColor.blackColor() {
         didSet{
-            layer.borderColor = borderColor
+            layer.borderColor = borderColor.CGColor
         }
     }
 
@@ -47,21 +62,12 @@ class CustomButton: UIButton {
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = backgroundColorDefault
-        self.setNeedsDisplay()
         
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        layer.cornerRadius = cornerRadius
-        layer.borderWidth = borderWidth
-        layer.borderColor = borderColor
-        backgroundColor = backgroundColorDefault
-        highlighted = false
-        titleLabel?.numberOfLines = 0
-        self.setNeedsDisplay()
+        
     }
-    
     override var highlighted: Bool {
         get {
             return super.highlighted

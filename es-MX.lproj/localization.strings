@@ -1,0 +1,15 @@
+/* 
+  localization.strings
+  SaludameMedicina
+
+  Created by Ingenieria y Software on 6/11/15.
+  Copyright © 2015 Ingenieria y Software. All rights reserved.
+*/
+"deleteFomulasTitle" = "Eliminar";
+"deleteFormulasMessage" = "¿Desea Eliminar todas las fórmulas?";
+"deleteFormulasCancel" = "No";
+"deleteFormulasAccept" = "Sí";
+"deleteFomulaTitle" = "Eliminar";
+"deleteFormulaMessage" = "¿Desea eliminar la fórmula?";
+"deleteFormulaCancel" = "No";
+"deleteFormulaAccept" = "Sí";

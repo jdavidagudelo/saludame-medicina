@@ -16,4 +16,10 @@ class DashboardViewController: UIViewController {
         buttonCurrentAction?.backgroundColor = buttonCurrentAction?.backgroundColorDefault
         buttonNewAppointment?.backgroundColor = buttonNewAppointment?.backgroundColorDefault
     }
+    @IBAction func showTratamiento(sender: CustomButton)
+    {
+        let tratamientoStoryboardId = UIStoryboard(name: "Tratamiento", bundle: nil)
+        let tratamientoViewController = tratamientoStoryboardId.instantiateViewControllerWithIdentifier("TratamientoStoryboard") as? TratamientoMainViewController
+        presentViewController(tratamientoViewController!, animated: true, completion: nil)
+    }
 }

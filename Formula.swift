@@ -12,6 +12,7 @@ import CoreData
 
 class Formula: NSManagedObject {
 
+    
     class func delete(moc: NSManagedObjectContext, formula: Formula){
         do {
             moc.deleteObject(formula)
@@ -41,7 +42,7 @@ class Formula: NSManagedObject {
             return []
         }
     }
-    class func createInManagedObjectContext(moc: NSManagedObjectContext, fecha: NSDate, numero:String, recomendaciones:String, institucion: String, nombreMedico:String) -> Formula {
+    class func createInManagedObjectContext(moc: NSManagedObjectContext, fecha: NSDate?, numero:String?, recomendaciones:String?, institucion: String?, nombreMedico:String?) -> Formula {
         let formula = NSEntityDescription.insertNewObjectForEntityForName("Formula", inManagedObjectContext: moc) as! Formula
         formula.fecha = fecha
         formula.institucion = institucion

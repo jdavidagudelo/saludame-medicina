@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		591CE47B1BE2CA9B00C49442 /* CustomControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591CE47A1BE2CA9B00C49442 /* CustomControl.swift */; };
+		590973201BEAADD7006547E7 /* ListFormulasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5909731F1BEAADD7006547E7 /* ListFormulasViewController.swift */; };
+		59155F7A1BEBEDC700935E10 /* FormulaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59155F791BEBEDC700935E10 /* FormulaTableViewCell.swift */; };
 		59226B681BE3CB7500106557 /* Formula+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59226B661BE3CB7500106557 /* Formula+CoreDataProperties.swift */; };
 		59226B691BE3CB7500106557 /* Formula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59226B671BE3CB7500106557 /* Formula.swift */; };
+		59287A931BEE7314009B89C1 /* ViewFormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59287A921BEE7314009B89C1 /* ViewFormulaViewController.swift */; };
 		592973631BDE6DE60040ED95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592973621BDE6DE60040ED95 /* AppDelegate.swift */; };
 		592973681BDE6DE60040ED95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592973661BDE6DE60040ED95 /* Main.storyboard */; };
 		5929736B1BDE6DE60040ED95 /* SaludameMedicina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 592973691BDE6DE60040ED95 /* SaludameMedicina.xcdatamodeld */; };
@@ -19,6 +21,15 @@
 		592973861BDE6DE70040ED95 /* SaludameMedicinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592973851BDE6DE70040ED95 /* SaludameMedicinaUITests.swift */; };
 		592973941BDE78EB0040ED95 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592973931BDE78EB0040ED95 /* CustomButton.swift */; };
 		592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592973951BDEC9AC0040ED95 /* DashboardViewController.swift */; };
+		5963A0C71BEB780D0060E615 /* CustomMultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0C61BEB780D0060E615 /* CustomMultilineTextView.swift */; };
+		5963A0CA1BEB7AEB0060E615 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */; };
+		5963A0CD1BEB7E1F0060E615 /* CreateFormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */; };
+		5963A0CF1BEB8FDD0060E615 /* PickDateFormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0CE1BEB8FDD0060E615 /* PickDateFormulaViewController.swift */; };
+		59A5BC3A1BED06D500657EEB /* localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59A5BC3C1BED06D500657EEB /* localization.strings */; };
+		59A5BC411BED293D00657EEB /* FormulaItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BC401BED293D00657EEB /* FormulaItemOptionsViewController.swift */; };
+		59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BC421BED4D8500657EEB /* CustomIconView.swift */; };
+		59AB26271BEA6329004202B5 /* TratamientoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB26261BEA6329004202B5 /* TratamientoMainViewController.swift */; };
+		59AB26291BEA8A10004202B5 /* FormulaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB26281BEA8A10004202B5 /* FormulaMainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		591CE47A1BE2CA9B00C49442 /* CustomControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomControl.swift; sourceTree = "<group>"; };
+		5909731F1BEAADD7006547E7 /* ListFormulasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFormulasViewController.swift; sourceTree = "<group>"; };
+		59155F791BEBEDC700935E10 /* FormulaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormulaTableViewCell.swift; sourceTree = "<group>"; };
 		59226B661BE3CB7500106557 /* Formula+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Formula+CoreDataProperties.swift"; path = "../Formula+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		59226B671BE3CB7500106557 /* Formula.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Formula.swift; path = ../Formula.swift; sourceTree = "<group>"; };
+		59287A921BEE7314009B89C1 /* ViewFormulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFormulaViewController.swift; sourceTree = "<group>"; };
 		5929735F1BDE6DE60040ED95 /* SaludameMedicina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaludameMedicina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		592973621BDE6DE60040ED95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		592973671BDE6DE60040ED95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +70,18 @@
 		592973871BDE6DE70040ED95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		592973931BDE78EB0040ED95 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		592973951BDEC9AC0040ED95 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		5963A0C61BEB780D0060E615 /* CustomMultilineTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMultilineTextView.swift; sourceTree = "<group>"; };
+		5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFormulaViewController.swift; sourceTree = "<group>"; };
+		5963A0CE1BEB8FDD0060E615 /* PickDateFormulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDateFormulaViewController.swift; sourceTree = "<group>"; };
+		59A5BC3B1BED06D500657EEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localization.strings; sourceTree = "<group>"; };
+		59A5BC3D1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
+		59A5BC3E1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		59A5BC3F1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/localization.strings"; sourceTree = "<group>"; };
+		59A5BC401BED293D00657EEB /* FormulaItemOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormulaItemOptionsViewController.swift; sourceTree = "<group>"; };
+		59A5BC421BED4D8500657EEB /* CustomIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIconView.swift; sourceTree = "<group>"; };
+		59AB26261BEA6329004202B5 /* TratamientoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TratamientoMainViewController.swift; sourceTree = "<group>"; };
+		59AB26281BEA8A10004202B5 /* FormulaMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormulaMainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +141,9 @@
 		592973611BDE6DE60040ED95 /* SaludameMedicina */ = {
 			isa = PBXGroup;
 			children = (
+				59A5BC3C1BED06D500657EEB /* localization.strings */,
+				5963A0CB1BEB7DDF0060E615 /* controller */,
+				5963A0C81BEB7A8A0060E615 /* view */,
 				59226B6A1BE3CB7F00106557 /* model */,
 				592973621BDE6DE60040ED95 /* AppDelegate.swift */,
 				592973661BDE6DE60040ED95 /* Main.storyboard */,
@@ -123,9 +151,6 @@
 				5929736E1BDE6DE60040ED95 /* LaunchScreen.storyboard */,
 				592973711BDE6DE60040ED95 /* Info.plist */,
 				592973691BDE6DE60040ED95 /* SaludameMedicina.xcdatamodeld */,
-				592973931BDE78EB0040ED95 /* CustomButton.swift */,
-				592973951BDEC9AC0040ED95 /* DashboardViewController.swift */,
-				591CE47A1BE2CA9B00C49442 /* CustomControl.swift */,
 			);
 			path = SaludameMedicina;
 			sourceTree = "<group>";
@@ -146,6 +171,33 @@
 				592973871BDE6DE70040ED95 /* Info.plist */,
 			);
 			path = SaludameMedicinaUITests;
+			sourceTree = "<group>";
+		};
+		5963A0C81BEB7A8A0060E615 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				592973931BDE78EB0040ED95 /* CustomButton.swift */,
+				5963A0C61BEB780D0060E615 /* CustomMultilineTextView.swift */,
+				5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */,
+				59155F791BEBEDC700935E10 /* FormulaTableViewCell.swift */,
+				59A5BC421BED4D8500657EEB /* CustomIconView.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		5963A0CB1BEB7DDF0060E615 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				59AB26281BEA8A10004202B5 /* FormulaMainViewController.swift */,
+				592973951BDEC9AC0040ED95 /* DashboardViewController.swift */,
+				59AB26261BEA6329004202B5 /* TratamientoMainViewController.swift */,
+				5909731F1BEAADD7006547E7 /* ListFormulasViewController.swift */,
+				5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */,
+				5963A0CE1BEB8FDD0060E615 /* PickDateFormulaViewController.swift */,
+				59A5BC401BED293D00657EEB /* FormulaItemOptionsViewController.swift */,
+				59287A921BEE7314009B89C1 /* ViewFormulaViewController.swift */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +286,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-MX",
 			);
 			mainGroup = 592973561BDE6DE60040ED95;
 			productRefGroup = 592973601BDE6DE60040ED95 /* Products */;
@@ -253,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				592973701BDE6DE60040ED95 /* LaunchScreen.storyboard in Resources */,
+				59A5BC3A1BED06D500657EEB /* localization.strings in Resources */,
 				5929736D1BDE6DE60040ED95 /* Assets.xcassets in Resources */,
 				592973681BDE6DE60040ED95 /* Main.storyboard in Resources */,
 			);
@@ -280,12 +334,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				592973631BDE6DE60040ED95 /* AppDelegate.swift in Sources */,
+				5963A0CF1BEB8FDD0060E615 /* PickDateFormulaViewController.swift in Sources */,
 				59226B691BE3CB7500106557 /* Formula.swift in Sources */,
+				59287A931BEE7314009B89C1 /* ViewFormulaViewController.swift in Sources */,
+				59AB26271BEA6329004202B5 /* TratamientoMainViewController.swift in Sources */,
 				5929736B1BDE6DE60040ED95 /* SaludameMedicina.xcdatamodeld in Sources */,
+				59A5BC411BED293D00657EEB /* FormulaItemOptionsViewController.swift in Sources */,
 				59226B681BE3CB7500106557 /* Formula+CoreDataProperties.swift in Sources */,
+				59AB26291BEA8A10004202B5 /* FormulaMainViewController.swift in Sources */,
 				592973941BDE78EB0040ED95 /* CustomButton.swift in Sources */,
 				592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */,
-				591CE47B1BE2CA9B00C49442 /* CustomControl.swift in Sources */,
+				5963A0CA1BEB7AEB0060E615 /* CustomTextField.swift in Sources */,
+				5963A0CD1BEB7E1F0060E615 /* CreateFormulaViewController.swift in Sources */,
+				590973201BEAADD7006547E7 /* ListFormulasViewController.swift in Sources */,
+				59155F7A1BEBEDC700935E10 /* FormulaTableViewCell.swift in Sources */,
+				59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */,
+				5963A0C71BEB780D0060E615 /* CustomMultilineTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +389,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				592973671BDE6DE60040ED95 /* Base */,
+				59A5BC3D1BED079100657EEB /* es-MX */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -333,8 +398,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				5929736F1BDE6DE60040ED95 /* Base */,
+				59A5BC3E1BED079100657EEB /* es-MX */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		59A5BC3C1BED06D500657EEB /* localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59A5BC3B1BED06D500657EEB /* en */,
+				59A5BC3F1BED079100657EEB /* es-MX */,
+			);
+			name = localization.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -376,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -414,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
