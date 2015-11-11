@@ -1,27 +1,28 @@
 //
-//  FormulaItemOptionsViewController.swift
+//  MedicamentoItemOptionsViewController.swift
 //  SaludameMedicina
 //
-//  Created by Ingenieria y Software on 6/11/15.
+//  Created by Ingenieria y Software on 11/11/15.
 //  Copyright © 2015 Ingenieria y Software. All rights reserved.
 //
 
 import UIKit
 @IBDesignable
-class FormulaItemOptionsViewController: UIViewController {
+class MedicamentoItemOptionsViewController: UIViewController {
+    
     @IBInspectable
     var popoverHeight : CGFloat = CGFloat(90.0)
     @IBInspectable
     var popoverWidth  : CGFloat = CGFloat(100.0)
-    var formula : Formula?
-    weak var listFormulasViewController: ListFormulasViewController?
+    var medicamento : Medicamento?
+    weak var listMedicamentosViewController : ListMedicamentosViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
     }
     private struct SegueIdentifier{
-        static let IdentifierEditFormula = "Edit Formula"
+        static let IdentifierEditMedicamento = "Edit Medicamento"
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,29 +40,21 @@ class FormulaItemOptionsViewController: UIViewController {
         }
         set{super.preferredContentSize = newValue}
     }
-    @IBAction func showFormula(sender: UIButton){
+   /* @IBAction func showFormula(sender: UIButton){
         dismissViewControllerAnimated(true, completion: nil)
         listFormulasViewController?.showFormula(formula)
-    }
-    @IBAction func editFormula(sender: UIButton)
+    }*/
+    @IBAction func editMedicamento(sender: UIButton)
     {
         dismissViewControllerAnimated(true, completion: nil)
-        listFormulasViewController?.currentFormula = formula
-        listFormulasViewController?.performSegueWithIdentifier(SegueIdentifier.IdentifierEditFormula, sender: sender)
+        listMedicamentosViewController?.currentMedicamento = medicamento
+        listMedicamentosViewController?.performSegueWithIdentifier(SegueIdentifier.IdentifierEditMedicamento, sender: sender)
     }
-    @IBAction func deleteFormula(sender: UIButton)
+    
+    @IBAction func deleteMedicamento(sender: UIButton)
     {
         dismissViewControllerAnimated(true, completion: nil)
-        listFormulasViewController?.alertDeleteFormula(formula)
+        listMedicamentosViewController?.alertDeleteMedicamento(medicamento)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

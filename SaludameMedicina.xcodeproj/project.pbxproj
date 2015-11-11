@@ -25,11 +25,20 @@
 		5963A0CA1BEB7AEB0060E615 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */; };
 		5963A0CD1BEB7E1F0060E615 /* CreateFormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */; };
 		5963A0CF1BEB8FDD0060E615 /* PickDateFormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0CE1BEB8FDD0060E615 /* PickDateFormulaViewController.swift */; };
+		597F56F11BF2566800BA83CA /* Medicamento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56EF1BF2566800BA83CA /* Medicamento+CoreDataProperties.swift */; };
+		597F56F21BF2566800BA83CA /* Medicamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F01BF2566800BA83CA /* Medicamento.swift */; };
+		597F56F41BF28A0600BA83CA /* ListMedicamentosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */; };
+		597F56F61BF298DE00BA83CA /* CreateMedicamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F51BF298DE00BA83CA /* CreateMedicamentoViewController.swift */; };
 		59A5BC3A1BED06D500657EEB /* localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59A5BC3C1BED06D500657EEB /* localization.strings */; };
 		59A5BC411BED293D00657EEB /* FormulaItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BC401BED293D00657EEB /* FormulaItemOptionsViewController.swift */; };
 		59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BC421BED4D8500657EEB /* CustomIconView.swift */; };
 		59AB26271BEA6329004202B5 /* TratamientoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB26261BEA6329004202B5 /* TratamientoMainViewController.swift */; };
 		59AB26291BEA8A10004202B5 /* FormulaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB26281BEA8A10004202B5 /* FormulaMainViewController.swift */; };
+		59D2FB301BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB2F1BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift */; };
+		59D2FB321BF37E4A005AE72D /* PickIntervalUnitMedicamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB311BF37E4A005AE72D /* PickIntervalUnitMedicamentoViewController.swift */; };
+		59D2FB341BF3A30E005AE72D /* MedicamentoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB331BF3A30E005AE72D /* MedicamentoTableViewCell.swift */; };
+		59D2FB361BF3CB9B005AE72D /* IntervalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB351BF3CB9B005AE72D /* IntervalConstants.swift */; };
+		59D2FB381BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB371BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +83,10 @@
 		5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFormulaViewController.swift; sourceTree = "<group>"; };
 		5963A0CE1BEB8FDD0060E615 /* PickDateFormulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDateFormulaViewController.swift; sourceTree = "<group>"; };
+		597F56EF1BF2566800BA83CA /* Medicamento+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Medicamento+CoreDataProperties.swift"; path = "../Medicamento+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		597F56F01BF2566800BA83CA /* Medicamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Medicamento.swift; path = ../Medicamento.swift; sourceTree = "<group>"; };
+		597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMedicamentosViewController.swift; sourceTree = "<group>"; };
+		597F56F51BF298DE00BA83CA /* CreateMedicamentoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMedicamentoViewController.swift; sourceTree = "<group>"; };
 		59A5BC3B1BED06D500657EEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localization.strings; sourceTree = "<group>"; };
 		59A5BC3D1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
 		59A5BC3E1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -82,6 +95,11 @@
 		59A5BC421BED4D8500657EEB /* CustomIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIconView.swift; sourceTree = "<group>"; };
 		59AB26261BEA6329004202B5 /* TratamientoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TratamientoMainViewController.swift; sourceTree = "<group>"; };
 		59AB26281BEA8A10004202B5 /* FormulaMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormulaMainViewController.swift; sourceTree = "<group>"; };
+		59D2FB2F1BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFormulaMedicamentoViewController.swift; sourceTree = "<group>"; };
+		59D2FB311BF37E4A005AE72D /* PickIntervalUnitMedicamentoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickIntervalUnitMedicamentoViewController.swift; sourceTree = "<group>"; };
+		59D2FB331BF3A30E005AE72D /* MedicamentoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentoTableViewCell.swift; sourceTree = "<group>"; };
+		59D2FB351BF3CB9B005AE72D /* IntervalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalConstants.swift; sourceTree = "<group>"; };
+		59D2FB371BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentoItemOptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +130,11 @@
 		59226B6A1BE3CB7F00106557 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				597F56EF1BF2566800BA83CA /* Medicamento+CoreDataProperties.swift */,
+				597F56F01BF2566800BA83CA /* Medicamento.swift */,
 				59226B661BE3CB7500106557 /* Formula+CoreDataProperties.swift */,
 				59226B671BE3CB7500106557 /* Formula.swift */,
+				59D2FB351BF3CB9B005AE72D /* IntervalConstants.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -181,6 +202,7 @@
 				5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */,
 				59155F791BEBEDC700935E10 /* FormulaTableViewCell.swift */,
 				59A5BC421BED4D8500657EEB /* CustomIconView.swift */,
+				59D2FB331BF3A30E005AE72D /* MedicamentoTableViewCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -196,6 +218,11 @@
 				5963A0CE1BEB8FDD0060E615 /* PickDateFormulaViewController.swift */,
 				59A5BC401BED293D00657EEB /* FormulaItemOptionsViewController.swift */,
 				59287A921BEE7314009B89C1 /* ViewFormulaViewController.swift */,
+				597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */,
+				597F56F51BF298DE00BA83CA /* CreateMedicamentoViewController.swift */,
+				59D2FB2F1BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift */,
+				59D2FB311BF37E4A005AE72D /* PickIntervalUnitMedicamentoViewController.swift */,
+				59D2FB371BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -334,22 +361,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				592973631BDE6DE60040ED95 /* AppDelegate.swift in Sources */,
+				59D2FB361BF3CB9B005AE72D /* IntervalConstants.swift in Sources */,
 				5963A0CF1BEB8FDD0060E615 /* PickDateFormulaViewController.swift in Sources */,
+				597F56F11BF2566800BA83CA /* Medicamento+CoreDataProperties.swift in Sources */,
+				597F56F41BF28A0600BA83CA /* ListMedicamentosViewController.swift in Sources */,
 				59226B691BE3CB7500106557 /* Formula.swift in Sources */,
 				59287A931BEE7314009B89C1 /* ViewFormulaViewController.swift in Sources */,
 				59AB26271BEA6329004202B5 /* TratamientoMainViewController.swift in Sources */,
 				5929736B1BDE6DE60040ED95 /* SaludameMedicina.xcdatamodeld in Sources */,
 				59A5BC411BED293D00657EEB /* FormulaItemOptionsViewController.swift in Sources */,
 				59226B681BE3CB7500106557 /* Formula+CoreDataProperties.swift in Sources */,
+				59D2FB341BF3A30E005AE72D /* MedicamentoTableViewCell.swift in Sources */,
 				59AB26291BEA8A10004202B5 /* FormulaMainViewController.swift in Sources */,
 				592973941BDE78EB0040ED95 /* CustomButton.swift in Sources */,
 				592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */,
+				597F56F61BF298DE00BA83CA /* CreateMedicamentoViewController.swift in Sources */,
 				5963A0CA1BEB7AEB0060E615 /* CustomTextField.swift in Sources */,
 				5963A0CD1BEB7E1F0060E615 /* CreateFormulaViewController.swift in Sources */,
 				590973201BEAADD7006547E7 /* ListFormulasViewController.swift in Sources */,
 				59155F7A1BEBEDC700935E10 /* FormulaTableViewCell.swift in Sources */,
 				59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */,
+				59D2FB321BF37E4A005AE72D /* PickIntervalUnitMedicamentoViewController.swift in Sources */,
+				597F56F21BF2566800BA83CA /* Medicamento.swift in Sources */,
+				59D2FB381BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift in Sources */,
 				5963A0C71BEB780D0060E615 /* CustomMultilineTextView.swift in Sources */,
+				59D2FB301BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@ class ViewFormulaViewController: UIViewController {
             labelFormulaNumber?.text = formula?.numero
             labelInstitution?.text = formula?.institucion
             labelFormulaDate?.text = formattedDate
+            labelDoctorName?.text = formula?.nombreMedico
         }
     }
     var formattedDate: String{
@@ -40,6 +41,11 @@ class ViewFormulaViewController: UIViewController {
             }
         }
         set{super.preferredContentSize = newValue}
+    }
+    @IBOutlet weak var labelDoctorName: UILabel!{
+        didSet{
+            labelDoctorName?.text = formula?.nombreMedico
+        }
     }
     @IBOutlet weak var labelRecommendations: UILabel!{
         didSet{

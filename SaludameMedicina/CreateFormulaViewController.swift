@@ -18,6 +18,7 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
             date = formula?.fecha ?? NSDate()
         }
     }
+    
     @IBOutlet weak var textFieldInstitution: UITextField!{
         didSet{
             textFieldInstitution?.text = formula?.institucion
@@ -52,12 +53,12 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     @IBAction func createFormula(sender : UIButton)
     {
         if (textFieldInstitution?.text?.isEmpty ?? false || textFieldInstitution?.text == nil ||
-            textFieldNumberFormula.text?.isEmpty ?? false || textFieldNumberFormula?.text == nil)
+            textFieldNumberFormula?.text?.isEmpty ?? false || textFieldNumberFormula?.text == nil)
         {
             if (textFieldInstitution?.text?.isEmpty ?? false || textFieldInstitution?.text == nil){
                 labelInstitution?.textColor = UIColor.redColor()
             }
-            if (textFieldNumberFormula.text?.isEmpty ?? false || textFieldNumberFormula?.text == nil){
+            if (textFieldNumberFormula?.text?.isEmpty ?? false || textFieldNumberFormula?.text == nil){
                 labelNumberFormula?.textColor = UIColor.redColor()
             }
             return
@@ -76,7 +77,6 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
             Formula.save(managedObjectContext )
         }
         navigationController?.popViewControllerAnimated(true)
-        //performSegueWithIdentifier(SegueIdentifier.IdentifierBackToFormulaList, sender: sender)
     }
     @IBOutlet var labelDate: UILabel!{
         didSet{

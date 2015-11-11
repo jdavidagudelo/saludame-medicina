@@ -57,5 +57,10 @@ class Formula: NSManagedObject {
         }
         return formula
     }
-
+    class func getText(formula:Formula?, formulaName: String = "Fórmula", defaultFormula: String = "Sin fórmula") -> String{
+        if let f = formula {
+            return "\(formulaName) #: \(f.numero ?? "") - \(f.institucion ?? "")"
+        }
+        return "\(formulaName) #: - \(defaultFormula)"
+    }
 }

@@ -20,6 +20,7 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
             tableView?.tableHeaderView = separator
         }
     }
+    
     @IBOutlet weak var labelMenu: UILabel!
     private struct StoryBoard{
         static let FormulaItemOptionsViewId = "FormulaItemOptionsViewController"
@@ -41,7 +42,7 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
     }
     @IBAction func deleteAll(sender: UIButton)
     {
-        let title = NSLocalizedString("deleteFomulasTitle", tableName: "localization",comment: "Warning title")
+        let title = NSLocalizedString("deleteFormulasTitle", tableName: "localization",comment: "Warning title")
         let message = NSLocalizedString("deleteFormulasMessage", tableName: "localization", comment: "All formulas will be deleted warning")
         let cancelText = NSLocalizedString("deleteFormulasCancel", tableName: "localization", comment: "Cancel deleting formulas")
         let acceptText = NSLocalizedString("deleteFormulasAccept", tableName: "localization", comment: "Confirm delete all formulas")
@@ -67,7 +68,7 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
     }
     func alertDeleteFormula(formula: Formula?)
     {
-        let title = NSLocalizedString("deleteFomulaTitle", tableName: "localization",comment: "Warning title")
+        let title = NSLocalizedString("deleteFormulaTitle", tableName: "localization",comment: "Warning title")
         let message = NSLocalizedString("deleteFormulaMessage", tableName: "localization", comment: "A formula will be deleted warning")
         let cancelText = NSLocalizedString("deleteFormulaCancel", tableName: "localization", comment: "Cancel deleting a formula")
         let acceptText = NSLocalizedString("deleteFormulaAccept", tableName: "localization", comment: "Confirm delete a formula")
@@ -155,7 +156,7 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
             popover?.delegate = self
             popover?.sourceView = labelMenu
             popover?.sourceRect = CGRect(x: view.center.x, y: 0, width: 0, height: 0)
-            
+            popover?.backgroundColor = UIColor.clearColor()
             self.presentViewController(viewFormulaViewController, animated: true, completion: nil)
         }
     }

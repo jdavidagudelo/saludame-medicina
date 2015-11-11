@@ -12,9 +12,14 @@ class TratamientoMainViewController: UIViewController {
 
     private struct SegueIdentifier{
         static let IdentifierShowFormulas = "Show Formulas"
+        static let IdentifierShowMedicamentos = "Show Medicamentos"
     }
     @IBAction func showFormulas(sender: UIButton){
         performSegueWithIdentifier(SegueIdentifier.IdentifierShowFormulas, sender: sender)
+    }
+    @IBAction func showMedicamentos(sender: UIButton)
+    {
+        performSegueWithIdentifier(SegueIdentifier.IdentifierShowMedicamentos, sender: sender)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

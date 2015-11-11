@@ -7,7 +7,23 @@
         <attribute name="numero" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="recomendaciones" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Medicamento" representedClassName=".Medicamento" syncable="YES">
+        <attribute name="cantidad" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="concentracion" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="dosis" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="duracion" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="fechaFin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fechaInicio" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="indicaciones" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="periodicidad" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="presentacion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unidadTiempoPeriodicidad" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="via" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="formula" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Formula" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Formula" positionX="-630" positionY="-685" width="128" height="118"/>
+        <element name="Formula" positionX="-1431" positionY="-828" width="162" height="118"/>
+        <element name="Medicamento" positionX="-1764" positionY="-1053" width="128" height="238"/>
     </elements>
 </model>

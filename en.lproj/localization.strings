@@ -5,11 +5,21 @@
   Created by Ingenieria y Software on 6/11/15.
   Copyright © 2015 Ingenieria y Software. All rights reserved.
 */
-"deleteFomulasTitle" = "Delete";
+"deleteFormulasTitle" = "Delete";
 "deleteFormulasMessage" = "¿Do you want to delete all the formulas?";
 "deleteFormulasCancel" = "No";
 "deleteFormulasAccept" = "Yes";
-"deleteFomulaTitle" = "Delete";
+"deleteFormulaTitle" = "Delete";
 "deleteFormulaMessage" = "¿Do you want to delete the formula?";
 "deleteFormulaCancel" = "No";
 "deleteFormulaAccept" = "Yes";
+"hoursInterval" = "Hours";
+"daysInterval" = "Days";
+"deleteMedicationsTitle" = "Delete";
+"deleteMedicationsMessage" = "¿Do you want to delete all the medications?";
+"deleteMedicationsCancel" = "No";
+"deleteMedicationsAccept" = "Yes";
+"deleteMedicationTitle" = "Delete";
+"deleteMedicationMessage" = "¿Do you want to delete the medication?";
+"deleteMedicationCancel" = "No";
+"deleteMedicationAccept" = "Yes";

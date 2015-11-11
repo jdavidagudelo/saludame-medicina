@@ -11,6 +11,9 @@ import UIKit
 class DashboardViewController: UIViewController {
     @IBOutlet var buttonCurrentAction: CustomButton!
     @IBOutlet var buttonNewAppointment: CustomButton!
+    private struct SegueIdentifier{
+        static let IdentifierShowTratamiento = "Show Tratamiento"
+    }
     override func viewDidLoad() {
     
         buttonCurrentAction?.backgroundColor = buttonCurrentAction?.backgroundColorDefault
@@ -18,8 +21,6 @@ class DashboardViewController: UIViewController {
     }
     @IBAction func showTratamiento(sender: CustomButton)
     {
-        let tratamientoStoryboardId = UIStoryboard(name: "Tratamiento", bundle: nil)
-        let tratamientoViewController = tratamientoStoryboardId.instantiateViewControllerWithIdentifier("TratamientoStoryboard") as? TratamientoMainViewController
-        presentViewController(tratamientoViewController!, animated: true, completion: nil)
+        performSegueWithIdentifier(SegueIdentifier.IdentifierShowTratamiento, sender: sender)
     }
 }

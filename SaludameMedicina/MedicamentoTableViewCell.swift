@@ -1,30 +1,27 @@
 //
-//  FormulaTableViewCell.swift
+//  MedicamentoTableViewCell.swift
 //  SaludameMedicina
 //
-//  Created by Ingenieria y Software on 5/11/15.
+//  Created by Ingenieria y Software on 11/11/15.
 //  Copyright © 2015 Ingenieria y Software. All rights reserved.
 //
 
 import UIKit
 
-class FormulaTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var buttonEdit: CustomButton!
-    @IBOutlet weak var labelFormula: UILabel!{
+class MedicamentoTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var buttonEdit: UIButton!
+    var medicamento: Medicamento?{
         didSet{
-            labelFormula?.text = formulaText
+            labelMedicamento?.text = Medicamento.getText(medicamento)
+        }
+    }
+    @IBOutlet weak var labelMedicamento: UILabel!{
+        didSet{
+            labelMedicamento?.text = Medicamento.getText(medicamento)
         }
     }
     
-    var formula: Formula?{
-        didSet{
-            labelFormula?.text = formulaText
-        }
-    }
-    private var formulaText : String{
-        return Formula.getText(formula)
-    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,6 +29,7 @@ class FormulaTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
         // Configure the view for the selected state
     }
 
