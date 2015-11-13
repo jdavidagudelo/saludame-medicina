@@ -1,47 +1,47 @@
 //
-//  PickIntervalUnitMedicamentoViewController.swift
+//  PickDocumentTypePatientViewController.swift
 //  SaludameMedicina
 //
-//  Created by Ingenieria y Software on 11/11/15.
+//  Created by Ingenieria y Software on 13/11/15.
 //  Copyright © 2015 Ingenieria y Software. All rights reserved.
 //
 
 import UIKit
-@IBDesignable
-class PickIntervalUnitMedicamentoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    var createMedicamentoController: CreateMedicamentoViewController?
+
+class PickDocumentTypePatientViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+    var patientInfoViewController: PatientInfoViewController?
     @IBInspectable
     var popoverHeight : CGFloat = CGFloat(200.0)
-    var unit :String?{
+    var documentType :String?{
         didSet{
-           selectUnit(unit)
+            selectDocumentType(documentType)
         }
     }
-    private func selectUnit(unit: String?){
-        if let u = unit{
-            if let index = intervals.indexOf(u)
+    private func selectDocumentType(documentType: String?){
+        if let d = documentType{
+            if let index = documentTypes.indexOf(d)
             {
-                pickerInterval?.selectRow(index, inComponent: 0, animated: true)
+                pickerIdentificationType?.selectRow(index, inComponent: 0, animated: true)
             }
         }
     }
-    var intervals = [String](){
+    var documentTypes = [String](){
         didSet{
-            pickerInterval?.reloadAllComponents()
-            selectUnit(unit)
+            pickerIdentificationType?.reloadAllComponents()
+            selectDocumentType(documentType)
         }
     }
     @IBOutlet
-    weak var pickerInterval: UIPickerView!{
+    weak var pickerIdentificationType: UIPickerView!{
         didSet{
-            pickerInterval?.dataSource = self
-            pickerInterval?.delegate = self
+            pickerIdentificationType?.dataSource = self
+            pickerIdentificationType?.delegate = self
             
         }
     }
     private func initIntervals(){
-        intervals = [IntervalConstants.HoursInterval, IntervalConstants.DaysInterval]
+        documentTypes = [IdentificationType.Cedula, IdentificationType.CedulaExtrajeria,
+            IdentificationType.Pasaporte, IdentificationType.IdentityCard]
     }
     
     override func viewDidLoad() {
@@ -60,11 +60,11 @@ class PickIntervalUnitMedicamentoViewController: UIViewController, UIPickerViewD
     // returns the # of rows in each component..
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        return intervals.count
+        return documentTypes.count
     }
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
     {
-        let text = intervals[row]
+        let text = documentTypes[row]
         let label = UILabel()
         label.textAlignment = .Center
         label.lineBreakMode = .ByWordWrapping
@@ -74,9 +74,9 @@ class PickIntervalUnitMedicamentoViewController: UIViewController, UIPickerViewD
     @IBAction func cancel(sender: UIButton){
         dismissViewControllerAnimated(true, completion: nil)
     }
-    @IBAction func saveInterval(sender: UIButton){
-        let unit = intervals[pickerInterval.selectedRowInComponent(0)]
-        createMedicamentoController?.periodUnit = unit
+    @IBAction func saveDocumentType(sender: UIButton){
+        let documentType = documentTypes[pickerIdentificationType.selectedRowInComponent(0)]
+        patientInfoViewController?.identificationType = documentType
         dismissViewControllerAnimated(true, completion: nil)
     }
     override var preferredContentSize: CGSize {
@@ -90,6 +90,4 @@ class PickIntervalUnitMedicamentoViewController: UIViewController, UIPickerViewD
         }
         set{super.preferredContentSize = newValue}
     }
-    
-
 }

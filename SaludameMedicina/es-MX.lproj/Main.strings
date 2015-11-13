@@ -3,7 +3,7 @@
 "0JR-gy-wEq.text" = "Dispositivos";
 
 /* Class = "UINavigationItem"; title = "Menú principal"; ObjectID = "0zL-JL-Ig3"; */
-"0zL-JL-Ig3.title" = "Menú principal";
+"0zL-JL-Ig3.title" = "MENÚ PRINCIPAL";
 
 /* Class = "UILabel"; text = "Fórmulas médicas"; ObjectID = "1wb-fb-uzv"; */
 "1wb-fb-uzv.text" = "Fórmulas médicas";
@@ -21,7 +21,7 @@
 "3rI-3G-ua9.placeholder" = "Número de la fórmula";
 
 /* Class = "UINavigationItem"; title = "Tratamiento"; ObjectID = "3sj-NE-eQ2"; */
-"3sj-NE-eQ2.title" = "Tratamiento";
+"3sj-NE-eQ2.title" = "TRATAMIENTO";
 
 /* Class = "UILabel"; text = "Próxima cita de control:"; ObjectID = "4V3-Ej-r9X"; */
 "4V3-Ej-r9X.text" = "Próxima cita de control:";

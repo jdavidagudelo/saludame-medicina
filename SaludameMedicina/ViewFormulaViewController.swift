@@ -8,23 +8,37 @@
 
 import UIKit
 @IBDesignable
-class ViewFormulaViewController: UIViewController {
+class ViewFormulaViewController: UIViewController, UITableViewDataSource {
     @IBInspectable
     var popoverHeight: CGFloat = 300
-    var formula : Formula?{
+    @IBInspectable
+    var colorCellEven : UIColor?
+    @IBInspectable
+    var colorCellOdd : UIColor?
+    var formulaData = [(title: String?, description: String?)](){
         didSet{
-            labelRecommendations?.text = formula?.recomendaciones
-            labelFormulaNumber?.text = formula?.numero
-            labelInstitution?.text = formula?.institucion
-            labelFormulaDate?.text = formattedDate
-            labelDoctorName?.text = formula?.nombreMedico
+            tableView?.reloadData()
         }
     }
-    var formattedDate: String{
+    @IBOutlet
+    var tableView: UITableView!{
+        didSet{
+            tableView.estimatedRowHeight = tableView.rowHeight
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView?.dataSource = self
+            tableView?.reloadData()
+        }
+    }
+    var formula : Formula?{
+        didSet{
+            initData()
+        }
+    }
+    var formattedDate: String?{
         get
         {
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "dd-M-yyyy"
+            formatter.dateFormat = "dd-MM-yyyy"
             if let date = (formula?.fecha){
                 return formatter.stringFromDate(date)
             }
@@ -42,34 +56,10 @@ class ViewFormulaViewController: UIViewController {
         }
         set{super.preferredContentSize = newValue}
     }
-    @IBOutlet weak var labelDoctorName: UILabel!{
-        didSet{
-            labelDoctorName?.text = formula?.nombreMedico
-        }
-    }
-    @IBOutlet weak var labelRecommendations: UILabel!{
-        didSet{
-            labelRecommendations?.text = formula?.recomendaciones
-        }
-    }
-    @IBOutlet weak var labelFormulaDate: UILabel!{
-        didSet{
-            labelFormulaDate?.text = formattedDate
-        }
-    }
-    @IBOutlet weak var labelFormulaNumber: UILabel!{
-        didSet{
-            labelFormulaNumber?.text = formula?.numero
-        }
-    }
-    @IBOutlet weak var labelInstitution: UILabel!{
-        didSet{
-            labelInstitution?.text = formula?.institucion
-        }
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initData()
         // Do any additional setup after loading the view.
     }
 
@@ -81,15 +71,41 @@ class ViewFormulaViewController: UIViewController {
     @IBAction func closeView(sender: UIButton) {
         dismissViewControllerAnimated(true, completion : nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
     }
-    */
-
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return formulaData.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("FormulaItemInfoCell", forIndexPath: indexPath) as? ItemInfoViewCell
+        cell?.info = formulaData[indexPath.row]
+        //IOS BUG
+        cell?.contentView.frame = (cell?.bounds)!;
+        cell?.contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight];
+        if indexPath.row%2 == 0{
+            cell?.colorView = colorCellEven
+        }
+        else{
+            cell?.colorView = colorCellOdd
+        }
+        return cell!
+    }
+    private func initData(){
+        var currentFormulaData = [(title: String?, description: String?)]()
+        currentFormulaData += [(title: Optional(NSLocalizedString("institutionFormulaTitle", tableName: "localization",comment: "Institution of fórmula title")),
+            description: formula?.institucion)]
+        currentFormulaData += [(title: Optional(NSLocalizedString("numberFormulaTitle", tableName: "localization",comment: "Number of formula title")),
+            description: formula?.numero)]
+        currentFormulaData += [(title: Optional(NSLocalizedString("dateFormulaTitle", tableName: "localization",comment: "Date of formula title")),
+            description: formattedDate)]
+        currentFormulaData += [(title: Optional(NSLocalizedString("dateFormulaRecommendationsTitle", tableName: "localization",comment: "Recommendations of formula title")),
+            description: formula?.recomendaciones)]
+        formulaData = currentFormulaData
+        
+    }
 }

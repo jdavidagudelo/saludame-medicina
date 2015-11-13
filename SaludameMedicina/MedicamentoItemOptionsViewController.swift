@@ -23,6 +23,7 @@ class MedicamentoItemOptionsViewController: UIViewController {
     }
     private struct SegueIdentifier{
         static let IdentifierEditMedicamento = "Edit Medicamento"
+        static let IdentifierScheduleMedication = "Show Schedule"
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -40,17 +41,21 @@ class MedicamentoItemOptionsViewController: UIViewController {
         }
         set{super.preferredContentSize = newValue}
     }
-   /* @IBAction func showFormula(sender: UIButton){
+   @IBAction func showMedication(sender: UIButton){
         dismissViewControllerAnimated(true, completion: nil)
-        listFormulasViewController?.showFormula(formula)
-    }*/
+        listMedicamentosViewController?.showMedication(medicamento)
+    }
     @IBAction func editMedicamento(sender: UIButton)
     {
         dismissViewControllerAnimated(true, completion: nil)
         listMedicamentosViewController?.currentMedicamento = medicamento
         listMedicamentosViewController?.performSegueWithIdentifier(SegueIdentifier.IdentifierEditMedicamento, sender: sender)
     }
-    
+    @IBAction func showSchedule(sender: UIButton){
+        dismissViewControllerAnimated(true, completion: nil)
+        listMedicamentosViewController?.currentMedicamento = medicamento
+        listMedicamentosViewController?.performSegueWithIdentifier(SegueIdentifier.IdentifierScheduleMedication, sender: sender)
+    }
     @IBAction func deleteMedicamento(sender: UIButton)
     {
         dismissViewControllerAnimated(true, completion: nil)

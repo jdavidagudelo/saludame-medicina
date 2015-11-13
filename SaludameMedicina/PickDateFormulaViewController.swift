@@ -9,7 +9,6 @@
 import UIKit
 
 class PickDateFormulaViewController: UIViewController {
-    @IBOutlet var containerView: UIView!
     @IBOutlet var datePicker: UIDatePicker!{
         didSet{
             if date != nil{
@@ -42,7 +41,6 @@ class PickDateFormulaViewController: UIViewController {
         super.viewDidLoad()
         datePicker?.datePickerMode = UIDatePickerMode.Date
         datePicker?.maximumDate = NSDate()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

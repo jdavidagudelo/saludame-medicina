@@ -11,20 +11,26 @@ import CoreData
 
 class ListMedicamentosViewController: UIViewController, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
+    private struct StoryBoard{
+        static let MedicamentoItemOptionsViewId = "MedicamentoItemOptionsViewController"
+        static let ViewMedicationId = "ViewMedicationViewController"
+    }
     
-    
+    private struct SegueIdentifier{
+        static let IdentifierCreateMedicamento : String = "Create Medicamento"
+        static let IdentifierScheduleMedication = "Show Schedule"
+        static let IdentifierEditMedicamento = "Edit Medicamento"
+    }
+    @IBOutlet weak var labelMenu : UILabel!
     var managedObjectContext: NSManagedObjectContext!
     var currentMedicamento: Medicamento?
     @IBInspectable
     var colorQuickAction : UIColor!
     
-    private struct StoryBoard{
-        static let MedicamentoItemOptionsViewId = "MedicamentoItemOptionsViewController"
-        static let ViewMedicamentoId = "ViewMedicamentoViewController"
-    }
+  
     
     @IBOutlet
-    var tableView : UITableView!{
+    weak var tableView : UITableView!{
         didSet{
             tableView?.dataSource = self
         }
@@ -51,9 +57,6 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
         cell?.buttonEdit.tag = indexPath.row
         cell?.buttonEdit.addTarget(self, action: "showEditView:", forControlEvents: UIControlEvents.TouchUpInside)
         return cell!
-    }
-    private struct SegueIdentifier{
-        static let IdentifierCreateMedicamento = "Create Medicamento"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +108,6 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
             popover?.backgroundColor = colorQuickAction
             self.presentViewController(editItemViewController, animated: true, completion: nil)
         }
-        
     }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
@@ -114,8 +116,16 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
         let destination = segue.destinationViewController as UIViewController
         if let createMedicamentoViewController = destination as? CreateMedicamentoViewController
         {
-            createMedicamentoViewController.medicamento = currentMedicamento
-            currentMedicamento = nil
+            if segue.identifier == SegueIdentifier.IdentifierEditMedicamento{
+                createMedicamentoViewController.medicamento = currentMedicamento
+                currentMedicamento = nil
+            }
+        }
+        if let scheduleViewController = destination as? ScheduleMedicationViewController{
+            if segue.identifier == SegueIdentifier.IdentifierScheduleMedication{
+                scheduleViewController.medicamento = currentMedicamento
+                currentMedicamento = nil
+            }
         }
     }
     
@@ -176,14 +186,18 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
         presentViewController(alert, animated: true, completion: nil)
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showMedication(medication: Medicamento?){
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let viewMedicationViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.ViewMedicationId) as? ViewMedicationViewController)
+        {
+            viewMedicationViewController.medication = medication
+            viewMedicationViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            let popover = viewMedicationViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.sourceView = labelMenu
+            popover?.sourceRect = CGRect(x: view.center.x, y: 0, width: 0, height: 0)
+            popover?.backgroundColor = UIColor.clearColor()
+            self.presentViewController(viewMedicationViewController, animated: true, completion: nil)
+        }
     }
-    */
-
 }

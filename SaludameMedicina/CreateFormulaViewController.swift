@@ -18,7 +18,29 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
             date = formula?.fecha ?? NSDate()
         }
     }
-    
+    private struct StoryBoard{
+        static let CustomToastViewId = "CustomToastUIViewController"
+    }
+    private func showToast(text: String, sender : UIView)
+    {
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let toastViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.CustomToastViewId) as? CustomToastUIViewController)
+        {
+            
+            toastViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            toastViewController.currentText = text
+            let popover = toastViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.permittedArrowDirections = [.Up, .Down]
+            popover?.sourceView = sender
+            popover?.backgroundColor = UIColor.blackColor()
+            self.presentViewController(toastViewController, animated: true, completion: nil)
+        }
+    }
+    @IBAction func showDateInfo(sender: UIButton){
+        showToast(NSLocalizedString("dateFormulaHelp", tableName: "localization",
+            comment: "Info about the date of a formula"), sender: sender)
+    }
     @IBOutlet weak var textFieldInstitution: UITextField!{
         didSet{
             textFieldInstitution?.text = formula?.institucion

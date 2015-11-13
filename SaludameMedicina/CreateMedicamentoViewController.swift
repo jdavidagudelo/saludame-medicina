@@ -11,6 +11,10 @@ import CoreData
 @IBDesignable
 class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
+    private struct SegueIdentifier{
+        static let IdentifierPickFormulaMedicamento = "Pick Formula Medicamento"
+        static let IdentifierPickUnitMedicamento = "Pick Interval Medicamento"
+    }
     var medicamento: Medicamento? {
         didSet{
             formula = medicamento?.formula
@@ -174,6 +178,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
             medicamento?.indicaciones = indicaciones
             medicamento?.nombre = nombre
             medicamento?.duracion = duration
+            medicamento?.periodicidad = periodicidad
             medicamento?.unidadTiempoPeriodicidad = unidadTiempoPeriodicidad
             medicamento?.presentacion = presentacion
             medicamento?.fechaFin = endDate
@@ -214,14 +219,42 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
-    private struct SegueIdentifier{
-        static let IdentifierPickFormulaMedicamento = "Pick Formula Medicamento"
-        static let IdentifierPickUnitMedicamento = "Pick Interval Medicamento"
-    }
     private func getFormattedDate(date: NSDate) -> String{
         let formatter = NSDateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         return formatter.stringFromDate(date)
+    }
+    private struct StoryBoard{
+        static let CustomToastViewId = "CustomToastUIViewController"
+    }
+    @IBAction func showStartDateInfo(sender: UIButton){
+        showToast(NSLocalizedString("startDateMedicationHelp", tableName: "localization",
+            comment: "Info about the start date of a medication"), sender: sender)
+    }
+    @IBAction func showEndDateInfo(sender: UIButton){
+        showToast(NSLocalizedString("endDateMedicationHelp", tableName: "localization",
+            comment: "Info about the end date of a medication"), sender: sender)
+    }
+    @IBAction func showFormulaInfo(sender: UIButton){
+        showToast(NSLocalizedString("selectFormulaMedicationHelp", tableName: "localization",
+            comment: "Info about the formula of a medication"), sender: sender)
+    }
+    
+    private func showToast(text: String, sender : UIView)
+    {
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let toastViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.CustomToastViewId) as? CustomToastUIViewController)
+        {
+            
+            toastViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            toastViewController.currentText = text
+            let popover = toastViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.permittedArrowDirections = [.Up, .Down]
+            popover?.sourceView = sender
+            popover?.backgroundColor = UIColor.blackColor()
+            self.presentViewController(toastViewController, animated: true, completion: nil)
+        }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier

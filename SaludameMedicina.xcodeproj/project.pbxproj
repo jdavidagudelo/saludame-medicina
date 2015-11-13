@@ -25,10 +25,34 @@
 		5963A0CA1BEB7AEB0060E615 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */; };
 		5963A0CD1BEB7E1F0060E615 /* CreateFormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */; };
 		5963A0CF1BEB8FDD0060E615 /* PickDateFormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0CE1BEB8FDD0060E615 /* PickDateFormulaViewController.swift */; };
+		596BCEF71BF4DD9800BE72D3 /* PatientMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCEF61BF4DD9800BE72D3 /* PatientMainViewController.swift */; };
+		596BCEF91BF4DF2B00BE72D3 /* SleepTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCEF81BF4DF2B00BE72D3 /* SleepTimeViewController.swift */; };
+		596BCEFB1BF4DFDD00BE72D3 /* PickSleepTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCEFA1BF4DFDD00BE72D3 /* PickSleepTimeViewController.swift */; };
+		596BCEFE1BF4E69200BE72D3 /* SleepPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCEFD1BF4E69200BE72D3 /* SleepPreferences.swift */; };
+		596BCF011BF4F89900BE72D3 /* Evento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCEFF1BF4F89900BE72D3 /* Evento+CoreDataProperties.swift */; };
+		596BCF021BF4F89900BE72D3 /* Evento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCF001BF4F89900BE72D3 /* Evento.swift */; };
+		596BCF041BF50DEB00BE72D3 /* ScheduleMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCF031BF50DEB00BE72D3 /* ScheduleMedicationViewController.swift */; };
+		596BCF081BF5175C00BE72D3 /* TimeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCF071BF5175C00BE72D3 /* TimeUtil.swift */; };
+		596BCF0A1BF5258100BE72D3 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCF091BF5258100BE72D3 /* Scheduler.swift */; };
+		596BCF0E1BF534F100BE72D3 /* HourMedicationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCF0D1BF534F100BE72D3 /* HourMedicationViewCell.swift */; };
 		597F56F11BF2566800BA83CA /* Medicamento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56EF1BF2566800BA83CA /* Medicamento+CoreDataProperties.swift */; };
 		597F56F21BF2566800BA83CA /* Medicamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F01BF2566800BA83CA /* Medicamento.swift */; };
 		597F56F41BF28A0600BA83CA /* ListMedicamentosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */; };
 		597F56F61BF298DE00BA83CA /* CreateMedicamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F51BF298DE00BA83CA /* CreateMedicamentoViewController.swift */; };
+		5998BA541BF60CA3007269EC /* PickStartTimeScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA531BF60CA3007269EC /* PickStartTimeScheduleViewController.swift */; };
+		5998BA561BF6138E007269EC /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA551BF6138E007269EC /* EventType.swift */; };
+		5998BA581BF613E8007269EC /* EventState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA571BF613E8007269EC /* EventState.swift */; };
+		5998BA5A1BF61434007269EC /* EventPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA591BF61434007269EC /* EventPeriod.swift */; };
+		5998BA5C1BF61475007269EC /* EventAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA5B1BF61475007269EC /* EventAnswer.swift */; };
+		5998BA5E1BF638F6007269EC /* ItemInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA5D1BF638F6007269EC /* ItemInfoViewCell.swift */; };
+		5998BA601BF662C7007269EC /* ViewMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA5F1BF662C7007269EC /* ViewMedicationViewController.swift */; };
+		5998BA631BF6894C007269EC /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA611BF6894C007269EC /* Patient+CoreDataProperties.swift */; };
+		5998BA641BF6894C007269EC /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA621BF6894C007269EC /* Patient.swift */; };
+		5998BA661BF68AA2007269EC /* PatientInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA651BF68AA2007269EC /* PatientInfoViewController.swift */; };
+		5998BA681BF68C9E007269EC /* IdentificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA671BF68C9E007269EC /* IdentificationType.swift */; };
+		5998BA6A1BF68E5C007269EC /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA691BF68E5C007269EC /* Genre.swift */; };
+		5998BA6C1BF697CB007269EC /* PickBirthDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA6B1BF697CB007269EC /* PickBirthDateViewController.swift */; };
+		5998BA6E1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA6D1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift */; };
 		59A5BC3A1BED06D500657EEB /* localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59A5BC3C1BED06D500657EEB /* localization.strings */; };
 		59A5BC411BED293D00657EEB /* FormulaItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BC401BED293D00657EEB /* FormulaItemOptionsViewController.swift */; };
 		59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BC421BED4D8500657EEB /* CustomIconView.swift */; };
@@ -39,6 +63,7 @@
 		59D2FB341BF3A30E005AE72D /* MedicamentoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB331BF3A30E005AE72D /* MedicamentoTableViewCell.swift */; };
 		59D2FB361BF3CB9B005AE72D /* IntervalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB351BF3CB9B005AE72D /* IntervalConstants.swift */; };
 		59D2FB381BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB371BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift */; };
+		59D2FB3A1BF3F76B005AE72D /* CustomToastUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB391BF3F76B005AE72D /* CustomToastUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,10 +108,36 @@
 		5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFormulaViewController.swift; sourceTree = "<group>"; };
 		5963A0CE1BEB8FDD0060E615 /* PickDateFormulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDateFormulaViewController.swift; sourceTree = "<group>"; };
+		596BCEF61BF4DD9800BE72D3 /* PatientMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientMainViewController.swift; sourceTree = "<group>"; };
+		596BCEF81BF4DF2B00BE72D3 /* SleepTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepTimeViewController.swift; sourceTree = "<group>"; };
+		596BCEFA1BF4DFDD00BE72D3 /* PickSleepTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickSleepTimeViewController.swift; sourceTree = "<group>"; };
+		596BCEFD1BF4E69200BE72D3 /* SleepPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepPreferences.swift; sourceTree = "<group>"; };
+		596BCEFF1BF4F89900BE72D3 /* Evento+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Evento+CoreDataProperties.swift"; path = "../Evento+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		596BCF001BF4F89900BE72D3 /* Evento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Evento.swift; path = ../Evento.swift; sourceTree = "<group>"; };
+		596BCF031BF50DEB00BE72D3 /* ScheduleMedicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleMedicationViewController.swift; sourceTree = "<group>"; };
+		596BCF051BF50FB600BE72D3 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		596BCF071BF5175C00BE72D3 /* TimeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtil.swift; sourceTree = "<group>"; };
+		596BCF091BF5258100BE72D3 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		596BCF0C1BF52C7C00BE72D3 /* Formatters.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Formatters.playground; sourceTree = "<group>"; };
+		596BCF0D1BF534F100BE72D3 /* HourMedicationViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourMedicationViewCell.swift; sourceTree = "<group>"; };
 		597F56EF1BF2566800BA83CA /* Medicamento+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Medicamento+CoreDataProperties.swift"; path = "../Medicamento+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		597F56F01BF2566800BA83CA /* Medicamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Medicamento.swift; path = ../Medicamento.swift; sourceTree = "<group>"; };
 		597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMedicamentosViewController.swift; sourceTree = "<group>"; };
 		597F56F51BF298DE00BA83CA /* CreateMedicamentoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMedicamentoViewController.swift; sourceTree = "<group>"; };
+		5998BA531BF60CA3007269EC /* PickStartTimeScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickStartTimeScheduleViewController.swift; sourceTree = "<group>"; };
+		5998BA551BF6138E007269EC /* EventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
+		5998BA571BF613E8007269EC /* EventState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventState.swift; sourceTree = "<group>"; };
+		5998BA591BF61434007269EC /* EventPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPeriod.swift; sourceTree = "<group>"; };
+		5998BA5B1BF61475007269EC /* EventAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnswer.swift; sourceTree = "<group>"; };
+		5998BA5D1BF638F6007269EC /* ItemInfoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoViewCell.swift; sourceTree = "<group>"; };
+		5998BA5F1BF662C7007269EC /* ViewMedicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMedicationViewController.swift; sourceTree = "<group>"; };
+		5998BA611BF6894C007269EC /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataProperties.swift"; path = "../Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5998BA621BF6894C007269EC /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Patient.swift; path = ../Patient.swift; sourceTree = "<group>"; };
+		5998BA651BF68AA2007269EC /* PatientInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientInfoViewController.swift; sourceTree = "<group>"; };
+		5998BA671BF68C9E007269EC /* IdentificationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentificationType.swift; sourceTree = "<group>"; };
+		5998BA691BF68E5C007269EC /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		5998BA6B1BF697CB007269EC /* PickBirthDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickBirthDateViewController.swift; sourceTree = "<group>"; };
+		5998BA6D1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDocumentTypePatientViewController.swift; sourceTree = "<group>"; };
 		59A5BC3B1BED06D500657EEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localization.strings; sourceTree = "<group>"; };
 		59A5BC3D1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
 		59A5BC3E1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -100,6 +151,7 @@
 		59D2FB331BF3A30E005AE72D /* MedicamentoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentoTableViewCell.swift; sourceTree = "<group>"; };
 		59D2FB351BF3CB9B005AE72D /* IntervalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalConstants.swift; sourceTree = "<group>"; };
 		59D2FB371BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicamentoItemOptionsViewController.swift; sourceTree = "<group>"; };
+		59D2FB391BF3F76B005AE72D /* CustomToastUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomToastUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +182,10 @@
 		59226B6A1BE3CB7F00106557 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				5998BA611BF6894C007269EC /* Patient+CoreDataProperties.swift */,
+				5998BA621BF6894C007269EC /* Patient.swift */,
+				596BCEFF1BF4F89900BE72D3 /* Evento+CoreDataProperties.swift */,
+				596BCF001BF4F89900BE72D3 /* Evento.swift */,
 				597F56EF1BF2566800BA83CA /* Medicamento+CoreDataProperties.swift */,
 				597F56F01BF2566800BA83CA /* Medicamento.swift */,
 				59226B661BE3CB7500106557 /* Formula+CoreDataProperties.swift */,
@@ -162,6 +218,9 @@
 		592973611BDE6DE60040ED95 /* SaludameMedicina */ = {
 			isa = PBXGroup;
 			children = (
+				596BCF0B1BF52C6000BE72D3 /* playgrounds */,
+				596BCF061BF5174800BE72D3 /* util */,
+				596BCEFC1BF4E67E00BE72D3 /* constants */,
 				59A5BC3C1BED06D500657EEB /* localization.strings */,
 				5963A0CB1BEB7DDF0060E615 /* controller */,
 				5963A0C81BEB7A8A0060E615 /* view */,
@@ -203,6 +262,8 @@
 				59155F791BEBEDC700935E10 /* FormulaTableViewCell.swift */,
 				59A5BC421BED4D8500657EEB /* CustomIconView.swift */,
 				59D2FB331BF3A30E005AE72D /* MedicamentoTableViewCell.swift */,
+				596BCF0D1BF534F100BE72D3 /* HourMedicationViewCell.swift */,
+				5998BA5D1BF638F6007269EC /* ItemInfoViewCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -223,8 +284,50 @@
 				59D2FB2F1BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift */,
 				59D2FB311BF37E4A005AE72D /* PickIntervalUnitMedicamentoViewController.swift */,
 				59D2FB371BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift */,
+				59D2FB391BF3F76B005AE72D /* CustomToastUIViewController.swift */,
+				596BCEF61BF4DD9800BE72D3 /* PatientMainViewController.swift */,
+				596BCEF81BF4DF2B00BE72D3 /* SleepTimeViewController.swift */,
+				596BCEFA1BF4DFDD00BE72D3 /* PickSleepTimeViewController.swift */,
+				596BCF031BF50DEB00BE72D3 /* ScheduleMedicationViewController.swift */,
+				5998BA531BF60CA3007269EC /* PickStartTimeScheduleViewController.swift */,
+				5998BA5F1BF662C7007269EC /* ViewMedicationViewController.swift */,
+				5998BA651BF68AA2007269EC /* PatientInfoViewController.swift */,
+				5998BA6B1BF697CB007269EC /* PickBirthDateViewController.swift */,
+				5998BA6D1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift */,
 			);
 			name = controller;
+			sourceTree = "<group>";
+		};
+		596BCEFC1BF4E67E00BE72D3 /* constants */ = {
+			isa = PBXGroup;
+			children = (
+				596BCEFD1BF4E69200BE72D3 /* SleepPreferences.swift */,
+				5998BA551BF6138E007269EC /* EventType.swift */,
+				5998BA571BF613E8007269EC /* EventState.swift */,
+				5998BA591BF61434007269EC /* EventPeriod.swift */,
+				5998BA5B1BF61475007269EC /* EventAnswer.swift */,
+				5998BA671BF68C9E007269EC /* IdentificationType.swift */,
+				5998BA691BF68E5C007269EC /* Genre.swift */,
+			);
+			name = constants;
+			sourceTree = "<group>";
+		};
+		596BCF061BF5174800BE72D3 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				596BCF071BF5175C00BE72D3 /* TimeUtil.swift */,
+				596BCF091BF5258100BE72D3 /* Scheduler.swift */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		596BCF0B1BF52C6000BE72D3 /* playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				596BCF051BF50FB600BE72D3 /* MyPlayground.playground */,
+				596BCF0C1BF52C7C00BE72D3 /* Formatters.playground */,
+			);
+			name = playgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,32 +463,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5998BA601BF662C7007269EC /* ViewMedicationViewController.swift in Sources */,
 				592973631BDE6DE60040ED95 /* AppDelegate.swift in Sources */,
+				596BCF0E1BF534F100BE72D3 /* HourMedicationViewCell.swift in Sources */,
+				5998BA661BF68AA2007269EC /* PatientInfoViewController.swift in Sources */,
+				5998BA6E1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift in Sources */,
 				59D2FB361BF3CB9B005AE72D /* IntervalConstants.swift in Sources */,
 				5963A0CF1BEB8FDD0060E615 /* PickDateFormulaViewController.swift in Sources */,
+				596BCEF71BF4DD9800BE72D3 /* PatientMainViewController.swift in Sources */,
 				597F56F11BF2566800BA83CA /* Medicamento+CoreDataProperties.swift in Sources */,
 				597F56F41BF28A0600BA83CA /* ListMedicamentosViewController.swift in Sources */,
+				596BCF011BF4F89900BE72D3 /* Evento+CoreDataProperties.swift in Sources */,
+				596BCEFB1BF4DFDD00BE72D3 /* PickSleepTimeViewController.swift in Sources */,
 				59226B691BE3CB7500106557 /* Formula.swift in Sources */,
+				596BCF0A1BF5258100BE72D3 /* Scheduler.swift in Sources */,
 				59287A931BEE7314009B89C1 /* ViewFormulaViewController.swift in Sources */,
 				59AB26271BEA6329004202B5 /* TratamientoMainViewController.swift in Sources */,
+				5998BA681BF68C9E007269EC /* IdentificationType.swift in Sources */,
 				5929736B1BDE6DE60040ED95 /* SaludameMedicina.xcdatamodeld in Sources */,
+				5998BA581BF613E8007269EC /* EventState.swift in Sources */,
 				59A5BC411BED293D00657EEB /* FormulaItemOptionsViewController.swift in Sources */,
 				59226B681BE3CB7500106557 /* Formula+CoreDataProperties.swift in Sources */,
 				59D2FB341BF3A30E005AE72D /* MedicamentoTableViewCell.swift in Sources */,
 				59AB26291BEA8A10004202B5 /* FormulaMainViewController.swift in Sources */,
+				5998BA5A1BF61434007269EC /* EventPeriod.swift in Sources */,
 				592973941BDE78EB0040ED95 /* CustomButton.swift in Sources */,
+				596BCEF91BF4DF2B00BE72D3 /* SleepTimeViewController.swift in Sources */,
 				592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */,
 				597F56F61BF298DE00BA83CA /* CreateMedicamentoViewController.swift in Sources */,
+				5998BA6A1BF68E5C007269EC /* Genre.swift in Sources */,
 				5963A0CA1BEB7AEB0060E615 /* CustomTextField.swift in Sources */,
 				5963A0CD1BEB7E1F0060E615 /* CreateFormulaViewController.swift in Sources */,
 				590973201BEAADD7006547E7 /* ListFormulasViewController.swift in Sources */,
 				59155F7A1BEBEDC700935E10 /* FormulaTableViewCell.swift in Sources */,
+				5998BA5C1BF61475007269EC /* EventAnswer.swift in Sources */,
+				596BCF021BF4F89900BE72D3 /* Evento.swift in Sources */,
+				5998BA631BF6894C007269EC /* Patient+CoreDataProperties.swift in Sources */,
 				59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */,
+				596BCEFE1BF4E69200BE72D3 /* SleepPreferences.swift in Sources */,
+				59D2FB3A1BF3F76B005AE72D /* CustomToastUIViewController.swift in Sources */,
+				5998BA5E1BF638F6007269EC /* ItemInfoViewCell.swift in Sources */,
+				5998BA6C1BF697CB007269EC /* PickBirthDateViewController.swift in Sources */,
 				59D2FB321BF37E4A005AE72D /* PickIntervalUnitMedicamentoViewController.swift in Sources */,
 				597F56F21BF2566800BA83CA /* Medicamento.swift in Sources */,
 				59D2FB381BF3D4E8005AE72D /* MedicamentoItemOptionsViewController.swift in Sources */,
 				5963A0C71BEB780D0060E615 /* CustomMultilineTextView.swift in Sources */,
+				5998BA561BF6138E007269EC /* EventType.swift in Sources */,
+				5998BA541BF60CA3007269EC /* PickStartTimeScheduleViewController.swift in Sources */,
+				596BCF041BF50DEB00BE72D3 /* ScheduleMedicationViewController.swift in Sources */,
+				596BCF081BF5175C00BE72D3 /* TimeUtil.swift in Sources */,
 				59D2FB301BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift in Sources */,
+				5998BA641BF6894C007269EC /* Patient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

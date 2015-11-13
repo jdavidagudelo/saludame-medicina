@@ -13,9 +13,12 @@ import CoreData
 class Medicamento: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
-    class func delete(moc: NSManagedObjectContext, medicamento: Medicamento){
+    class func delete(moc: NSManagedObjectContext, medicamento: Medicamento?){
         do {
-            moc.deleteObject(medicamento)
+            Evento.deleteAll(moc, medicamento: medicamento)
+            if let m = medicamento{
+                moc.deleteObject(m)
+            }
             try moc.save()
         } catch {
             print(error)

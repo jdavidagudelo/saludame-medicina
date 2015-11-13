@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9056" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="Evento" representedClassName=".Evento" syncable="YES">
+        <attribute name="cycle" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="postponed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="response" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="responseTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="medicamento" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicamento" syncable="YES"/>
+    </entity>
     <entity name="Formula" representedClassName=".Formula" syncable="YES">
         <attribute name="fecha" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="institucion" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,8 +32,18 @@
         <attribute name="via" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="formula" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Formula" syncable="YES"/>
     </entity>
+    <entity name="Patient" representedClassName=".Patient" syncable="YES">
+        <attribute name="birthDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identification" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identificationType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Formula" positionX="-1431" positionY="-828" width="162" height="118"/>
+        <element name="Evento" positionX="-2063" positionY="-1044" width="128" height="163"/>
+        <element name="Formula" positionX="-1440" positionY="-999" width="162" height="118"/>
         <element name="Medicamento" positionX="-1764" positionY="-1053" width="128" height="238"/>
+        <element name="Patient" positionX="-1845" positionY="-936" width="128" height="135"/>
     </elements>
 </model>
