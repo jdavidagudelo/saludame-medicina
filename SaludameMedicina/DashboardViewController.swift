@@ -18,9 +18,12 @@ class DashboardViewController: UIViewController {
     
         buttonCurrentAction?.backgroundColor = buttonCurrentAction?.backgroundColorDefault
         buttonNewAppointment?.backgroundColor = buttonNewAppointment?.backgroundColorDefault
+        
     }
+    
     @IBAction func showTratamiento(sender: CustomButton)
     {
         performSegueWithIdentifier(SegueIdentifier.IdentifierShowTratamiento, sender: sender)
     }
+ 
 }

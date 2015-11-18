@@ -67,7 +67,6 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     var managedObjectContext: NSManagedObjectContext!
     private struct SegueIdentifier{
         static let IdentifierPickDateFormula = "Pick Formula Date"
-        static let IdentifierBackToFormulaList = "Back To Formula List"
     }
     @IBAction func cancel(sender: UIButton){
         navigationController?.popViewControllerAnimated(true)

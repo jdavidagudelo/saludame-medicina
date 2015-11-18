@@ -12,6 +12,7 @@ class PatientMainViewController: UIViewController {
     private struct SegueIdentifier{
         static let IdentifierSleepTime = "Show Sleep Time"
         static let IdentifierPatientInfo = "Show Patient Info"
+        static let IdentifierCompanionInfo = "Show Companion Info"
     }
     @IBAction func showSleepTime(sender: UIButton){
         performSegueWithIdentifier(SegueIdentifier.IdentifierSleepTime, sender: sender)
@@ -19,5 +20,7 @@ class PatientMainViewController: UIViewController {
     @IBAction func showPatientInfo(sender: UIButton){
         performSegueWithIdentifier(SegueIdentifier.IdentifierPatientInfo, sender: sender)
     }
-    
+    @IBAction func showCompanionInfo(sender : UIButton){
+        performSegueWithIdentifier(SegueIdentifier.IdentifierCompanionInfo, sender: sender)
+    }
 }

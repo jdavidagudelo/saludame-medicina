@@ -11,6 +11,7 @@ import CoreData
 
 
 class Evento: NSManagedObject {
+    
     class func delete(moc: NSManagedObjectContext, evento: Evento){
         do {
             moc.deleteObject(evento)
@@ -19,6 +20,9 @@ class Evento: NSManagedObject {
             print(error)
             abort()
         }
+    }
+    class func getEventById(moc: NSManagedObjectContext, id: NSManagedObjectID) -> Evento?{
+        return moc.objectWithID(id) as? Evento
     }
     class func save(moc: NSManagedObjectContext)
     {
@@ -89,6 +93,21 @@ class Evento: NSManagedObject {
             return []
         }
     }
+    class func getEventsFromMinute(moc: NSManagedObjectContext, minuteOfDay: NSNumber!)->[Evento]?{
+        let fetchRequest = NSFetchRequest(entityName: "Evento")
+        let predicates = [NSPredicate(format:"time => %@", minuteOfDay), NSPredicate(format: "state == %@", EventState.Active),
+            NSPredicate(format: "cycle != %@", EventPeriod.Unique), NSPredicate(format: "response == %@", EventAnswer.Pending)]
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        fetchRequest.predicate = compoundPredicate
+        do{
+            var result =  try moc.executeFetchRequest(fetchRequest) as? [Evento]
+            result?.sortInPlace(){e1,e2 in Int(e1.time!) <= Int(e2.time!)}
+            return result
+        }
+        catch{
+            return []
+        }
+    }
     class func archiveEvents(moc: NSManagedObjectContext, medicamento: Medicamento?){
         let events = getCyclicEvents(moc, medicamento: medicamento)
         for event in events ?? [Evento](){
@@ -109,6 +128,7 @@ class Evento: NSManagedObject {
             evento.time = time
             evento.type = type
             evento.state = state
+            evento.response = EventAnswer.Pending
             do {
                 try moc.save()
             } catch {
@@ -117,5 +137,6 @@ class Evento: NSManagedObject {
             }
             return evento
     }
+    
     
 }

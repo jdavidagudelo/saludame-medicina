@@ -8,6 +8,7 @@
 
 import Foundation
 class Scheduler{
+    
     class func  distibuteOverDay(timesDay: Int, period: Int, wakeUpTime: Double) -> [Int]
     {
         var time = Int(wakeUpTime)

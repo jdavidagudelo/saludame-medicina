@@ -32,7 +32,7 @@ class TimeUtil{
         return Double(components.hour)*60.0 + Double(components.minute) + Double(components.second)/60.0
     }
 }
-TimeUtil.todayStartMinutes1()
+print(TimeUtil.todayStartMinutes1())
 let calendar = NSCalendar.currentCalendar()
 let components = calendar.components([.Day, .Month, .Year], fromDate: NSDate())
 components.hour = 0

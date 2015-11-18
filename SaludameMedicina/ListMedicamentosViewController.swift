@@ -55,6 +55,7 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
         let cell = tableView.dequeueReusableCellWithIdentifier("MedicamentoCell", forIndexPath: indexPath) as? MedicamentoTableViewCell
         cell?.medicamento = medicamentos[indexPath.row]
         cell?.buttonEdit.tag = indexPath.row
+        cell?.buttonEdit.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
         cell?.buttonEdit.addTarget(self, action: "showEditView:", forControlEvents: UIControlEvents.TouchUpInside)
         return cell!
     }
@@ -62,7 +63,6 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         fetchMedicamentos()
-        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {

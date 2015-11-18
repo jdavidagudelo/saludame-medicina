@@ -22,5 +22,5 @@ extension Evento {
     @NSManaged var response: NSNumber?
     @NSManaged var responseTime: NSNumber?
     @NSManaged var medicamento: Medicamento?
-
+    @NSManaged var notificationTime: NSNumber?
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable
 class PickDocumentTypePatientViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     var patientInfoViewController: PatientInfoViewController?
     @IBInspectable

@@ -7,8 +7,10 @@
 //
 
 import UIKit
-
+import CoreData
 class PatientInfoViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+    
+    var managedObjectContext: NSManagedObjectContext!
     
     private struct StoryBoard{
         static let PickBirthDateViewId = "PickBirthDateViewController"
@@ -19,6 +21,8 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
     }
     var patient: Patient?{
         didSet{
+            birthDate = patient?.birthDate
+            identificationType = patient?.identificationType
             textFieldLastName?.text = patient?.lastName ?? ""
             textFieldIdentification?.text = patient?.identification ?? ""
             textFieldName?.text = patient?.name ?? ""
@@ -27,6 +31,27 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
             switchFemale?.on = patient?.sex == Genre.Female
             switchMale?.on = patient?.sex == Genre.Male
         }
+    }
+    var selectedSex : String?{
+        get{
+            var sex : String! = ""
+            if let on = switchFemale?.on{
+                if on{
+                    sex = Genre.Female
+                }
+            }
+            if let on = switchMale?.on{
+                if on{
+                    sex = Genre.Male
+                }
+            }
+            return sex
+        }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        patient = Patient.getPatient(managedObjectContext)
     }
     @IBOutlet weak var textFieldIdentification: UITextField!{
         didSet{
@@ -100,6 +125,24 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
     }
     @IBAction func showPickDocumenType(sender: UIButton){
         showDocumentTypePicker(sender , documentType: patient?.identificationType ?? "")
+    }
+    @IBAction func save(sender: UIButton){
+        if patient == nil{
+           
+            Patient.createInManagedObjectContext(managedObjectContext, identificationType: identificationType, identification: textFieldIdentification?.text, name: textFieldName?.text, lastName: textFieldLastName?.text, sex: selectedSex, birthDate: birthDate)
+        }else{
+            patient?.identificationType = identificationType
+            patient?.identification = textFieldIdentification?.text
+            patient?.name = textFieldName?.text
+            patient?.lastName = textFieldLastName?.text
+            patient?.sex = selectedSex
+            patient?.birthDate = birthDate
+            Patient.save(managedObjectContext)
+        }
+        navigationController?.popViewControllerAnimated(true)
+    }
+    @IBAction func cancel(sender: UIButton) {
+        navigationController?.popViewControllerAnimated(true)
     }
     func showDatePicker(sender: UIButton, date: NSDate?)
     {

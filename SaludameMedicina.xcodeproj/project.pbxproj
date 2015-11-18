@@ -21,6 +21,28 @@
 		592973861BDE6DE70040ED95 /* SaludameMedicinaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592973851BDE6DE70040ED95 /* SaludameMedicinaUITests.swift */; };
 		592973941BDE78EB0040ED95 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592973931BDE78EB0040ED95 /* CustomButton.swift */; };
 		592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592973951BDEC9AC0040ED95 /* DashboardViewController.swift */; };
+		592AE7861BFCA87D00B8F22B /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7851BFCA87D00B8F22B /* ParseJSON.swift */; };
+		592AE78A1BFCAAA800B8F22B /* greetings.json in Resources */ = {isa = PBXBuildFile; fileRef = 592AE7891BFCAAA800B8F22B /* greetings.json */; };
+		592AE78C1BFCB6F300B8F22B /* DayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE78B1BFCB6F300B8F22B /* DayTime.swift */; };
+		592AE78E1BFCB8A600B8F22B /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE78D1BFCB8A600B8F22B /* Protocol.swift */; };
+		592AE7901BFCBB0A00B8F22B /* PatientNameParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE78F1BFCBB0A00B8F22B /* PatientNameParameter.swift */; };
+		592AE7941BFCBD5500B8F22B /* GenreId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7931BFCBD5500B8F22B /* GenreId.swift */; };
+		592AE7981BFCBEB200B8F22B /* prefixes.json in Resources */ = {isa = PBXBuildFile; fileRef = 592AE7971BFCBEB200B8F22B /* prefixes.json */; };
+		592AE79A1BFCBF3700B8F22B /* reference_names_patient.json in Resources */ = {isa = PBXBuildFile; fileRef = 592AE7991BFCBF3700B8F22B /* reference_names_patient.json */; };
+		592AE7A11BFCC24000B8F22B /* Greeting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE79B1BFCC24000B8F22B /* Greeting+CoreDataProperties.swift */; };
+		592AE7A21BFCC24000B8F22B /* Greeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE79C1BFCC24000B8F22B /* Greeting.swift */; };
+		592AE7A31BFCC24000B8F22B /* ReferenceNamePatient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE79D1BFCC24000B8F22B /* ReferenceNamePatient+CoreDataProperties.swift */; };
+		592AE7A41BFCC24000B8F22B /* ReferenceNamePatient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE79E1BFCC24000B8F22B /* ReferenceNamePatient.swift */; };
+		592AE7A51BFCC24000B8F22B /* Prefix+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE79F1BFCC24000B8F22B /* Prefix+CoreDataProperties.swift */; };
+		592AE7A61BFCC24000B8F22B /* Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7A01BFCC24000B8F22B /* Prefix.swift */; };
+		592AE7A91BFCF42700B8F22B /* specifications.json in Resources */ = {isa = PBXBuildFile; fileRef = 592AE7A81BFCF42700B8F22B /* specifications.json */; };
+		592AE7AE1BFCF92A00B8F22B /* Specification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7AC1BFCF92A00B8F22B /* Specification+CoreDataProperties.swift */; };
+		592AE7AF1BFCF92A00B8F22B /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7AD1BFCF92A00B8F22B /* Specification.swift */; };
+		592AE7B11BFD1D3100B8F22B /* NotificationPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7B01BFD1D3100B8F22B /* NotificationPreferencesViewController.swift */; };
+		592AE7B31BFD1DF900B8F22B /* PickProtocolPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7B21BFD1DF900B8F22B /* PickProtocolPreferenceViewController.swift */; };
+		592AE7B51BFD1F2A00B8F22B /* NotificationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7B41BFD1F2A00B8F22B /* NotificationPreferences.swift */; };
+		592AE7B71BFD243D00B8F22B /* NotificationsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7B61BFD243D00B8F22B /* NotificationsMainViewController.swift */; };
+		592AE7B91BFD2C6900B8F22B /* PickNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE7B81BFD2C6900B8F22B /* PickNicknameViewController.swift */; };
 		5963A0C71BEB780D0060E615 /* CustomMultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0C61BEB780D0060E615 /* CustomMultilineTextView.swift */; };
 		5963A0CA1BEB7AEB0060E615 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */; };
 		5963A0CD1BEB7E1F0060E615 /* CreateFormulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */; };
@@ -53,6 +75,10 @@
 		5998BA6A1BF68E5C007269EC /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA691BF68E5C007269EC /* Genre.swift */; };
 		5998BA6C1BF697CB007269EC /* PickBirthDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA6B1BF697CB007269EC /* PickBirthDateViewController.swift */; };
 		5998BA6E1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA6D1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift */; };
+		59A154261BFB4C790014B780 /* CompanionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A154251BFB4C790014B780 /* CompanionInfoViewController.swift */; };
+		59A154281BFB4D1F0014B780 /* CompanionPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A154271BFB4D1F0014B780 /* CompanionPreferences.swift */; };
+		59A1542A1BFB6A9D0014B780 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A154291BFB6A9D0014B780 /* Notifications.swift */; };
+		59A1542C1BFB74940014B780 /* NotificationMedicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A1542B1BFB74940014B780 /* NotificationMedicationViewController.swift */; };
 		59A5BC3A1BED06D500657EEB /* localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59A5BC3C1BED06D500657EEB /* localization.strings */; };
 		59A5BC411BED293D00657EEB /* FormulaItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BC401BED293D00657EEB /* FormulaItemOptionsViewController.swift */; };
 		59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A5BC421BED4D8500657EEB /* CustomIconView.swift */; };
@@ -104,6 +130,29 @@
 		592973871BDE6DE70040ED95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		592973931BDE78EB0040ED95 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		592973951BDEC9AC0040ED95 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		592AE7851BFCA87D00B8F22B /* ParseJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseJSON.swift; sourceTree = "<group>"; };
+		592AE7891BFCAAA800B8F22B /* greetings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = greetings.json; sourceTree = "<group>"; };
+		592AE78B1BFCB6F300B8F22B /* DayTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTime.swift; sourceTree = "<group>"; };
+		592AE78D1BFCB8A600B8F22B /* Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		592AE78F1BFCBB0A00B8F22B /* PatientNameParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientNameParameter.swift; sourceTree = "<group>"; };
+		592AE7931BFCBD5500B8F22B /* GenreId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreId.swift; sourceTree = "<group>"; };
+		592AE7971BFCBEB200B8F22B /* prefixes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prefixes.json; sourceTree = "<group>"; };
+		592AE7991BFCBF3700B8F22B /* reference_names_patient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reference_names_patient.json; sourceTree = "<group>"; };
+		592AE79B1BFCC24000B8F22B /* Greeting+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Greeting+CoreDataProperties.swift"; path = "../Greeting+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		592AE79C1BFCC24000B8F22B /* Greeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Greeting.swift; path = ../Greeting.swift; sourceTree = "<group>"; };
+		592AE79D1BFCC24000B8F22B /* ReferenceNamePatient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ReferenceNamePatient+CoreDataProperties.swift"; path = "../ReferenceNamePatient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		592AE79E1BFCC24000B8F22B /* ReferenceNamePatient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferenceNamePatient.swift; path = ../ReferenceNamePatient.swift; sourceTree = "<group>"; };
+		592AE79F1BFCC24000B8F22B /* Prefix+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Prefix+CoreDataProperties.swift"; path = "../Prefix+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		592AE7A01BFCC24000B8F22B /* Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefix.swift; path = ../Prefix.swift; sourceTree = "<group>"; };
+		592AE7A71BFCDD0100B8F22B /* Random.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Random.playground; sourceTree = "<group>"; };
+		592AE7A81BFCF42700B8F22B /* specifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = specifications.json; sourceTree = "<group>"; };
+		592AE7AC1BFCF92A00B8F22B /* Specification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Specification+CoreDataProperties.swift"; path = "../Specification+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		592AE7AD1BFCF92A00B8F22B /* Specification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Specification.swift; path = ../Specification.swift; sourceTree = "<group>"; };
+		592AE7B01BFD1D3100B8F22B /* NotificationPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPreferencesViewController.swift; sourceTree = "<group>"; };
+		592AE7B21BFD1DF900B8F22B /* PickProtocolPreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickProtocolPreferenceViewController.swift; sourceTree = "<group>"; };
+		592AE7B41BFD1F2A00B8F22B /* NotificationPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPreferences.swift; sourceTree = "<group>"; };
+		592AE7B61BFD243D00B8F22B /* NotificationsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsMainViewController.swift; sourceTree = "<group>"; };
+		592AE7B81BFD2C6900B8F22B /* PickNicknameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickNicknameViewController.swift; sourceTree = "<group>"; };
 		5963A0C61BEB780D0060E615 /* CustomMultilineTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMultilineTextView.swift; sourceTree = "<group>"; };
 		5963A0C91BEB7AEB0060E615 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5963A0CC1BEB7E1F0060E615 /* CreateFormulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFormulaViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +187,10 @@
 		5998BA691BF68E5C007269EC /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		5998BA6B1BF697CB007269EC /* PickBirthDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickBirthDateViewController.swift; sourceTree = "<group>"; };
 		5998BA6D1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDocumentTypePatientViewController.swift; sourceTree = "<group>"; };
+		59A154251BFB4C790014B780 /* CompanionInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanionInfoViewController.swift; sourceTree = "<group>"; };
+		59A154271BFB4D1F0014B780 /* CompanionPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanionPreferences.swift; sourceTree = "<group>"; };
+		59A154291BFB6A9D0014B780 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		59A1542B1BFB74940014B780 /* NotificationMedicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationMedicationViewController.swift; sourceTree = "<group>"; };
 		59A5BC3B1BED06D500657EEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localization.strings; sourceTree = "<group>"; };
 		59A5BC3D1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/Main.strings"; sourceTree = "<group>"; };
 		59A5BC3E1BED079100657EEB /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -182,6 +235,14 @@
 		59226B6A1BE3CB7F00106557 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				592AE79B1BFCC24000B8F22B /* Greeting+CoreDataProperties.swift */,
+				592AE7AC1BFCF92A00B8F22B /* Specification+CoreDataProperties.swift */,
+				592AE7AD1BFCF92A00B8F22B /* Specification.swift */,
+				592AE79C1BFCC24000B8F22B /* Greeting.swift */,
+				592AE79D1BFCC24000B8F22B /* ReferenceNamePatient+CoreDataProperties.swift */,
+				592AE79E1BFCC24000B8F22B /* ReferenceNamePatient.swift */,
+				592AE79F1BFCC24000B8F22B /* Prefix+CoreDataProperties.swift */,
+				592AE7A01BFCC24000B8F22B /* Prefix.swift */,
 				5998BA611BF6894C007269EC /* Patient+CoreDataProperties.swift */,
 				5998BA621BF6894C007269EC /* Patient.swift */,
 				596BCEFF1BF4F89900BE72D3 /* Evento+CoreDataProperties.swift */,
@@ -191,6 +252,7 @@
 				59226B661BE3CB7500106557 /* Formula+CoreDataProperties.swift */,
 				59226B671BE3CB7500106557 /* Formula.swift */,
 				59D2FB351BF3CB9B005AE72D /* IntervalConstants.swift */,
+				592AE7851BFCA87D00B8F22B /* ParseJSON.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -218,6 +280,7 @@
 		592973611BDE6DE60040ED95 /* SaludameMedicina */ = {
 			isa = PBXGroup;
 			children = (
+				592AE7881BFCAA8E00B8F22B /* json */,
 				596BCF0B1BF52C6000BE72D3 /* playgrounds */,
 				596BCF061BF5174800BE72D3 /* util */,
 				596BCEFC1BF4E67E00BE72D3 /* constants */,
@@ -251,6 +314,17 @@
 				592973871BDE6DE70040ED95 /* Info.plist */,
 			);
 			path = SaludameMedicinaUITests;
+			sourceTree = "<group>";
+		};
+		592AE7881BFCAA8E00B8F22B /* json */ = {
+			isa = PBXGroup;
+			children = (
+				592AE7891BFCAAA800B8F22B /* greetings.json */,
+				592AE7971BFCBEB200B8F22B /* prefixes.json */,
+				592AE7991BFCBF3700B8F22B /* reference_names_patient.json */,
+				592AE7A81BFCF42700B8F22B /* specifications.json */,
+			);
+			name = json;
 			sourceTree = "<group>";
 		};
 		5963A0C81BEB7A8A0060E615 /* view */ = {
@@ -294,6 +368,12 @@
 				5998BA651BF68AA2007269EC /* PatientInfoViewController.swift */,
 				5998BA6B1BF697CB007269EC /* PickBirthDateViewController.swift */,
 				5998BA6D1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift */,
+				59A154251BFB4C790014B780 /* CompanionInfoViewController.swift */,
+				59A1542B1BFB74940014B780 /* NotificationMedicationViewController.swift */,
+				592AE7B01BFD1D3100B8F22B /* NotificationPreferencesViewController.swift */,
+				592AE7B21BFD1DF900B8F22B /* PickProtocolPreferenceViewController.swift */,
+				592AE7B61BFD243D00B8F22B /* NotificationsMainViewController.swift */,
+				592AE7B81BFD2C6900B8F22B /* PickNicknameViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -308,6 +388,13 @@
 				5998BA5B1BF61475007269EC /* EventAnswer.swift */,
 				5998BA671BF68C9E007269EC /* IdentificationType.swift */,
 				5998BA691BF68E5C007269EC /* Genre.swift */,
+				59A154271BFB4D1F0014B780 /* CompanionPreferences.swift */,
+				59A154291BFB6A9D0014B780 /* Notifications.swift */,
+				592AE78B1BFCB6F300B8F22B /* DayTime.swift */,
+				592AE78D1BFCB8A600B8F22B /* Protocol.swift */,
+				592AE78F1BFCBB0A00B8F22B /* PatientNameParameter.swift */,
+				592AE7931BFCBD5500B8F22B /* GenreId.swift */,
+				592AE7B41BFD1F2A00B8F22B /* NotificationPreferences.swift */,
 			);
 			name = constants;
 			sourceTree = "<group>";
@@ -326,6 +413,7 @@
 			children = (
 				596BCF051BF50FB600BE72D3 /* MyPlayground.playground */,
 				596BCF0C1BF52C7C00BE72D3 /* Formatters.playground */,
+				592AE7A71BFCDD0100B8F22B /* Random.playground */,
 			);
 			name = playgrounds;
 			sourceTree = "<group>";
@@ -435,10 +523,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				592AE78A1BFCAAA800B8F22B /* greetings.json in Resources */,
 				592973701BDE6DE60040ED95 /* LaunchScreen.storyboard in Resources */,
 				59A5BC3A1BED06D500657EEB /* localization.strings in Resources */,
 				5929736D1BDE6DE60040ED95 /* Assets.xcassets in Resources */,
 				592973681BDE6DE60040ED95 /* Main.storyboard in Resources */,
+				592AE79A1BFCBF3700B8F22B /* reference_names_patient.json in Resources */,
+				592AE7981BFCBEB200B8F22B /* prefixes.json in Resources */,
+				592AE7A91BFCF42700B8F22B /* specifications.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,40 +556,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				5998BA601BF662C7007269EC /* ViewMedicationViewController.swift in Sources */,
+				592AE7AE1BFCF92A00B8F22B /* Specification+CoreDataProperties.swift in Sources */,
 				592973631BDE6DE60040ED95 /* AppDelegate.swift in Sources */,
 				596BCF0E1BF534F100BE72D3 /* HourMedicationViewCell.swift in Sources */,
+				59A1542C1BFB74940014B780 /* NotificationMedicationViewController.swift in Sources */,
+				592AE7B91BFD2C6900B8F22B /* PickNicknameViewController.swift in Sources */,
 				5998BA661BF68AA2007269EC /* PatientInfoViewController.swift in Sources */,
 				5998BA6E1BF69D0A007269EC /* PickDocumentTypePatientViewController.swift in Sources */,
+				592AE7B11BFD1D3100B8F22B /* NotificationPreferencesViewController.swift in Sources */,
 				59D2FB361BF3CB9B005AE72D /* IntervalConstants.swift in Sources */,
 				5963A0CF1BEB8FDD0060E615 /* PickDateFormulaViewController.swift in Sources */,
+				592AE7A21BFCC24000B8F22B /* Greeting.swift in Sources */,
+				592AE7A51BFCC24000B8F22B /* Prefix+CoreDataProperties.swift in Sources */,
 				596BCEF71BF4DD9800BE72D3 /* PatientMainViewController.swift in Sources */,
 				597F56F11BF2566800BA83CA /* Medicamento+CoreDataProperties.swift in Sources */,
+				592AE7A11BFCC24000B8F22B /* Greeting+CoreDataProperties.swift in Sources */,
 				597F56F41BF28A0600BA83CA /* ListMedicamentosViewController.swift in Sources */,
+				592AE7B31BFD1DF900B8F22B /* PickProtocolPreferenceViewController.swift in Sources */,
 				596BCF011BF4F89900BE72D3 /* Evento+CoreDataProperties.swift in Sources */,
 				596BCEFB1BF4DFDD00BE72D3 /* PickSleepTimeViewController.swift in Sources */,
 				59226B691BE3CB7500106557 /* Formula.swift in Sources */,
+				59A154261BFB4C790014B780 /* CompanionInfoViewController.swift in Sources */,
 				596BCF0A1BF5258100BE72D3 /* Scheduler.swift in Sources */,
 				59287A931BEE7314009B89C1 /* ViewFormulaViewController.swift in Sources */,
+				592AE78C1BFCB6F300B8F22B /* DayTime.swift in Sources */,
 				59AB26271BEA6329004202B5 /* TratamientoMainViewController.swift in Sources */,
 				5998BA681BF68C9E007269EC /* IdentificationType.swift in Sources */,
 				5929736B1BDE6DE60040ED95 /* SaludameMedicina.xcdatamodeld in Sources */,
 				5998BA581BF613E8007269EC /* EventState.swift in Sources */,
 				59A5BC411BED293D00657EEB /* FormulaItemOptionsViewController.swift in Sources */,
 				59226B681BE3CB7500106557 /* Formula+CoreDataProperties.swift in Sources */,
+				592AE7A41BFCC24000B8F22B /* ReferenceNamePatient.swift in Sources */,
+				592AE7901BFCBB0A00B8F22B /* PatientNameParameter.swift in Sources */,
 				59D2FB341BF3A30E005AE72D /* MedicamentoTableViewCell.swift in Sources */,
 				59AB26291BEA8A10004202B5 /* FormulaMainViewController.swift in Sources */,
+				592AE7A61BFCC24000B8F22B /* Prefix.swift in Sources */,
 				5998BA5A1BF61434007269EC /* EventPeriod.swift in Sources */,
+				592AE78E1BFCB8A600B8F22B /* Protocol.swift in Sources */,
+				592AE7AF1BFCF92A00B8F22B /* Specification.swift in Sources */,
 				592973941BDE78EB0040ED95 /* CustomButton.swift in Sources */,
+				592AE7941BFCBD5500B8F22B /* GenreId.swift in Sources */,
 				596BCEF91BF4DF2B00BE72D3 /* SleepTimeViewController.swift in Sources */,
 				592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */,
 				597F56F61BF298DE00BA83CA /* CreateMedicamentoViewController.swift in Sources */,
 				5998BA6A1BF68E5C007269EC /* Genre.swift in Sources */,
+				59A1542A1BFB6A9D0014B780 /* Notifications.swift in Sources */,
 				5963A0CA1BEB7AEB0060E615 /* CustomTextField.swift in Sources */,
+				592AE7B71BFD243D00B8F22B /* NotificationsMainViewController.swift in Sources */,
 				5963A0CD1BEB7E1F0060E615 /* CreateFormulaViewController.swift in Sources */,
+				592AE7B51BFD1F2A00B8F22B /* NotificationPreferences.swift in Sources */,
 				590973201BEAADD7006547E7 /* ListFormulasViewController.swift in Sources */,
 				59155F7A1BEBEDC700935E10 /* FormulaTableViewCell.swift in Sources */,
 				5998BA5C1BF61475007269EC /* EventAnswer.swift in Sources */,
 				596BCF021BF4F89900BE72D3 /* Evento.swift in Sources */,
+				59A154281BFB4D1F0014B780 /* CompanionPreferences.swift in Sources */,
+				592AE7861BFCA87D00B8F22B /* ParseJSON.swift in Sources */,
 				5998BA631BF6894C007269EC /* Patient+CoreDataProperties.swift in Sources */,
 				59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */,
 				596BCEFE1BF4E69200BE72D3 /* SleepPreferences.swift in Sources */,
@@ -511,6 +624,7 @@
 				5998BA561BF6138E007269EC /* EventType.swift in Sources */,
 				5998BA541BF60CA3007269EC /* PickStartTimeScheduleViewController.swift in Sources */,
 				596BCF041BF50DEB00BE72D3 /* ScheduleMedicationViewController.swift in Sources */,
+				592AE7A31BFCC24000B8F22B /* ReferenceNamePatient+CoreDataProperties.swift in Sources */,
 				596BCF081BF5175C00BE72D3 /* TimeUtil.swift in Sources */,
 				59D2FB301BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift in Sources */,
 				5998BA641BF6894C007269EC /* Patient.swift in Sources */,

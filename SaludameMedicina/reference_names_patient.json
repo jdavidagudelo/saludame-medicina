@@ -1,0 +1,16 @@
+[
+ {"id":1, "parameterNameId":4, "prefixId":4},
+ {"id":2, "parameterNameId":7, "prefixId":4},
+ {"id":3, "parameterNameId":2, "prefixId":1},
+ {"id":4, "parameterNameId":2, "prefixId":5},
+ {"id":5, "parameterNameId":2, "prefixId":6},
+ {"id":6, "parameterNameId":8, "prefixId":6},
+ {"id":7, "parameterNameId":4, "prefixId":2},
+ {"id":8, "parameterNameId":2, "prefixId":3},
+ {"id":9, "parameterNameId":1, "prefixId":6},
+ {"id":10, "parameterNameId":5, "prefixId":6},
+ {"id":11, "parameterNameId":5, "prefixId":5},
+ {"id":12, "parameterNameId":6, "prefixId":3},
+ {"id":13, "parameterNameId":5, "prefixId":1},
+ {"id":14, "parameterNameId":6, "prefixId":2},
+]

@@ -18,8 +18,6 @@ class MedicamentoItemOptionsViewController: UIViewController {
     weak var listMedicamentosViewController : ListMedicamentosViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     private struct SegueIdentifier{
         static let IdentifierEditMedicamento = "Edit Medicamento"
@@ -27,7 +25,6 @@ class MedicamentoItemOptionsViewController: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override var preferredContentSize: CGSize {

@@ -24,7 +24,7 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
             {
                 var currentHours = [String]()
                 var currentTimes = [Int]()
-                startTime = TimeUtil.dateFromMinutesOfDay(Int(events[0].time ?? 0))
+                startTime = TimeUtil.dateFromMinutesOfDay(Int(events[0].time ?? 0), date:NSDate())
                 for event in events{
                     if let time = event.time as? Int{
                         currentHours += [TimeUtil.textFromMinute(time)]
@@ -56,8 +56,12 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
         }
     }
     var times = [Int]()
+    var initialHour: String?
     var hours = [String](){
         didSet{
+            if !hours.isEmpty{
+                initialHour = hours[0]
+            }
             tableView?.reloadData()
         }
     }
@@ -160,10 +164,12 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
         let cell = tableView.dequeueReusableCellWithIdentifier("HourMedicationCell", forIndexPath: indexPath) as? HourMedicationViewCell
         cell?.dateText = hours[indexPath.row]
         cell?.buttonEdit.tag = indexPath.row
-        if indexPath.row == 0{
+        if hours[indexPath.row] == initialHour{
+            cell?.buttonEdit.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
             cell?.buttonEdit.addTarget(self, action: "showPickDate:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         else{
+            cell?.buttonEdit.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
             cell?.buttonEdit.addTarget(self, action: "showToast:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         return cell!
@@ -173,7 +179,6 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
         let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
         if let pickStartTimeScheduleViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.PickStartTimeViewId) as? PickStartTimeScheduleViewController)
         {
-            
             pickStartTimeScheduleViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             pickStartTimeScheduleViewController.date = startTime
             pickStartTimeScheduleViewController.scheduleMedicationViewController = self
@@ -193,6 +198,7 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
         for time in times{
             Evento.createInManagedObjectContext(managedObjectContext, medicamento: medicamento, cycle: EventPeriod.Daily, time: time, type: EventType.Medication, state: EventState.Active)
         }
+        updateNotifications()
         navigationController?.popViewControllerAnimated(true)
     }
     func showToast(sender : UIButton)
@@ -210,6 +216,39 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
             popover?.sourceRect = sender.bounds
             popover?.backgroundColor = UIColor.blackColor()
             self.presentViewController(toastViewController, animated: true, completion: nil)
+        }
+    }
+    func createNotification(evento:Evento){
+        let date = TimeUtil.dateFromMinutesOfDay(Int((evento.time) ?? 0), date: NSDate())
+        let notification = UILocalNotification()
+        let uuid : String? = (NSUserDefaults.standardUserDefaults().objectForKey(Notifications.NotificationIdKey) as? String) ?? NSUUID().UUIDString
+        NSUserDefaults.standardUserDefaults().setObject(uuid, forKey: Notifications.NotificationIdKey)
+        notification.alertBody = "Notificacion de medicamento" // text that will be displayed in the notification
+        notification.alertAction = "Abrir" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        notification.fireDate = date ?? NSDate()
+        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        print("\(evento.objectID.URIRepresentation())")
+        notification.userInfo = [Notifications.NotificationIdKey: uuid ?? "",
+            Notifications.EventNotificationIdKey: "\(evento.objectID.URIRepresentation())"]
+        notification.category = "MEDICATION_CATEGORY"
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func updateNotifications(){
+        if let events = Evento.getEventsFromMinute(managedObjectContext, minuteOfDay: Int(TimeUtil.dayMinuteFromDate(NSDate()))){
+            if !events.isEmpty
+            {
+                let uuid : String? = (NSUserDefaults.standardUserDefaults().objectForKey(Notifications.NotificationIdKey) as? String) ?? nil
+                if uuid != nil{
+                    for notification in UIApplication.sharedApplication().scheduledLocalNotifications! as [UILocalNotification] {
+                        if (notification.userInfo![Notifications.NotificationIdKey] as? String == uuid) {
+                            UIApplication.sharedApplication().cancelLocalNotification(notification)
+                            break
+                        }
+                    }
+                }
+                let event = events[0]
+                createNotification(event)
+            }
         }
     }
 }

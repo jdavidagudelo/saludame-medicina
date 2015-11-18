@@ -143,6 +143,7 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
         let cell = tableView.dequeueReusableCellWithIdentifier("FormulaCell", forIndexPath: indexPath) as? FormulaTableViewCell
         cell?.formula = formulas[indexPath.row]
         cell?.buttonEdit.tag = indexPath.row
+        cell?.buttonEdit.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllEvents)
         cell?.buttonEdit.addTarget(self, action: "showEditView:", forControlEvents: UIControlEvents.TouchUpInside)
         return cell!
     }

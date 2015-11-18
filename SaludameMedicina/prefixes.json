@@ -1,0 +1,9 @@
+[
+ {"id":1, "prefix":"Don"},
+ {"id":2, "prefix":"Señor"},
+ {"id":3, "prefix":"Señora"},
+ {"id":4, "prefix":"Señorita"},
+ {"id":5, "prefix":"Doña"},
+ {"id":6, "prefix":"Ninguno"},
+ {"id":7, "prefix":"Joven"},
+]

@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9056" systemVersion="15A284" minimumToolsVersion="Automatic">
     <entity name="Evento" representedClassName=".Evento" syncable="YES">
         <attribute name="cycle" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="notificationTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="postponed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="response" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="responseTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -16,6 +17,14 @@
         <attribute name="nombreMedico" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numero" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="recomendaciones" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Greeting" representedClassName=".Greeting" syncable="YES">
+        <attribute name="genreId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="hourId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="protocolId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="referenceName" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReferenceNamePatient" syncable="YES"/>
     </entity>
     <entity name="Medicamento" representedClassName=".Medicamento" syncable="YES">
         <attribute name="cantidad" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
@@ -40,10 +49,27 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Prefix" representedClassName=".Prefix" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="prefix" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ReferenceNamePatient" representedClassName=".ReferenceNamePatient" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="parameterId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="prefix" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Prefix" syncable="YES"/>
+    </entity>
+    <entity name="Specification" representedClassName=".Specification" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Evento" positionX="-2063" positionY="-1044" width="128" height="163"/>
+        <element name="Evento" positionX="-2063" positionY="-1044" width="128" height="180"/>
         <element name="Formula" positionX="-1440" positionY="-999" width="162" height="118"/>
         <element name="Medicamento" positionX="-1764" positionY="-1053" width="128" height="238"/>
         <element name="Patient" positionX="-1845" positionY="-936" width="128" height="135"/>
+        <element name="Greeting" positionX="-1854" positionY="-945" width="128" height="135"/>
+        <element name="Prefix" positionX="-1845" positionY="-936" width="128" height="75"/>
+        <element name="ReferenceNamePatient" positionX="-1836" positionY="-927" width="128" height="90"/>
+        <element name="Specification" positionX="-1827" positionY="-918" width="128" height="75"/>
     </elements>
 </model>

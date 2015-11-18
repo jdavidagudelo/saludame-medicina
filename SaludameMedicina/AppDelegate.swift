@@ -13,11 +13,107 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil))
+        //load the basic info from json files
+        dispatch_async(dispatch_get_main_queue()){
+            self.loadJsonPrefixes()
+            self.loadJsonReferenceNames()
+            self.loadJsonGreetings()
+            self.loadSpecifications()
+        }
         return true
+    }
+    func loadSpecifications(){
+        let managedObject = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let parseJSON = ParseJSON(fName: "specifications", fType: ".json")
+        let data = parseJSON.data
+        do{
+            let parsedObject : AnyObject? = try NSJSONSerialization.JSONObjectWithData(data,
+                options: NSJSONReadingOptions.AllowFragments)
+            print(parsedObject?.classForCoder)
+            if let greetings = parsedObject as? NSArray{
+                for greeting in greetings{
+                    Specification.save(managedObject, json: greeting as! NSDictionary)
+                }
+            }
+        }
+        catch{
+            print("Exception")
+        }
+        
+    }
+    func loadJsonReferenceNames(){
+        let managedObject = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let parseJSON = ParseJSON(fName: "reference_names_patient", fType: ".json")
+        let data = parseJSON.data
+        do{
+            let parsedObject : AnyObject? = try NSJSONSerialization.JSONObjectWithData(data,
+                options: NSJSONReadingOptions.AllowFragments)
+            print(parsedObject?.classForCoder)
+            if let greetings = parsedObject as? NSArray{
+                for greeting in greetings{
+                    ReferenceNamePatient.save(managedObject, json: greeting as! NSDictionary)
+                }
+            }
+        }
+        catch{
+            print("Exception")
+        }
+        
+    }
+    func loadJsonPrefixes(){
+        let managedObject = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let parseJSON = ParseJSON(fName: "prefixes", fType: ".json")
+        let data = parseJSON.data
+        do{
+            let parsedObject : AnyObject? = try NSJSONSerialization.JSONObjectWithData(data,
+                options: NSJSONReadingOptions.AllowFragments)
+            print(parsedObject?.classForCoder)
+            if let greetings = parsedObject as? NSArray{
+                for greeting in greetings{
+                    Prefix.save(managedObject, json: greeting as! NSDictionary)
+                }
+            }
+        }
+        catch{
+            print("Exception")
+        }
+        
+    }
+    func loadJsonGreetings(){
+        let managedObject = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let parseJSON = ParseJSON(fName: "greetings", fType: ".json")
+        let data = parseJSON.data
+        do{
+            let parsedObject : AnyObject? = try NSJSONSerialization.JSONObjectWithData(data,
+                options: NSJSONReadingOptions.AllowFragments)
+            print(parsedObject?.classForCoder)
+            if let greetings = parsedObject as? NSArray{
+                for greeting in greetings{
+                    Greeting.save(managedObject, json: greeting as! NSDictionary)
+                }
+            }
+        }
+        catch{
+            print("Exception")
+        }
+        
+    }
+   func application(application: UIApplication,
+        didReceiveLocalNotification notification: UILocalNotification)
+    {
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = mainStoryboardIpad.instantiateViewControllerWithIdentifier("NotificationMedicationViewController") as? NotificationMedicationViewController
+        if let info = notification.userInfo{
+            let eventId = NSURL(string: (info[Notifications.EventNotificationIdKey] as? String) ?? "")
+            initialViewController?.eventId = eventId
+        }
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(application: UIApplication) {

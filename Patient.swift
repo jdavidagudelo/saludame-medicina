@@ -40,6 +40,16 @@ class Patient: NSManagedObject {
             return []
         }
     }
+    class func getPatient(moc: NSManagedObjectContext) -> Patient?{
+        if let patients = getAll(moc)
+        {
+            if patients.isEmpty{
+                return nil
+            }
+            return patients[0]
+        }
+        return nil
+    }
     class func createInManagedObjectContext(moc: NSManagedObjectContext,
         identificationType: String?,
         identification: String?,
