@@ -8,7 +8,14 @@
 
 import UIKit
 import CoreData
-class NotificationMedicationViewController: UIViewController {
+class NotificationMedicationViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+    struct SegueIdentifier{
+        static let IdentifierPickDelayInterval = "Show Delay Interval Picker"
+        static let IdentifierPickLostDoseCause = "Show Lost Dose Picker"
+    }
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
     @IBOutlet var labelMessage: UILabel!{
         didSet{
             labelMessage.text = "\(getGreeting() ?? "") \(getSpecification() ?? "")"
@@ -76,6 +83,22 @@ class NotificationMedicationViewController: UIViewController {
         }
         return ""
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let pickDelayIntervalViewController = segue.destinationViewController as? PickDelayIntervalViewController{
+            if segue.identifier == SegueIdentifier.IdentifierPickDelayInterval{
+                pickDelayIntervalViewController.changeInterval = changeInterval
+                let popover = pickDelayIntervalViewController.popoverPresentationController
+                popover?.delegate = self
+            }
+        }
+        if let pickLostDoseCauseViewController = segue.destinationViewController as? PickLostDoseCauseViewController{
+            if segue.identifier == SegueIdentifier.IdentifierPickLostDoseCause{
+                pickLostDoseCauseViewController.cancelEvent = cancelEvent
+                let popover = pickLostDoseCauseViewController.popoverPresentationController
+                popover?.delegate = self
+            }
+        }
+    }
     private func getGreeting() -> String?
     {
         if managedObjectContext != nil{
@@ -105,7 +128,7 @@ class NotificationMedicationViewController: UIViewController {
                 if prefix?.id == 6{
                     patientName = ""
                 }
-                else if referenceName?.parameterId == PatientNameParameter.Nickname{
+                if referenceName?.parameterId == PatientNameParameter.Nickname{
                     if let nickname = NSUserDefaults.standardUserDefaults().objectForKey(NotificationPreferences.NicknamePreferenceKey) as? String
                     {
                         patientName = "\(patientName) \(nickname)"
@@ -125,5 +148,18 @@ class NotificationMedicationViewController: UIViewController {
             return result?.stringByReplacingOccurrencesOfString("$", withString: patientName)
         }
         return ""
+    }
+    private func changeInterval(){
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    private func cancelEvent(){
+        Evento.setAnswer(managedObjectContext, event: event, answer: EventAnswer.Rejected)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func accept(sender: UIButton){
+        Evento.setAnswer(managedObjectContext, event: event, answer: EventAnswer.Accepted)
+        DoseInventory.consumeDose(managedObjectContext, medicamento: event?.medicamento)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }

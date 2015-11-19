@@ -11,6 +11,7 @@ struct EventAnswer {
     static let Pending : NSNumber! = 0
     static let Delayed : NSNumber! = 1
     static let Accepted : NSNumber! = 2
-    static let DoseLost : NSNumber! = 3
-    static let Notified : NSNumber! = 4
+    static let Rejected : NSNumber! = 3
+    static let DoseLost : NSNumber! = 4
+    static let Notified : NSNumber! = 5
 }

@@ -171,6 +171,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
         let presentacion = textFieldPresentation?.text
         if medicamento == nil{
             medicamento = Medicamento.createInManagedObjectContext(managedObjectContext, cantidad: cantidad, periodicidad: periodicidad, dosis: dosis, concentracion: nil, indicaciones: indicaciones, via: nil, nombre: nombre, unidadTiempoPeriodicidad: unidadTiempoPeriodicidad, presentacion: presentacion, fechaInicio: startDate, fechaFin: endDate, duracion: duration, formula: formula)
+            DoseInventory.createInManagedObjectContext(managedObjectContext, medicamento: medicamento, currentAmount: medicamento?.cantidad, consumedAmount: 0)
         }
         else{
             medicamento?.cantidad = cantidad
@@ -185,6 +186,9 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
             medicamento?.fechaInicio = startDate
             medicamento?.formula = formula
             Medicamento.save(managedObjectContext)
+            let doseInventory = DoseInventory.getDoseInventory(managedObjectContext, medicamento: medicamento)
+            doseInventory?.currentAmount = Int(medicamento?.cantidad ?? 0) - Int(doseInventory?.consumedAmount ?? 0)
+            DoseInventory.save(managedObjectContext)
         }
         navigationController?.popViewControllerAnimated(true)
     }

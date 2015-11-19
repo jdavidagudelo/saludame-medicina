@@ -111,8 +111,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let eventId = NSURL(string: (info[Notifications.EventNotificationIdKey] as? String) ?? "")
             initialViewController?.eventId = eventId
         }
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = initialViewController
+        if let root = self.window?.rootViewController {
+            if initialViewController != nil{
+                initialViewController!.modalPresentationStyle = UIModalPresentationStyle.Popover
+                root.presentViewController(initialViewController!, animated: true, completion: nil)
+                
+            }
+        }
+        else{
+            self.window?.rootViewController = initialViewController
+        }
         self.window?.makeKeyAndVisible()
     }
 

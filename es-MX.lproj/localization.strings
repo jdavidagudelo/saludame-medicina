@@ -48,3 +48,7 @@
 "documentTypeCedulaExtranjeria" = "Cédula de Extranjería";
 "genreMale" = "Hombre";
 "genreFemale" = "Mujer";
+"lostDoseItem1" = "No tengo medicamentos";
+"lostDoseItem2" = "Olvidé los medicamentos";
+"lostDoseItem3" = "No deseo consumir dosis";
+"lostDoseItem4" = "Otro";

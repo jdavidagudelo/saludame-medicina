@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5902C5E81BFE1FE900D9839E /* PickDelayIntervalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902C5E71BFE1FE900D9839E /* PickDelayIntervalViewController.swift */; };
+		5902C5EA1BFE232100D9839E /* PickLostDoseCauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902C5E91BFE232100D9839E /* PickLostDoseCauseViewController.swift */; };
+		5902C5EC1BFE29A500D9839E /* LostDoseCauseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902C5EB1BFE29A500D9839E /* LostDoseCauseCell.swift */; };
+		5902C5EE1BFE2BD400D9839E /* DelayIntervalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902C5ED1BFE2BD400D9839E /* DelayIntervalCell.swift */; };
+		5902C5F11BFE5E2A00D9839E /* DoseInventory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902C5EF1BFE5E2A00D9839E /* DoseInventory+CoreDataProperties.swift */; };
+		5902C5F21BFE5E2A00D9839E /* DoseInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902C5F01BFE5E2A00D9839E /* DoseInventory.swift */; };
+		5902C5F51BFE660400D9839E /* Slot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902C5F31BFE660400D9839E /* Slot+CoreDataProperties.swift */; };
+		5902C5F61BFE660400D9839E /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902C5F41BFE660400D9839E /* Slot.swift */; };
 		590973201BEAADD7006547E7 /* ListFormulasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5909731F1BEAADD7006547E7 /* ListFormulasViewController.swift */; };
 		59155F7A1BEBEDC700935E10 /* FormulaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59155F791BEBEDC700935E10 /* FormulaTableViewCell.swift */; };
 		59226B681BE3CB7500106557 /* Formula+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59226B661BE3CB7500106557 /* Formula+CoreDataProperties.swift */; };
@@ -110,6 +118,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5902C5E71BFE1FE900D9839E /* PickDelayIntervalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDelayIntervalViewController.swift; sourceTree = "<group>"; };
+		5902C5E91BFE232100D9839E /* PickLostDoseCauseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickLostDoseCauseViewController.swift; sourceTree = "<group>"; };
+		5902C5EB1BFE29A500D9839E /* LostDoseCauseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostDoseCauseCell.swift; sourceTree = "<group>"; };
+		5902C5ED1BFE2BD400D9839E /* DelayIntervalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayIntervalCell.swift; sourceTree = "<group>"; };
+		5902C5EF1BFE5E2A00D9839E /* DoseInventory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DoseInventory+CoreDataProperties.swift"; path = "../DoseInventory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5902C5F01BFE5E2A00D9839E /* DoseInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoseInventory.swift; path = ../DoseInventory.swift; sourceTree = "<group>"; };
+		5902C5F31BFE660400D9839E /* Slot+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Slot+CoreDataProperties.swift"; path = "../Slot+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5902C5F41BFE660400D9839E /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Slot.swift; path = ../Slot.swift; sourceTree = "<group>"; };
 		5909731F1BEAADD7006547E7 /* ListFormulasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFormulasViewController.swift; sourceTree = "<group>"; };
 		59155F791BEBEDC700935E10 /* FormulaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormulaTableViewCell.swift; sourceTree = "<group>"; };
 		59226B661BE3CB7500106557 /* Formula+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Formula+CoreDataProperties.swift"; path = "../Formula+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -235,10 +251,14 @@
 		59226B6A1BE3CB7F00106557 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				5902C5EF1BFE5E2A00D9839E /* DoseInventory+CoreDataProperties.swift */,
+				5902C5F01BFE5E2A00D9839E /* DoseInventory.swift */,
 				592AE79B1BFCC24000B8F22B /* Greeting+CoreDataProperties.swift */,
 				592AE7AC1BFCF92A00B8F22B /* Specification+CoreDataProperties.swift */,
 				592AE7AD1BFCF92A00B8F22B /* Specification.swift */,
 				592AE79C1BFCC24000B8F22B /* Greeting.swift */,
+				5902C5F31BFE660400D9839E /* Slot+CoreDataProperties.swift */,
+				5902C5F41BFE660400D9839E /* Slot.swift */,
 				592AE79D1BFCC24000B8F22B /* ReferenceNamePatient+CoreDataProperties.swift */,
 				592AE79E1BFCC24000B8F22B /* ReferenceNamePatient.swift */,
 				592AE79F1BFCC24000B8F22B /* Prefix+CoreDataProperties.swift */,
@@ -338,6 +358,8 @@
 				59D2FB331BF3A30E005AE72D /* MedicamentoTableViewCell.swift */,
 				596BCF0D1BF534F100BE72D3 /* HourMedicationViewCell.swift */,
 				5998BA5D1BF638F6007269EC /* ItemInfoViewCell.swift */,
+				5902C5EB1BFE29A500D9839E /* LostDoseCauseCell.swift */,
+				5902C5ED1BFE2BD400D9839E /* DelayIntervalCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -374,6 +396,8 @@
 				592AE7B21BFD1DF900B8F22B /* PickProtocolPreferenceViewController.swift */,
 				592AE7B61BFD243D00B8F22B /* NotificationsMainViewController.swift */,
 				592AE7B81BFD2C6900B8F22B /* PickNicknameViewController.swift */,
+				5902C5E71BFE1FE900D9839E /* PickDelayIntervalViewController.swift */,
+				5902C5E91BFE232100D9839E /* PickLostDoseCauseViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -566,14 +590,18 @@
 				592AE7B11BFD1D3100B8F22B /* NotificationPreferencesViewController.swift in Sources */,
 				59D2FB361BF3CB9B005AE72D /* IntervalConstants.swift in Sources */,
 				5963A0CF1BEB8FDD0060E615 /* PickDateFormulaViewController.swift in Sources */,
+				5902C5EA1BFE232100D9839E /* PickLostDoseCauseViewController.swift in Sources */,
 				592AE7A21BFCC24000B8F22B /* Greeting.swift in Sources */,
 				592AE7A51BFCC24000B8F22B /* Prefix+CoreDataProperties.swift in Sources */,
+				5902C5EE1BFE2BD400D9839E /* DelayIntervalCell.swift in Sources */,
 				596BCEF71BF4DD9800BE72D3 /* PatientMainViewController.swift in Sources */,
 				597F56F11BF2566800BA83CA /* Medicamento+CoreDataProperties.swift in Sources */,
 				592AE7A11BFCC24000B8F22B /* Greeting+CoreDataProperties.swift in Sources */,
 				597F56F41BF28A0600BA83CA /* ListMedicamentosViewController.swift in Sources */,
+				5902C5F61BFE660400D9839E /* Slot.swift in Sources */,
 				592AE7B31BFD1DF900B8F22B /* PickProtocolPreferenceViewController.swift in Sources */,
 				596BCF011BF4F89900BE72D3 /* Evento+CoreDataProperties.swift in Sources */,
+				5902C5F51BFE660400D9839E /* Slot+CoreDataProperties.swift in Sources */,
 				596BCEFB1BF4DFDD00BE72D3 /* PickSleepTimeViewController.swift in Sources */,
 				59226B691BE3CB7500106557 /* Formula.swift in Sources */,
 				59A154261BFB4C790014B780 /* CompanionInfoViewController.swift in Sources */,
@@ -595,6 +623,7 @@
 				592AE78E1BFCB8A600B8F22B /* Protocol.swift in Sources */,
 				592AE7AF1BFCF92A00B8F22B /* Specification.swift in Sources */,
 				592973941BDE78EB0040ED95 /* CustomButton.swift in Sources */,
+				5902C5E81BFE1FE900D9839E /* PickDelayIntervalViewController.swift in Sources */,
 				592AE7941BFCBD5500B8F22B /* GenreId.swift in Sources */,
 				596BCEF91BF4DF2B00BE72D3 /* SleepTimeViewController.swift in Sources */,
 				592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */,
@@ -613,6 +642,7 @@
 				592AE7861BFCA87D00B8F22B /* ParseJSON.swift in Sources */,
 				5998BA631BF6894C007269EC /* Patient+CoreDataProperties.swift in Sources */,
 				59A5BC431BED4D8500657EEB /* CustomIconView.swift in Sources */,
+				5902C5F21BFE5E2A00D9839E /* DoseInventory.swift in Sources */,
 				596BCEFE1BF4E69200BE72D3 /* SleepPreferences.swift in Sources */,
 				59D2FB3A1BF3F76B005AE72D /* CustomToastUIViewController.swift in Sources */,
 				5998BA5E1BF638F6007269EC /* ItemInfoViewCell.swift in Sources */,
@@ -627,7 +657,9 @@
 				592AE7A31BFCC24000B8F22B /* ReferenceNamePatient+CoreDataProperties.swift in Sources */,
 				596BCF081BF5175C00BE72D3 /* TimeUtil.swift in Sources */,
 				59D2FB301BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift in Sources */,
+				5902C5F11BFE5E2A00D9839E /* DoseInventory+CoreDataProperties.swift in Sources */,
 				5998BA641BF6894C007269EC /* Patient.swift in Sources */,
+				5902C5EC1BFE29A500D9839E /* LostDoseCauseCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

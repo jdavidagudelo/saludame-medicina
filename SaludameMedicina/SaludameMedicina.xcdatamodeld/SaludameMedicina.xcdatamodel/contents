@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9056" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="DoseInventory" representedClassName=".DoseInventory" syncable="YES">
+        <attribute name="consumedAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="currentAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="medicamento" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicamento" syncable="YES"/>
+    </entity>
     <entity name="Evento" representedClassName=".Evento" syncable="YES">
         <attribute name="cycle" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="notificationTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -58,18 +63,25 @@
         <attribute name="parameterId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="prefix" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Prefix" syncable="YES"/>
     </entity>
+    <entity name="Slot" representedClassName=".Slot" syncable="YES">
+        <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="slot" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="medicamento" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicamento" syncable="YES"/>
+    </entity>
     <entity name="Specification" representedClassName=".Specification" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Evento" positionX="-2063" positionY="-1044" width="128" height="180"/>
-        <element name="Formula" positionX="-1440" positionY="-999" width="162" height="118"/>
-        <element name="Medicamento" positionX="-1764" positionY="-1053" width="128" height="238"/>
-        <element name="Patient" positionX="-1845" positionY="-936" width="128" height="135"/>
-        <element name="Greeting" positionX="-1854" positionY="-945" width="128" height="135"/>
-        <element name="Prefix" positionX="-1845" positionY="-936" width="128" height="75"/>
-        <element name="ReferenceNamePatient" positionX="-1836" positionY="-927" width="128" height="90"/>
-        <element name="Specification" positionX="-1827" positionY="-918" width="128" height="75"/>
+        <element name="Evento" positionX="-2135" positionY="-1188" width="128" height="180"/>
+        <element name="Formula" positionX="-1674" positionY="-927" width="162" height="118"/>
+        <element name="Greeting" positionX="-2304" positionY="-1062" width="128" height="135"/>
+        <element name="Medicamento" positionX="-1845" positionY="-1075" width="128" height="238"/>
+        <element name="Patient" positionX="-1991" positionY="-954" width="128" height="135"/>
+        <element name="Prefix" positionX="-2304" positionY="-759" width="128" height="75"/>
+        <element name="ReferenceNamePatient" positionX="-2162" positionY="-882" width="128" height="90"/>
+        <element name="Specification" positionX="-1674" positionY="-1008" width="128" height="75"/>
+        <element name="DoseInventory" positionX="-1674" positionY="-1107" width="128" height="88"/>
+        <element name="Slot" positionX="-1908" positionY="-1249" width="128" height="88"/>
     </elements>
 </model>

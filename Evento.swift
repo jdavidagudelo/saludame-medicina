@@ -33,6 +33,11 @@ class Evento: NSManagedObject {
             abort()
         }
     }
+    class func setAnswer(moc: NSManagedObjectContext, event: Evento?, answer: NSNumber!){
+        event?.response = EventAnswer.Accepted
+        event?.responseTime = TimeUtil.getCurrentTimeMinutes()
+        Evento.save(moc)
+    }
     class func deleteAll(moc: NSManagedObjectContext){
         for event in getAll(moc) ?? [Evento](){
             Evento.delete(moc, evento: event)

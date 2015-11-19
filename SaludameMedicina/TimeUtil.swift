@@ -53,6 +53,10 @@ class TimeUtil{
         let components = calendar.components([.Hour, .Minute, .Second], fromDate: date)
         return Double(components.hour)*60.0 + Double(components.minute) + Double(components.second)/60.0
     }
+    class func getCurrentTimeMinutes()-> Int{
+        let currentDate = NSDate()
+        return Int(currentDate.timeIntervalSince1970)/60
+    }
     class func getDayTime() -> NSNumber{
         let currentDate = NSDate()
         let calendar = NSCalendar.currentCalendar()
