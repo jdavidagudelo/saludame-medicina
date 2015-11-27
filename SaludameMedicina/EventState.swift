@@ -10,4 +10,5 @@ import Foundation
 struct EventState{
     static let Active : NSNumber! = 0
     static let Archived : NSNumber! = 1
+    static let Deleted : NSNumber! = 2
 }

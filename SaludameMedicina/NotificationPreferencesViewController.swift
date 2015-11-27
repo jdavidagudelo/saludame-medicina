@@ -36,9 +36,7 @@ class NotificationPreferencesViewController: UIViewController, UIPopoverPresenta
             pickProtocolPreferenceViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             let popover = pickProtocolPreferenceViewController.popoverPresentationController
             popover?.delegate = self
-            popover?.permittedArrowDirections = [.Up, .Down]
             popover?.sourceView = sender
-            popover?.sourceRect = sender.bounds
             self.presentViewController(pickProtocolPreferenceViewController, animated: true, completion: nil)
         }
     }
@@ -51,9 +49,7 @@ class NotificationPreferencesViewController: UIViewController, UIPopoverPresenta
             pickNicknameViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             let popover = pickNicknameViewController.popoverPresentationController
             popover?.delegate = self
-            popover?.permittedArrowDirections = [.Up, .Down]
             popover?.sourceView = sender
-            popover?.sourceRect = sender.bounds
             self.presentViewController(pickNicknameViewController, animated: true, completion: nil)
         }
     }

@@ -11,13 +11,29 @@ import CoreData
 class PatientInfoViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
     var managedObjectContext: NSManagedObjectContext!
+    let identificationTypeToast = NSLocalizedString("identificationTypeToast", tableName: "localization",
+        comment: "Info about the identification type of the patient")
+    let patientGenderToast = NSLocalizedString("patientGenderToast", tableName: "localization",
+        comment: "Info about the gender of the patient")
+    let birthDateToast = NSLocalizedString("birthDateToast", tableName: "localization",
+        comment: "Info about the birth date of the patient")
     
     private struct StoryBoard{
+        static let CustomToastViewId = "CustomToastUIViewController"
         static let PickBirthDateViewId = "PickBirthDateViewController"
         static let PickDocumentTypeViewId = "PickDocumentTypePatientViewController"
     }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
+    }
+    @IBAction func showIdentificationTypeToast(sender: UIButton){
+        showToast(patientGenderToast, sender: sender)
+    }
+    @IBAction func showBirthDateToast(sender: UIButton){
+        showToast(birthDateToast, sender: sender)
+    }
+    @IBAction func showPatientGenderToast(sender: UIButton){
+        showToast(identificationTypeToast, sender: sender)
     }
     var patient: Patient?{
         didSet{
@@ -90,10 +106,8 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
         }
     }
     private func formattedDate(date: NSDate?) -> String?{
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
         if let d = date{
-            return formatter.stringFromDate(d)
+            return TimeUtil.getDateFormatted(d)
         }
         return ""
     }
@@ -155,10 +169,25 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
             pickBirthDateViewController.patientInfoViewController = self
             let popover = pickBirthDateViewController.popoverPresentationController
             popover?.delegate = self
+            popover?.sourceView = sender
+            popover?.backgroundColor = UIColor.whiteColor()
+            self.presentViewController(pickBirthDateViewController, animated: true, completion: nil)
+        }
+    }
+    private func showToast(text: String, sender : UIView)
+    {
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let toastViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.CustomToastViewId) as? CustomToastUIViewController)
+        {
+            
+            toastViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            toastViewController.currentText = text
+            let popover = toastViewController.popoverPresentationController
+            popover?.delegate = self
             popover?.permittedArrowDirections = [.Up, .Down]
             popover?.sourceView = sender
-            popover?.sourceRect = sender.bounds
-            self.presentViewController(pickBirthDateViewController, animated: true, completion: nil)
+            popover?.backgroundColor = UIColor.blackColor()
+            self.presentViewController(toastViewController, animated: true, completion: nil)
         }
     }
     func showDocumentTypePicker(sender: UIButton, documentType: String?)
@@ -171,9 +200,8 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
             pickDocumentTypePatientViewController.patientInfoViewController = self
             let popover = pickDocumentTypePatientViewController.popoverPresentationController
             popover?.delegate = self
-            popover?.permittedArrowDirections = [.Up, .Down]
             popover?.sourceView = sender
-            popover?.sourceRect = sender.bounds
+            popover?.backgroundColor = UIColor.whiteColor()
             self.presentViewController(pickDocumentTypePatientViewController, animated: true, completion: nil)
         }
     }

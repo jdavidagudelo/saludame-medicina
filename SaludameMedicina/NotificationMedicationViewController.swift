@@ -13,9 +13,16 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
         static let IdentifierPickDelayInterval = "Show Delay Interval Picker"
         static let IdentifierPickLostDoseCause = "Show Lost Dose Picker"
     }
+    private struct StoryBoard{
+        static let PickDelayIntervalViewId = "PickDelayIntervalViewController"
+        static let PickLostDoseCauseViewId = "PickLostDoseCauseViewController"
+    }
+    var cancelled: Bool = false
+    @IBInspectable var notificationTimeSeconds = 60
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
+    private var currentIndex = 0
     @IBOutlet var labelMessage: UILabel!{
         didSet{
             labelMessage.text = "\(getGreeting() ?? "") \(getSpecification() ?? "")"
@@ -32,8 +39,7 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
             if let e = eventId{
                 if let id = managedObjectContext?.persistentStoreCoordinator?.managedObjectIDForURIRepresentation(e)
                 {
-                    event = Evento.getEventById(managedObjectContext, id: id)
-                    labelQuantity?.text = "Dosis: \(event?.medicamento?.dosis ?? 0)"
+                    events = Evento.getEventsSameDate(managedObjectContext, id: id)
                     
                 }
             }
@@ -49,20 +55,38 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
             if let e = eventId{
                 if let id = managedObjectContext?.persistentStoreCoordinator?.managedObjectIDForURIRepresentation(e)
                 {
-                    event = Evento.getEventById(managedObjectContext, id: id)
+                    events = Evento.getEventsSameDate(managedObjectContext, id: id)
                 }
+            }
+        }
+    }
+    var events = [Evento](){
+        didSet{
+            if currentIndex < events.count{
+                event = events[currentIndex]
             }
         }
     }
     var event : Evento?{
         didSet{
             labelMedication?.text = event?.medicamento?.nombre
+            labelQuantity?.text = "Dosis: \(event?.medicamento?.dosis ?? 0)"
+            cancelled = false
+            let time: Int64 = Int64(UInt64(notificationTimeSeconds) * NSEC_PER_SEC)
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, time), dispatch_get_main_queue()){
+                if !self.cancelled{
+                    self.lostNotification()
+                }
+           }
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        
+        Medicamento.validateMedicationEnded(managedObjectContext, medicamento: event?.medicamento)
+        Notifier.updateNotifications(managedObjectContext)
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,22 +106,6 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
             return specification
         }
         return ""
-    }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let pickDelayIntervalViewController = segue.destinationViewController as? PickDelayIntervalViewController{
-            if segue.identifier == SegueIdentifier.IdentifierPickDelayInterval{
-                pickDelayIntervalViewController.changeInterval = changeInterval
-                let popover = pickDelayIntervalViewController.popoverPresentationController
-                popover?.delegate = self
-            }
-        }
-        if let pickLostDoseCauseViewController = segue.destinationViewController as? PickLostDoseCauseViewController{
-            if segue.identifier == SegueIdentifier.IdentifierPickLostDoseCause{
-                pickLostDoseCauseViewController.cancelEvent = cancelEvent
-                let popover = pickLostDoseCauseViewController.popoverPresentationController
-                popover?.delegate = self
-            }
-        }
     }
     private func getGreeting() -> String?
     {
@@ -149,17 +157,90 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
         }
         return ""
     }
-    private func changeInterval(){
-        
-        dismissViewControllerAnimated(true, completion: nil)
+    private func lostNotification(){
+        if event?.type == EventType.Medication{
+            Evento.setAnswer(managedObjectContext, event: event, answer: EventAnswer.Notified)
+            Evento.updateNextEvent(managedObjectContext, event: event)
+            Notifier.updateNotifications(managedObjectContext)
+            currentIndex++
+            cancelled = true
+            if currentIndex < events.count{
+                event = events[currentIndex]
+            }
+            else{
+                dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+    }
+    private func changeInterval(minutes: Int){
+        Evento.setAnswer(managedObjectContext, event: event, answer: EventAnswer.Delayed)
+        Evento.updateNextEvent(managedObjectContext, event: event)
+        Evento.delayEvent(managedObjectContext, minutes: minutes, event: event)
+        Notifier.updateNotifications(managedObjectContext)
+        currentIndex++
+        cancelled = true
+        if currentIndex < events.count{
+            event = events[currentIndex]
+        }
+        else{
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     private func cancelEvent(){
         Evento.setAnswer(managedObjectContext, event: event, answer: EventAnswer.Rejected)
-        dismissViewControllerAnimated(true, completion: nil)
+        Evento.updateNextEvent(managedObjectContext, event: event)
+        Notifier.updateNotifications(managedObjectContext)
+        currentIndex++
+        cancelled = true
+        if currentIndex < events.count{
+            event = events[currentIndex]
+        }
+        else{
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     @IBAction func accept(sender: UIButton){
         Evento.setAnswer(managedObjectContext, event: event, answer: EventAnswer.Accepted)
+        Evento.updateNextEvent(managedObjectContext, event: event)
         DoseInventory.consumeDose(managedObjectContext, medicamento: event?.medicamento)
-        dismissViewControllerAnimated(true, completion: nil)
+        Notifier.updateNotifications(managedObjectContext)
+        currentIndex++
+        cancelled = true
+        if currentIndex < events.count{
+            event = events[currentIndex]
+        }
+        else{
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    @IBAction func showDoseLostCausePicker(sender : UIButton)
+    {
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let pickLostDoseCauseViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.PickLostDoseCauseViewId) as? PickLostDoseCauseViewController)
+        {
+            pickLostDoseCauseViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            pickLostDoseCauseViewController.cancelEvent = cancelEvent
+            let popover = pickLostDoseCauseViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.permittedArrowDirections = [.Up, .Down]
+            popover?.sourceView = sender
+            popover?.sourceRect = sender.bounds
+            self.presentViewController(pickLostDoseCauseViewController, animated: true, completion: nil)
+        }
+    }
+    @IBAction func showDelayPicker(sender : UIButton)
+    {
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let pickDelayIntervalViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.PickDelayIntervalViewId) as? PickDelayIntervalViewController)
+        {
+            pickDelayIntervalViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            pickDelayIntervalViewController.changeInterval = changeInterval
+            let popover = pickDelayIntervalViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.permittedArrowDirections = [.Up, .Down]
+            popover?.sourceView = sender
+            popover?.sourceRect = sender.bounds
+            self.presentViewController(pickDelayIntervalViewController, animated: true, completion: nil)
+        }
     }
 }

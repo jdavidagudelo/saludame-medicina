@@ -11,9 +11,10 @@ import UIKit
 class PickDelayIntervalViewController: UIViewController, UITableViewDataSource{
     @IBInspectable
     var popoverHeight : CGFloat = CGFloat(200.0)
-    var changeInterval : (() -> Void)?
+    var changeInterval : ((Int) -> Void)?
     var delayIntervals = [1,5, 15, 30]
     var switches = [UISwitch?]()
+    var currentInterval = 1
     @IBOutlet
     var tableView: UITableView!{
         didSet{
@@ -51,6 +52,7 @@ class PickDelayIntervalViewController: UIViewController, UITableViewDataSource{
             }
         }
         currentSwitch.on = true
+        currentInterval = delayIntervals[currentSwitch.tag]
     }
     override var preferredContentSize: CGSize {
         get{
@@ -69,6 +71,6 @@ class PickDelayIntervalViewController: UIViewController, UITableViewDataSource{
     }
     @IBAction func save(sender:UIButton){
         dismissViewControllerAnimated(true, completion: nil)
-        changeInterval?()
+        changeInterval?(currentInterval)
     }
 }

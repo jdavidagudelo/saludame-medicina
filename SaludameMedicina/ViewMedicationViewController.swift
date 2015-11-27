@@ -17,6 +17,9 @@ class ViewMedicationViewController: UIViewController, UITableViewDataSource {
     var colorCellOdd : UIColor?
     var medication: Medicamento?{
         didSet{
+            if medication == nil{
+                dismissViewControllerAnimated(true, completion: nil)
+            }
             initData()
         }
     }
@@ -28,8 +31,8 @@ class ViewMedicationViewController: UIViewController, UITableViewDataSource {
     @IBOutlet
     var tableView: UITableView!{
         didSet{
-            tableView.estimatedRowHeight = tableView.rowHeight
-            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView?.estimatedRowHeight = tableView.rowHeight
+            tableView?.rowHeight = UITableViewAutomaticDimension
             tableView?.dataSource = self
         }
     }

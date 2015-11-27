@@ -38,7 +38,6 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
     var managedObjectContext: NSManagedObjectContext!
     private struct SegueIdentifier{
         static let IdentifierCreateNewFormula = "Create New Formula"
-        static let IdentifierEditFormula = "Edit Formula"
     }
     @IBAction func deleteAll(sender: UIButton)
     {
@@ -101,6 +100,9 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
     {
         performSegueWithIdentifier(SegueIdentifier.IdentifierCreateNewFormula, sender: sender)
     }
+    func showEditFormula(){
+        performSegueWithIdentifier(SegueIdentifier.IdentifierCreateNewFormula, sender: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -147,7 +149,7 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
         cell?.buttonEdit.addTarget(self, action: "showEditView:", forControlEvents: UIControlEvents.TouchUpInside)
         return cell!
     }
-    func showFormula(formula: Formula?){
+    func showFormula(formula: Formula?, sender: UIView){
         let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
         if let viewFormulaViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.ViewFormulaId) as? ViewFormulaViewController)
         {
@@ -155,9 +157,8 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
             viewFormulaViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             let popover = viewFormulaViewController.popoverPresentationController
             popover?.delegate = self
-            popover?.sourceView = labelMenu
-            popover?.sourceRect = CGRect(x: view.center.x, y: 0, width: 0, height: 0)
-            popover?.backgroundColor = UIColor.clearColor()
+            popover?.sourceView = sender
+            popover?.backgroundColor = UIColor.whiteColor()
             self.presentViewController(viewFormulaViewController, animated: true, completion: nil)
         }
     }
@@ -169,6 +170,7 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
             
             editItemViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             editItemViewController.formula = formulas[sender.tag]
+            editItemViewController.sender = sender
             editItemViewController.listFormulasViewController = self
             let popover = editItemViewController.popoverPresentationController
             popover?.delegate = self
@@ -188,14 +190,5 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
             currentFormula = nil
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -14,18 +14,14 @@ class FormulaItemOptionsViewController: UIViewController {
     @IBInspectable
     var popoverWidth  : CGFloat = CGFloat(100.0)
     var formula : Formula?
+    var sender: UIView?
     weak var listFormulasViewController: ListFormulasViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-    }
-    private struct SegueIdentifier{
-        static let IdentifierEditFormula = "Edit Formula"
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override var preferredContentSize: CGSize {
@@ -41,27 +37,21 @@ class FormulaItemOptionsViewController: UIViewController {
     }
     @IBAction func showFormula(sender: UIButton){
         dismissViewControllerAnimated(true, completion: nil)
-        listFormulasViewController?.showFormula(formula)
+        if let senderView = self.sender{
+            listFormulasViewController?.showFormula(formula, sender: senderView)
+        }
+        
     }
     @IBAction func editFormula(sender: UIButton)
     {
         dismissViewControllerAnimated(true, completion: nil)
         listFormulasViewController?.currentFormula = formula
-        listFormulasViewController?.performSegueWithIdentifier(SegueIdentifier.IdentifierEditFormula, sender: sender)
+        listFormulasViewController?.showEditFormula()
     }
     @IBAction func deleteFormula(sender: UIButton)
     {
         dismissViewControllerAnimated(true, completion: nil)
         listFormulasViewController?.alertDeleteFormula(formula)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

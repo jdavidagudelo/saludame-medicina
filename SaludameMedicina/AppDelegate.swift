@@ -23,11 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.loadJsonReferenceNames()
             self.loadJsonGreetings()
             self.loadSpecifications()
+            Evento.updateEvents(self.managedObjectContext)
+            Notifier.updateNotifications(self.managedObjectContext)
         }
+        
         return true
     }
     func loadSpecifications(){
-        let managedObject = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let parseJSON = ParseJSON(fName: "specifications", fType: ".json")
         let data = parseJSON.data
         do{
@@ -36,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(parsedObject?.classForCoder)
             if let greetings = parsedObject as? NSArray{
                 for greeting in greetings{
-                    Specification.save(managedObject, json: greeting as! NSDictionary)
+                    Specification.save(managedObjectContext, json: greeting as! NSDictionary)
                 }
             }
         }
@@ -46,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     func loadJsonReferenceNames(){
-        let managedObject = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let parseJSON = ParseJSON(fName: "reference_names_patient", fType: ".json")
         let data = parseJSON.data
         do{
@@ -55,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(parsedObject?.classForCoder)
             if let greetings = parsedObject as? NSArray{
                 for greeting in greetings{
-                    ReferenceNamePatient.save(managedObject, json: greeting as! NSDictionary)
+                    ReferenceNamePatient.save(managedObjectContext, json: greeting as! NSDictionary)
                 }
             }
         }
@@ -65,7 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     func loadJsonPrefixes(){
-        let managedObject = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let parseJSON = ParseJSON(fName: "prefixes", fType: ".json")
         let data = parseJSON.data
         do{
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(parsedObject?.classForCoder)
             if let greetings = parsedObject as? NSArray{
                 for greeting in greetings{
-                    Prefix.save(managedObject, json: greeting as! NSDictionary)
+                    Prefix.save(managedObjectContext, json: greeting as! NSDictionary)
                 }
             }
         }
@@ -84,7 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     func loadJsonGreetings(){
-        let managedObject = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let parseJSON = ParseJSON(fName: "greetings", fType: ".json")
         let data = parseJSON.data
         do{
@@ -93,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(parsedObject?.classForCoder)
             if let greetings = parsedObject as? NSArray{
                 for greeting in greetings{
-                    Greeting.save(managedObject, json: greeting as! NSDictionary)
+                    Greeting.save(managedObjectContext, json: greeting as! NSDictionary)
                 }
             }
         }
@@ -104,18 +103,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
    func application(application: UIApplication,
         didReceiveLocalNotification notification: UILocalNotification)
-    {
+   {
         let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = mainStoryboardIpad.instantiateViewControllerWithIdentifier("NotificationMedicationViewController") as? NotificationMedicationViewController
         if let info = notification.userInfo{
             let eventId = NSURL(string: (info[Notifications.EventNotificationIdKey] as? String) ?? "")
+            print ("eventId = \(eventId)")
             initialViewController?.eventId = eventId
         }
         if let root = self.window?.rootViewController {
             if initialViewController != nil{
-                initialViewController!.modalPresentationStyle = UIModalPresentationStyle.Popover
+                Notifier.cancelAllNotifications()
+                initialViewController!.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
                 root.presentViewController(initialViewController!, animated: true, completion: nil)
-                
             }
         }
         else{

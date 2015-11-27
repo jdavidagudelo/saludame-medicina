@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-class CreateFormulaViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class CreateFormulaViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     var formula: Formula?{
         didSet{
             textFieldDoctorName?.text = formula?.nombreMedico ?? ""
@@ -17,6 +17,13 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
             textViewRecommendations?.text = formula?.recomendaciones ?? ""
             date = formula?.fecha ?? NSDate()
         }
+    }
+    func textViewDidEndEditing(textView: UITextView) {
+        textView.resignFirstResponder()
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     private struct StoryBoard{
         static let CustomToastViewId = "CustomToastUIViewController"
@@ -44,22 +51,26 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     @IBOutlet weak var textFieldInstitution: UITextField!{
         didSet{
             textFieldInstitution?.text = formula?.institucion
+            textFieldInstitution?.delegate = self
         }
     }
     @IBOutlet weak var textFieldNumberFormula: UITextField!{
         didSet{
             textFieldNumberFormula?.text = formula?.numero
+            textFieldNumberFormula?.delegate = self
         }
     }
     @IBOutlet weak var textFieldDoctorName: UITextField!
         {
         didSet{
             textFieldDoctorName?.text = formula?.nombreMedico
+            textFieldDoctorName?.delegate = self
         }
     }
     @IBOutlet weak var textViewRecommendations: UITextView!{
         didSet{
             textViewRecommendations?.text = formula?.recomendaciones
+            textViewRecommendations?.delegate = self
         }
     }
     @IBOutlet weak var labelInstitution: UILabel!
@@ -113,9 +124,7 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     var formattedDate: String{
         get
         {
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "dd-M-yyyy"
-            return formatter.stringFromDate(date)
+            return TimeUtil.getDateFormatted(date)
         }
     }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -128,11 +137,9 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     override func viewDidLoad() {
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier
@@ -153,16 +160,5 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
             }
         }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

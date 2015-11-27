@@ -12,38 +12,34 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
     var df = NSDateFormatter()
     var sleepTime: NSDate?{
         get{
-            df.dateFormat = "hh:mm a"
             if let dateString = NSUserDefaults.standardUserDefaults().objectForKey(SleepPreferences.GoToSleepTimePreferenceKey) as? String
             {
-                let date = df.dateFromString(dateString)
+                let date = TimeUtil.getTimeFromString(dateString)
                 return date
             }
             return NSDate()
         }
         
         set{
-            df.dateFormat = "hh:mm a"
             if let date = newValue{
-                let dateString = df.stringFromDate(date)
+                let dateString = TimeUtil.getStringFromTime(date)
                 NSUserDefaults.standardUserDefaults().setObject(dateString, forKey: SleepPreferences.GoToSleepTimePreferenceKey)
             }
         }
     }
     var wakeUpTime: NSDate?{
         get{
-            df.dateFormat = "hh:mm a"
             if let dateString = NSUserDefaults.standardUserDefaults().objectForKey(SleepPreferences.WakeUpTimePreferenceKey) as? String
             {
-                let date = df.dateFromString(dateString)
+                let date = TimeUtil.getTimeFromString(dateString)
                 return date
             }
             return NSDate()
         }
         
         set{
-            df.dateFormat = "hh:mm a"
             if let date = newValue{
-                let dateString = df.stringFromDate(date)
+                let dateString = TimeUtil.getStringFromTime(date)
                 NSUserDefaults.standardUserDefaults().setObject(dateString, forKey: SleepPreferences.WakeUpTimePreferenceKey)
             }
         }
@@ -57,9 +53,6 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        df.dateFormat = "hh:mm a"
-        print("\(df.stringFromDate(sleepTime!))")
-        print("\(df.stringFromDate(wakeUpTime!))")
     }
     @IBAction func editSleepTime(sender: UIButton){
         showDatePicker(sender, preferenceKey: SleepPreferences.GoToSleepTimePreferenceKey, title: NSLocalizedString("goToSleepTimeTitle", tableName: "localization",
@@ -82,9 +75,8 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
             pickSleepTimeViewController.sleepTimeViewController = self
             let popover = pickSleepTimeViewController.popoverPresentationController
             popover?.delegate = self
-            popover?.permittedArrowDirections = [.Up, .Down]
             popover?.sourceView = sender
-            popover?.sourceRect = sender.bounds
+            popover?.backgroundColor = UIColor.whiteColor()
             self.presentViewController(pickSleepTimeViewController, animated: true, completion: nil)
         }
     }

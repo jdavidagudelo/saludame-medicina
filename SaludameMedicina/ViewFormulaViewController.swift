@@ -37,10 +37,8 @@ class ViewFormulaViewController: UIViewController, UITableViewDataSource {
     var formattedDate: String?{
         get
         {
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy"
             if let date = (formula?.fecha){
-                return formatter.stringFromDate(date)
+                return TimeUtil.getDateFormatted(date)
             }
             return ""
         }

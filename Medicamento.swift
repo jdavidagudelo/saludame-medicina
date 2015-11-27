@@ -12,7 +12,6 @@ import CoreData
 
 class Medicamento: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
     class func delete(moc: NSManagedObjectContext, medicamento: Medicamento?){
         do {
             Evento.deleteAll(moc, medicamento: medicamento)
@@ -43,6 +42,11 @@ class Medicamento: NSManagedObject {
         }
         catch{
             return []
+        }
+    }
+    class func validateMedicationEnded(moc: NSManagedObjectContext, medicamento: Medicamento?){
+        if TimeUtil.getMinutesFromDate(NSDate()) > TimeUtil.getMinutesFromDate(medicamento?.fechaFin ?? NSDate()){
+            Evento.archiveEvents(moc, medicamento: medicamento)
         }
     }
     class func createInManagedObjectContext(moc: NSManagedObjectContext,

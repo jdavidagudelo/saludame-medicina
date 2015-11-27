@@ -219,7 +219,7 @@
 "wE2-ed-aFG.text" = "Horarios de toma de medicamentos";
 
 /* Class = "UILabel"; text = "Modifique los horarios en los que se debe tomar sus medicamentos"; ObjectID = "xEq-av-Ggm"; */
-"xEq-av-Ggm.text" = "Modifique los horarios en los que se debe tomar sus medicamentos";
+"xEq-av-Ggm.text" = "Modifique los horarios de sus medicamentos";
 
 /* Class = "UIButton"; normalTitle = "Notificaciones"; ObjectID = "yej-DK-MyN"; */
 "yej-DK-MyN.normalTitle" = "Notificaciones";

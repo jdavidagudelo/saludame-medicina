@@ -17,6 +17,7 @@ class PickBirthDateViewController: UIViewController {
     }
     @IBOutlet weak var datePicker: UIDatePicker!{
         didSet{
+            datePicker?.maximumDate = NSDate()
             datePicker?.date = date ?? NSDate()
         }
     }

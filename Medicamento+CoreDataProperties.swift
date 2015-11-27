@@ -27,5 +27,6 @@ extension Medicamento {
     @NSManaged var fechaFin: NSDate?
     @NSManaged var duracion: NSNumber?
     @NSManaged var formula: Formula?
+    
 
 }

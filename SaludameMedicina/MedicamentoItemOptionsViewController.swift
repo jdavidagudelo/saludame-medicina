@@ -15,6 +15,7 @@ class MedicamentoItemOptionsViewController: UIViewController {
     @IBInspectable
     var popoverWidth  : CGFloat = CGFloat(100.0)
     var medicamento : Medicamento?
+    var sender: UIView?
     weak var listMedicamentosViewController : ListMedicamentosViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,9 @@ class MedicamentoItemOptionsViewController: UIViewController {
     }
    @IBAction func showMedication(sender: UIButton){
         dismissViewControllerAnimated(true, completion: nil)
-        listMedicamentosViewController?.showMedication(medicamento)
+        if let senderView = self.sender{
+            listMedicamentosViewController?.showMedication(medicamento, sender: senderView)
+        }
     }
     @IBAction func editMedicamento(sender: UIButton)
     {

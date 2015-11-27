@@ -9,16 +9,21 @@
 import UIKit
 import CoreData
 @IBDesignable
-class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     private struct SegueIdentifier{
         static let IdentifierPickFormulaMedicamento = "Pick Formula Medicamento"
         static let IdentifierPickUnitMedicamento = "Pick Interval Medicamento"
     }
+    private struct StoryBoard{
+        static let CustomToastViewId = "CustomToastUIViewController"
+        static let PickFormulaMedicamentoViewId = "PickFormulaMedicamentoViewController"
+        static let PickUnitMedicamentoViewId = "PickIntervalUnitMedicamentoViewController"
+    }
     var medicamento: Medicamento? {
         didSet{
             formula = medicamento?.formula
-            textViewRecommendations?.text = medicamento?.indicaciones
+            textFieldRecommendations?.text = medicamento?.indicaciones
             if let periodicidad = medicamento?.periodicidad {
                 textFieldPeriod?.text = "\(periodicidad)"
             }
@@ -42,9 +47,11 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
     @IBOutlet weak var labelDose: UILabel!
     @IBOutlet weak var labelName: UILabel!
     
-    @IBOutlet weak var textViewRecommendations: UITextView!{
+    @IBOutlet weak var textFieldRecommendations: UITextField!{
         didSet{
-            textViewRecommendations?.text = medicamento?.indicaciones
+            textFieldRecommendations?.text = medicamento?.indicaciones
+            textFieldRecommendations?.delegate = self
+            
         }
     }
     
@@ -52,6 +59,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
         didSet{
             if let periodicidad = medicamento?.periodicidad{
                 textFieldPeriod?.text = "\(periodicidad)"
+                textFieldPeriod?.delegate = self
             }
         }
     }
@@ -59,12 +67,14 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
     @IBOutlet weak var textFieldName: UITextField!{
         didSet{
             textFieldName?.text = medicamento?.nombre
+            textFieldName?.delegate = self
         }
     }
     
     @IBOutlet weak var textFieldPresentation: UITextField!{
         didSet{
             textFieldPresentation?.text = medicamento?.presentacion
+            textFieldPresentation?.delegate = self
         }
     }
     
@@ -73,6 +83,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
             if let duracion = medicamento?.duracion{
                 textFieldDuration?.text = "\(duracion)"
             }
+            textFieldDuration?.delegate = self
         }
     }
     
@@ -81,17 +92,20 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
             if let dosis = medicamento?.dosis{
                 textFieldDose?.text = "\(dosis)"
             }
+            textFieldDose?.delegate = self
         }
     }
     
     @IBOutlet weak var textFieldEndDate: UITextField!{
         didSet{
             textFieldEndDate?.text = getFormattedDate(endDate)
+            textFieldEndDate?.delegate = self
         }
     }
     @IBOutlet weak var textFieldStartDate : UITextField!{
         didSet{
             textFieldStartDate?.text = getFormattedDate(startDate)
+            textFieldStartDate?.delegate = self
         }
     }
     var duration = 0{
@@ -166,7 +180,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
         else {
             cantidad = Double(dosis ?? 0.0) * (1.0 / Double(periodicidad ?? 1.0)) * Double(duration)
         }
-        let indicaciones = textViewRecommendations?.text
+        let indicaciones = textFieldRecommendations?.text
         let nombre = textFieldName?.text
         let presentacion = textFieldPresentation?.text
         if medicamento == nil{
@@ -224,12 +238,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
         return UIModalPresentationStyle.None
     }
     private func getFormattedDate(date: NSDate) -> String{
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
-        return formatter.stringFromDate(date)
-    }
-    private struct StoryBoard{
-        static let CustomToastViewId = "CustomToastUIViewController"
+        return TimeUtil.getDateFormatted(date)
     }
     @IBAction func showStartDateInfo(sender: UIButton){
         showToast(NSLocalizedString("startDateMedicationHelp", tableName: "localization",
@@ -260,33 +269,39 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
             self.presentViewController(toastViewController, animated: true, completion: nil)
         }
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier
+    @IBAction func showFormulaPicker(sender : UIButton)
+    {
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let pickFormulaMedicamentoViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.PickFormulaMedicamentoViewId) as? PickFormulaMedicamentoViewController)
         {
-            switch identifier
-            {
-            case SegueIdentifier.IdentifierPickFormulaMedicamento:
-                if let tvc = segue.destinationViewController as? PickFormulaMedicamentoViewController
-                {
-                    tvc.createMedicamentoController = self
-                    tvc.formula = formula
-                    if let ppc = tvc.popoverPresentationController
-                    {
-                        ppc.delegate = self
-                    }
-                }
-                case SegueIdentifier.IdentifierPickUnitMedicamento:
-                    if let tvc = segue.destinationViewController as? PickIntervalUnitMedicamentoViewController
-                    {
-                        tvc.createMedicamentoController = self
-                        tvc.unit = periodUnit
-                        if let ppc = tvc.popoverPresentationController
-                        {
-                            ppc.delegate = self
-                        }
-                }
-            default: break
-            }
+            
+            pickFormulaMedicamentoViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            pickFormulaMedicamentoViewController.formula = formula
+            pickFormulaMedicamentoViewController.createMedicamentoController = self
+            let popover = pickFormulaMedicamentoViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.sourceView = sender
+            self.presentViewController(pickFormulaMedicamentoViewController, animated: true, completion: nil)
         }
+    }
+    @IBAction func showIntervalUnitPicker(sender : UIButton)
+    {
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let pickIntervalUnitViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.PickUnitMedicamentoViewId) as? PickIntervalUnitMedicamentoViewController)
+        {
+            
+            pickIntervalUnitViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            pickIntervalUnitViewController.unit = periodUnit
+            pickIntervalUnitViewController.createMedicamentoController = self
+            let popover = pickIntervalUnitViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.sourceView = sender
+            self.presentViewController(pickIntervalUnitViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

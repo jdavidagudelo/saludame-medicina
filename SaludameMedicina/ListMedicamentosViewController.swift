@@ -100,6 +100,7 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
             editItemViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             editItemViewController.medicamento = medicamentos[sender.tag]
             editItemViewController.listMedicamentosViewController = self
+            editItemViewController.sender = sender
             let popover = editItemViewController.popoverPresentationController
             popover?.delegate = self
             popover?.permittedArrowDirections = [.Up, .Down]
@@ -186,17 +187,17 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
         presentViewController(alert, animated: true, completion: nil)
         
     }
-    func showMedication(medication: Medicamento?){
+    func showMedication(medication: Medicamento?, sender: UIView){
         let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
         if let viewMedicationViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.ViewMedicationId) as? ViewMedicationViewController)
         {
             viewMedicationViewController.medication = medication
+            
             viewMedicationViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             let popover = viewMedicationViewController.popoverPresentationController
             popover?.delegate = self
-            popover?.sourceView = labelMenu
-            popover?.sourceRect = CGRect(x: view.center.x, y: 0, width: 0, height: 0)
-            popover?.backgroundColor = UIColor.clearColor()
+            popover?.sourceView = sender
+            popover?.backgroundColor = UIColor.whiteColor()
             self.presentViewController(viewMedicationViewController, animated: true, completion: nil)
         }
     }

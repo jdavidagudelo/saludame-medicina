@@ -15,6 +15,7 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
         static let PickStartTimeViewId = "PickStartTimeScheduleViewController"
         static let CustomToastViewId = "CustomToastUIViewController"
     }
+    let prefixMedicationName = NSLocalizedString("medicationScheduleTitle", tableName: "localization", comment: "Medication schedule title")
     var toastMessage: String? = NSLocalizedString("toastInvalidModificationText", tableName: "localization",
         comment: "Invalid modification of time")
     var managedObjectContext: NSManagedObjectContext!
@@ -45,9 +46,15 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
             tableView?.dataSource = self
         }
     }
+    @IBOutlet weak var labelIndicationsTitle: UILabel!{
+        didSet{
+            labelIndicationsTitle?.text = "\(prefixMedicationName)\(medicamento?.nombre ?? "")"
+        }
+    }
     @IBOutlet weak var labelIndications: UILabel!{
         didSet{
             labelIndications?.text = medicamento?.indicaciones
+            labelIndicationsTitle?.text = "\(prefixMedicationName)\(medicamento?.nombre ?? "")"
         }
     }
     var medicamento: Medicamento?{
@@ -81,7 +88,10 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
     }
     var timesDay : Int {
         get{
-            return Int(24.0/Double((medicamento?.periodicidad) ?? 1.0))
+            if medicamento?.unidadTiempoPeriodicidad == IntervalConstants.HoursInterval{
+                return Int(24.0/Double((medicamento?.periodicidad) ?? 1.0))
+            }
+            return 1
         }
     }
     var goToSleepTime : NSDate?{
@@ -107,7 +117,11 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
         if let m = medicamento
         {
             if startMinuteDay != nil{
-                let values = Scheduler.distibuteOverDay(timesDay, period: Int(m.periodicidad!), wakeUpTime: startMinuteDay!)
+                var period = Int(m.periodicidad ?? 1)
+                if m.unidadTiempoPeriodicidad == IntervalConstants.DaysInterval{
+                    period = 24
+                }
+                let values = Scheduler.distibuteOverDay(timesDay, period: period, wakeUpTime: startMinuteDay!)
                 var currentHours = [String]()
                 var currentTimes = [Int]()
                 for minutes in values{
@@ -184,9 +198,7 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
             pickStartTimeScheduleViewController.scheduleMedicationViewController = self
             let popover = pickStartTimeScheduleViewController.popoverPresentationController
             popover?.delegate = self
-            popover?.permittedArrowDirections = [.Up, .Down]
             popover?.sourceView = sender
-            popover?.sourceRect = sender.bounds
             self.presentViewController(pickStartTimeScheduleViewController, animated: true, completion: nil)
         }
     }
@@ -196,9 +208,12 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
     @IBAction func save(sender: UIButton){
         Evento.archiveEvents(managedObjectContext, medicamento: medicamento)
         for time in times{
-            Evento.createInManagedObjectContext(managedObjectContext, medicamento: medicamento, cycle: EventPeriod.Daily, time: time, type: EventType.Medication, state: EventState.Active)
+            let date = TimeUtil.dateFromMinutesOfDay(time, date: NSDate())
+            Evento.createInManagedObjectContext(managedObjectContext, medicamento: medicamento, cycle: EventPeriod.Daily, time: time, type: EventType.Medication, state: EventState.Active, eventDate: date)
         }
-        updateNotifications()
+        Notifier.updateNotifications(managedObjectContext)
+        Evento.updateEvents(managedObjectContext)
+        Evento.deleteEventsArchivedUntilMinute(managedObjectContext, date: NSDate())
         navigationController?.popViewControllerAnimated(true)
     }
     func showToast(sender : UIButton)
@@ -206,7 +221,6 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
         let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
         if let toastViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.CustomToastViewId) as? CustomToastUIViewController)
         {
-            
             toastViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             toastViewController.currentText = toastMessage
             let popover = toastViewController.popoverPresentationController
@@ -218,37 +232,5 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
             self.presentViewController(toastViewController, animated: true, completion: nil)
         }
     }
-    func createNotification(evento:Evento){
-        let date = TimeUtil.dateFromMinutesOfDay(Int((evento.time) ?? 0), date: NSDate())
-        let notification = UILocalNotification()
-        let uuid : String? = (NSUserDefaults.standardUserDefaults().objectForKey(Notifications.NotificationIdKey) as? String) ?? NSUUID().UUIDString
-        NSUserDefaults.standardUserDefaults().setObject(uuid, forKey: Notifications.NotificationIdKey)
-        notification.alertBody = "Notificacion de medicamento" // text that will be displayed in the notification
-        notification.alertAction = "Abrir" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-        notification.fireDate = date ?? NSDate()
-        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-        print("\(evento.objectID.URIRepresentation())")
-        notification.userInfo = [Notifications.NotificationIdKey: uuid ?? "",
-            Notifications.EventNotificationIdKey: "\(evento.objectID.URIRepresentation())"]
-        notification.category = "MEDICATION_CATEGORY"
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-    }
-    func updateNotifications(){
-        if let events = Evento.getEventsFromMinute(managedObjectContext, minuteOfDay: Int(TimeUtil.dayMinuteFromDate(NSDate()))){
-            if !events.isEmpty
-            {
-                let uuid : String? = (NSUserDefaults.standardUserDefaults().objectForKey(Notifications.NotificationIdKey) as? String) ?? nil
-                if uuid != nil{
-                    for notification in UIApplication.sharedApplication().scheduledLocalNotifications! as [UILocalNotification] {
-                        if (notification.userInfo![Notifications.NotificationIdKey] as? String == uuid) {
-                            UIApplication.sharedApplication().cancelLocalNotification(notification)
-                            break
-                        }
-                    }
-                }
-                let event = events[0]
-                createNotification(event)
-            }
-        }
-    }
+   
 }

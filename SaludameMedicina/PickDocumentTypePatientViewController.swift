@@ -10,9 +10,7 @@ import UIKit
 @IBDesignable
 class PickDocumentTypePatientViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     var patientInfoViewController: PatientInfoViewController?
-    @IBInspectable
-    var popoverHeight : CGFloat = CGFloat(200.0)
-    var documentType :String?{
+   var documentType :String?{
         didSet{
             selectDocumentType(documentType)
         }
@@ -78,16 +76,5 @@ class PickDocumentTypePatientViewController: UIViewController, UIPickerViewDeleg
         let documentType = documentTypes[pickerIdentificationType.selectedRowInComponent(0)]
         patientInfoViewController?.identificationType = documentType
         dismissViewControllerAnimated(true, completion: nil)
-    }
-    override var preferredContentSize: CGSize {
-        get{
-            if  presentingViewController != nil {
-                return CGSize(width: super.preferredContentSize.width, height: popoverHeight)
-            }
-            else{
-                return super.preferredContentSize
-            }
-        }
-        set{super.preferredContentSize = newValue}
     }
 }
