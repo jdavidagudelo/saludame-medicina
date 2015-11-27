@@ -28,10 +28,6 @@ class EventsListViewController: UIViewController, UITableViewDataSource, UIPopov
     func reload(){
         tableView?.reloadData()
     }
-    private struct StoryBoard{
-        static let CustomToastViewId = "CustomToastUIViewController"
-        static let EventEditViewId = "EditEventStateViewController"
-    }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None

@@ -32,26 +32,13 @@ class ViewAppointmentViewController: UIViewController, UITableViewDataSource {
             tableView?.dataSource = self
         }
     }
-   /* override var preferredContentSize: CGSize {
-        get{
-            if  presentingViewController != nil {
-                return CGSize(width: super.preferredContentSize.width, height: popoverHeight)
-            }
-            else{
-                return super.preferredContentSize
-            }
-        }
-        set{super.preferredContentSize = newValue}
-    }*/
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func closeView(sender: UIButton) {

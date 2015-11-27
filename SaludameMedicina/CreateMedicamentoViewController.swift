@@ -11,15 +11,6 @@ import CoreData
 @IBDesignable
 class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
-    private struct SegueIdentifier{
-        static let IdentifierPickFormulaMedicamento = "Pick Formula Medicamento"
-        static let IdentifierPickUnitMedicamento = "Pick Interval Medicamento"
-    }
-    private struct StoryBoard{
-        static let CustomToastViewId = "CustomToastUIViewController"
-        static let PickFormulaMedicamentoViewId = "PickFormulaMedicamentoViewController"
-        static let PickUnitMedicamentoViewId = "PickIntervalUnitMedicamentoViewController"
-    }
     var medicamento: Medicamento? {
         didSet{
             formula = medicamento?.formula

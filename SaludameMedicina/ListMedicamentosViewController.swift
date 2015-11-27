@@ -11,16 +11,7 @@ import CoreData
 
 class ListMedicamentosViewController: UIViewController, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
-    private struct StoryBoard{
-        static let MedicamentoItemOptionsViewId = "MedicamentoItemOptionsViewController"
-        static let ViewMedicationId = "ViewMedicationViewController"
-    }
     
-    private struct SegueIdentifier{
-        static let IdentifierCreateMedicamento : String = "Create Medicamento"
-        static let IdentifierScheduleMedication = "Show Schedule"
-        static let IdentifierEditMedicamento = "Edit Medicamento"
-    }
     @IBOutlet weak var labelMenu : UILabel!
     var managedObjectContext: NSManagedObjectContext!
     var currentMedicamento: Medicamento?

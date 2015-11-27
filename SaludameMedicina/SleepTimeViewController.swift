@@ -44,9 +44,6 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
             }
         }
     }
-    private struct StoryBoard{
-        static let PickSleepTimeId = "PickSleepTimeViewController"
-    }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }

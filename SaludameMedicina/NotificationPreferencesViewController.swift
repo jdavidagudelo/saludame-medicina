@@ -9,12 +9,6 @@
 import UIKit
 
 class NotificationPreferencesViewController: UIViewController, UIPopoverPresentationControllerDelegate {
-
-    private struct StoryBoard{
-        static let PickProtocolPreferenceViewId = "PickProtocolPreferenceViewController"
-        static let PickNicknamePreferenceViewId = "PickNicknameViewController"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

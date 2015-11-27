@@ -14,13 +14,6 @@ class ListAppointmentViewController: UIViewController, UITableViewDataSource, UI
     var colorQuickAction : UIColor!
     var currentAppointment: Appointment?
     
-    private struct StoryBoard{
-        static let AppointmentItemOptionsViewId = "AppointmentOptionsViewController"
-        static let ViewAppointmentId = "ViewAppointmentViewController"
-    }
-    private struct SegueIdentifier{
-        static let IdentifierCreateNewAppointment = "Edit Appointment"
-    }
     var appointments = [Appointment](){
         didSet{
             tableView?.reloadData()

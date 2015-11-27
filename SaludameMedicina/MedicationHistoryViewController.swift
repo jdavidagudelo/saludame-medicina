@@ -65,12 +65,6 @@ class MedicationHistoryViewController: UIViewController, UITableViewDataSource ,
     func reload(){
         tableView?.reloadData()
     }
-    private struct StoryBoard{
-        static let ViewEventViewId = "ViewEventViewController"
-        static let CustomToastViewId = "CustomToastUIViewController"
-        static let PickHistoryDateViewId = "PickHistoryDateViewController"
-    }
-    
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }

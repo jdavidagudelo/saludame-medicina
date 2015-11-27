@@ -85,6 +85,9 @@
 		596BCF0A1BF5258100BE72D3 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCF091BF5258100BE72D3 /* Scheduler.swift */; };
 		596BCF0E1BF534F100BE72D3 /* HourMedicationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BCF0D1BF534F100BE72D3 /* HourMedicationViewCell.swift */; };
 		597758AD1C087A2900121158 /* ViewAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597758AC1C087A2900121158 /* ViewAppointmentViewController.swift */; };
+		597758AF1C08A3C500121158 /* StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597758AE1C08A3C500121158 /* StoryBoard.swift */; };
+		597758B11C08A3F300121158 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597758B01C08A3F300121158 /* SegueIdentifier.swift */; };
+		597758B31C08BC8200121158 /* CustomButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597758B21C08BC8200121158 /* CustomButtonCell.swift */; };
 		597F56F11BF2566800BA83CA /* Medicamento+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56EF1BF2566800BA83CA /* Medicamento+CoreDataProperties.swift */; };
 		597F56F21BF2566800BA83CA /* Medicamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F01BF2566800BA83CA /* Medicamento.swift */; };
 		597F56F41BF28A0600BA83CA /* ListMedicamentosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */; };
@@ -228,6 +231,9 @@
 		596BCF0C1BF52C7C00BE72D3 /* Formatters.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Formatters.playground; sourceTree = "<group>"; };
 		596BCF0D1BF534F100BE72D3 /* HourMedicationViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourMedicationViewCell.swift; sourceTree = "<group>"; };
 		597758AC1C087A2900121158 /* ViewAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAppointmentViewController.swift; sourceTree = "<group>"; };
+		597758AE1C08A3C500121158 /* StoryBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoard.swift; sourceTree = "<group>"; };
+		597758B01C08A3F300121158 /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		597758B21C08BC8200121158 /* CustomButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonCell.swift; sourceTree = "<group>"; };
 		597F56EF1BF2566800BA83CA /* Medicamento+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Medicamento+CoreDataProperties.swift"; path = "../Medicamento+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		597F56F01BF2566800BA83CA /* Medicamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Medicamento.swift; path = ../Medicamento.swift; sourceTree = "<group>"; };
 		597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMedicamentosViewController.swift; sourceTree = "<group>"; };
@@ -414,6 +420,7 @@
 				59A844871C033F3F0065A90E /* EventCell.swift */,
 				590A59C81C073288005ECDF3 /* EventHistoryCell.swift */,
 				590A59D21C079661005ECDF3 /* AppointmentCell.swift */,
+				597758B21C08BC8200121158 /* CustomButtonCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -487,6 +494,8 @@
 				592AE7931BFCBD5500B8F22B /* GenreId.swift */,
 				592AE7B41BFD1F2A00B8F22B /* NotificationPreferences.swift */,
 				592C2DC61C00B99B0089B02B /* AdherenceLevel.swift */,
+				597758AE1C08A3C500121158 /* StoryBoard.swift */,
+				597758B01C08A3F300121158 /* SegueIdentifier.swift */,
 			);
 			name = constants;
 			sourceTree = "<group>";
@@ -689,6 +698,7 @@
 				59287A931BEE7314009B89C1 /* ViewFormulaViewController.swift in Sources */,
 				592AE78C1BFCB6F300B8F22B /* DayTime.swift in Sources */,
 				59AB26271BEA6329004202B5 /* TratamientoMainViewController.swift in Sources */,
+				597758AF1C08A3C500121158 /* StoryBoard.swift in Sources */,
 				5998BA681BF68C9E007269EC /* IdentificationType.swift in Sources */,
 				5929736B1BDE6DE60040ED95 /* SaludameMedicina.xcdatamodeld in Sources */,
 				5998BA581BF613E8007269EC /* EventState.swift in Sources */,
@@ -710,6 +720,7 @@
 				592AE7AF1BFCF92A00B8F22B /* Specification.swift in Sources */,
 				592973941BDE78EB0040ED95 /* CustomButton.swift in Sources */,
 				5902C5E81BFE1FE900D9839E /* PickDelayIntervalViewController.swift in Sources */,
+				597758B31C08BC8200121158 /* CustomButtonCell.swift in Sources */,
 				592AE7941BFCBD5500B8F22B /* GenreId.swift in Sources */,
 				596BCEF91BF4DF2B00BE72D3 /* SleepTimeViewController.swift in Sources */,
 				592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */,
@@ -734,6 +745,7 @@
 				5902C5F21BFE5E2A00D9839E /* DoseInventory.swift in Sources */,
 				596BCEFE1BF4E69200BE72D3 /* SleepPreferences.swift in Sources */,
 				590A59DB1C07B6A3005ECDF3 /* AppointmentOptionsViewController.swift in Sources */,
+				597758B11C08A3F300121158 /* SegueIdentifier.swift in Sources */,
 				59D2FB3A1BF3F76B005AE72D /* CustomToastUIViewController.swift in Sources */,
 				5998BA5E1BF638F6007269EC /* ItemInfoViewCell.swift in Sources */,
 				5998BA6C1BF697CB007269EC /* PickBirthDateViewController.swift in Sources */,

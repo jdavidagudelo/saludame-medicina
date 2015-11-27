@@ -40,10 +40,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         return UIModalPresentationStyle.None
     }
     var managedObjectContext: NSManagedObjectContext!
-    private struct SegueIdentifier{
-        static let IdentifierShowTratamiento = "Show Tratamiento"
-        static let IdentifierShowDiary = "Show Diary"
-    }
+    
     override func viewDidLoad() {
     
         buttonCurrentAction?.backgroundColor = buttonCurrentAction?.backgroundColorDefault
@@ -63,11 +60,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     @IBAction func showTratamiento(sender: CustomButton)
     {
         performSegueWithIdentifier(SegueIdentifier.IdentifierShowTratamiento, sender: sender)
-    }
-    private struct StoryBoard{
-        static let AdherenceLevelViewId = "AdherenceLevelViewController"
-        static let ViewMedicationId = "ViewMedicationViewController"
-        static let ViewAppointmentId = "ViewAppointmentViewController"
     }
     @IBAction func showMedicationaction(sender: UIButton){
         if event?.medicamento != nil{

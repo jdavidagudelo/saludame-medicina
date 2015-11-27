@@ -11,10 +11,6 @@ import CoreData
 
 class ScheduleMedicationViewController: UIViewController, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
-    private struct StoryBoard{
-        static let PickStartTimeViewId = "PickStartTimeScheduleViewController"
-        static let CustomToastViewId = "CustomToastUIViewController"
-    }
     let prefixMedicationName = NSLocalizedString("medicationScheduleTitle", tableName: "localization", comment: "Medication schedule title")
     var toastMessage: String? = NSLocalizedString("toastInvalidModificationText", tableName: "localization",
         comment: "Invalid modification of time")
@@ -40,7 +36,6 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
             }
         }
     }
-    var df = NSDateFormatter()
     @IBOutlet weak var tableView: UITableView!{
         didSet{
             tableView?.dataSource = self
@@ -102,10 +97,9 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
     var wakeUpTime: NSDate?{
         
         get{
-            df.dateFormat = "hh:mm a"
             if let dateString = NSUserDefaults.standardUserDefaults().objectForKey(SleepPreferences.WakeUpTimePreferenceKey) as? String
             {
-                if let date = df.dateFromString(dateString)
+                if let date = TimeUtil.getTimeFromString(dateString)
                 {
                     return date
                 }

@@ -18,11 +18,6 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
     let birthDateToast = NSLocalizedString("birthDateToast", tableName: "localization",
         comment: "Info about the birth date of the patient")
     
-    private struct StoryBoard{
-        static let CustomToastViewId = "CustomToastUIViewController"
-        static let PickBirthDateViewId = "PickBirthDateViewController"
-        static let PickDocumentTypeViewId = "PickDocumentTypePatientViewController"
-    }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }

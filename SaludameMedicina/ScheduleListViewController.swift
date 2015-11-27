@@ -11,13 +11,6 @@ import CoreData
 
 class ScheduleListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate
 {
-    
-    private struct SegueIdentifier{
-        static let IdentifierEditScheduleMedication = "Show Edit Schedule Medication"
-    }
-    private struct StoryBoard{
-        static let CustomToastViewId = "CustomToastUIViewController"
-    }
     let toastMessageStateScheduled: String! = NSLocalizedString("toastMessageStateScheduled", tableName: "localization",
         comment: "Medication has already been scheduled") ?? ""
     let toastMessageStateNotScheduled: String! = NSLocalizedString("toastMessageStateNotScheduled", tableName: "localization",

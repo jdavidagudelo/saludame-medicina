@@ -22,10 +22,6 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
     }
     
     @IBOutlet weak var labelMenu: UILabel!
-    private struct StoryBoard{
-        static let FormulaItemOptionsViewId = "FormulaItemOptionsViewController"
-        static let ViewFormulaId = "ViewFormulaViewController"
-    }
     var currentFormula : Formula?
     var formulas = [Formula](){
         didSet{
@@ -36,9 +32,6 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
         return UIModalPresentationStyle.None
     }
     var managedObjectContext: NSManagedObjectContext!
-    private struct SegueIdentifier{
-        static let IdentifierCreateNewFormula = "Create New Formula"
-    }
     @IBAction func deleteAll(sender: UIButton)
     {
         let title = NSLocalizedString("deleteFormulasTitle", tableName: "localization",comment: "Warning title")

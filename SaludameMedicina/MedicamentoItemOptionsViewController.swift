@@ -20,10 +20,6 @@ class MedicamentoItemOptionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    private struct SegueIdentifier{
-        static let IdentifierEditMedicamento = "Edit Medicamento"
-        static let IdentifierScheduleMedication = "Show Schedule"
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

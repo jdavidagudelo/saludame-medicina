@@ -52,7 +52,6 @@
 "lostDoseItem2" = "Olvidé los medicamentos";
 "lostDoseItem3" = "No deseo consumir dosis";
 "lostDoseItem4" = "Otro";
-
 "noEventAvailable" = "No hay medicamento para tomar.";
 "eventTodayTitle" = "Hoy";
 "eventTomorrow" = "Mañana";
@@ -84,7 +83,6 @@
 "appointmentDateTitle" = "Fecha: ";
 "appointmentTimeTitle" = "Hora: ";
 "appointmentDescriptionTitle" = "Descripción: ";
-
 "deleteAppointmentsTitle" = "Eliminar ";
 "deleteAppointmentsMessage" = "¿Desea eliminar todas las citas?";
 "deleteAppointmentsCancel" = "No";
@@ -93,7 +91,44 @@
 "deleteAppointmentMessage" = "¿Desea eliminar la cita?";
 "deleteAppointmentCancel" = "No";
 "deleteAppointmentAccept" = "Sí";
-
 "identificationTypeToast" = "Indique el tipo de documento del paciente";
 "patientGenderToast" = "Indique el género del paciente";
 "birthDateToast" = "Seleccione la fecha de nacimiento del paciente";
+"dosePrefix" = "Dosis: ";
+"patientDefaultName" = "Paciente";
+
+
+
+
+
+"registerFormulasTitle" = "Registrar";
+"registerFormulasDescription" = "Gestionar las fórmulas médicas";
+"formulasTitle" = "Fórmulas médicas";
+"formulasDescription" = "Consulte y modifique fórmulas médicas";
+"medicationsTitle" = "Medicamentos";
+"medicationsDescription" = "Consulte y modifique los medicamentos";
+"scheduleTitle" = "Horarios de toma de medicamentos";
+"scheduleDescription" = "Modifique los horarios en los que toma los medicamentos";
+"devicesTitle" = "Dispositivos";
+"devicesDescription" = "Gestionar dispositivos";
+"patientInfoTitle" = "Información del Paciente";
+"patientInfoDescription" = "Ingrese sus datos personales";
+"sleepTimeTitle" = "Horarios de sueño";
+"sleepTimeDescription" = "¿A qué horas me acuesto y me levanto?";
+"companionInfoTitle" = "Información del cuidador";
+"companionInfoDescription" = "Ingrese los datos de su cuidador";
+"alarmTitle" = "Preferencias Alarma";
+"alarmDescription" = "Modifique la manera en que llegan las nofificaciones";
+"messagesTitle" = "Preferencias Mensajes";
+"messagesDescription" = "Modifique cómo desea que le traten";
+"notificationsCompanionTitle" = "Notificaciones Cuidador";
+"notificationsCompanionDescription" = "Elija como se le envia la información al cuidador";
+"appointmentsPreferencesTitle" = "Preferencias Citas";
+"appointmentsPreferencesDescription" = "Indique en que momento recordarle las citas";
+"dailyRecordTitle" = "Recuento del día";
+"dailyRecordDescription" = "Consulte si ya tomo la medicación";
+"appointmentsTitle" = "Citas Médicas";
+"appointmentsDescription" = "Organice las citas médicas";
+"historicTitle" = "Historiales";
+"historicDescription" = "Consulte como le ha ido en su tratamiento";
+

@@ -59,9 +59,6 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
     }
     var managedObjectContext: NSManagedObjectContext!
     
-    private struct StoryBoard{
-        static let PickAppointmentDateViewId = "PickAppointmentDateViewController"
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext

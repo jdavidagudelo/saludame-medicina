@@ -25,9 +25,6 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
         textField.resignFirstResponder()
         return true
     }
-    private struct StoryBoard{
-        static let CustomToastViewId = "CustomToastUIViewController"
-    }
     private func showToast(text: String, sender : UIView)
     {
         let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
@@ -76,9 +73,6 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     @IBOutlet weak var labelInstitution: UILabel!
     @IBOutlet weak var labelNumberFormula: UILabel!
     var managedObjectContext: NSManagedObjectContext!
-    private struct SegueIdentifier{
-        static let IdentifierPickDateFormula = "Pick Formula Date"
-    }
     @IBAction func cancel(sender: UIButton){
         navigationController?.popViewControllerAnimated(true)
     }

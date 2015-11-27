@@ -9,16 +9,13 @@
 import UIKit
 import CoreData
 class NotificationMedicationViewController: UIViewController, UIPopoverPresentationControllerDelegate {
-    struct SegueIdentifier{
-        static let IdentifierPickDelayInterval = "Show Delay Interval Picker"
-        static let IdentifierPickLostDoseCause = "Show Lost Dose Picker"
-    }
-    private struct StoryBoard{
-        static let PickDelayIntervalViewId = "PickDelayIntervalViewController"
-        static let PickLostDoseCauseViewId = "PickLostDoseCauseViewController"
-    }
+   
     var cancelled: Bool = false
     @IBInspectable var notificationTimeSeconds = 60
+    let dosePrefix = NSLocalizedString("dosePrefix", tableName: "localization",
+        comment: "The dose prefix")
+    let patientDefaultName = NSLocalizedString("patientDefaultName", tableName: "localization",
+        comment: "The patient default name")
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
@@ -30,7 +27,7 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
     }
     @IBOutlet var labelQuantity: UILabel!{
         didSet{
-            labelQuantity?.text = "Dosis: \(event?.medicamento?.dosis ?? 0)"
+            labelQuantity?.text = "\(dosePrefix)\(event?.medicamento?.dosis ?? 0)"
         }
     }
     var managedObjectContext: NSManagedObjectContext!{
@@ -70,7 +67,7 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
     var event : Evento?{
         didSet{
             labelMedication?.text = event?.medicamento?.nombre
-            labelQuantity?.text = "Dosis: \(event?.medicamento?.dosis ?? 0)"
+            labelQuantity?.text = "\(dosePrefix)\(event?.medicamento?.dosis ?? 0)"
             cancelled = false
             let time: Int64 = Int64(UInt64(notificationTimeSeconds) * NSEC_PER_SEC)
             
@@ -142,7 +139,7 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
                         patientName = "\(patientName) \(nickname)"
                     }
                     else{
-                        patientName = "\(patientName) Paciente"
+                        patientName = "\(patientName) \(patientDefaultName)"
                     }
                 }
                 else if referenceName?.parameterId == PatientNameParameter.Names
