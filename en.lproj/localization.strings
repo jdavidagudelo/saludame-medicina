@@ -133,3 +133,4 @@
 "pickAppointmentTimeTitle" = "Apointment time";
 "eventNotificationBody" = "Remember to take your dose of ";
 "eventNotificationAction" = "Say if you take your medication";
+"requiredPatientInfoText" = "Debe registrar primero un paciente. Para ello diríjase a Paciente -> Información Paciente";

@@ -201,13 +201,13 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
     }
     @IBAction func save(sender: UIButton){
         Evento.archiveEvents(managedObjectContext, medicamento: medicamento)
+        Evento.deleteEventsArchivedUntilMinute(managedObjectContext, date: NSDate(), startDate: TimeUtil.getTodayStart(), endDate: NSDate())
         for time in times{
             let date = TimeUtil.dateFromMinutesOfDay(time, date: NSDate())
             Evento.createInManagedObjectContext(managedObjectContext, medicamento: medicamento, cycle: EventPeriod.Daily, time: time, type: EventType.Medication, state: EventState.Active, eventDate: date)
         }
         Notifier.updateNotifications(managedObjectContext)
         Evento.updateEvents(managedObjectContext)
-        Evento.deleteEventsArchivedUntilMinute(managedObjectContext, date: NSDate())
         navigationController?.popViewControllerAnimated(true)
     }
     func showToast(sender : UIButton)

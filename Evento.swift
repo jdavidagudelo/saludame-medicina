@@ -137,11 +137,26 @@ class Evento: NSManagedObject {
             updateNextEvent(moc, event: event)
         }
     }
-    class func deleteEventsArchivedUntilMinute(moc: NSManagedObjectContext, date: NSDate!){
-        for event in getEventsUntilMinute(moc, date: date) ?? []{
+    class func deleteEventsArchivedUntilMinute(moc: NSManagedObjectContext, date: NSDate!, startDate: NSDate!, endDate: NSDate!){
+        for event in getEventsArchivedUntilMinute(moc, date: date) ?? []{
             event.state = EventState.Deleted
         }
         save(moc)
+    }
+    class func getEventsArchivedBetween(moc: NSManagedObjectContext, startDate: NSDate!, endDate: NSDate!)->[Evento]?{
+        let fetchRequest = NSFetchRequest(entityName: "Evento")
+        let predicates = [NSPredicate(format:"eventDate < %@", endDate), NSPredicate(format:"eventDate > %@", startDate),
+            NSPredicate(format: "state == %@", EventState.Archived), NSPredicate(format: "response == %@", EventAnswer.Pending)]
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        fetchRequest.predicate = compoundPredicate
+        do{
+            var result =  try moc.executeFetchRequest(fetchRequest) as? [Evento]
+            result?.sortInPlace(){e1,e2 in e1.eventDate!.compare(e2.eventDate!) == .OrderedAscending}
+            return result
+        }
+        catch{
+            return []
+        }
     }
     class func getEventsArchivedUntilMinute(moc: NSManagedObjectContext, date: NSDate!)->[Evento]?{
         let fetchRequest = NSFetchRequest(entityName: "Evento")

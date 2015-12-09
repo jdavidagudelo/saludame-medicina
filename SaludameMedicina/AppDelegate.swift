@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Evento.updateEvents(self.managedObjectContext)
             Notifier.updateNotifications(self.managedObjectContext)
         }
-        print("APP LAUNCHED")
         return true
     }
     func loadSpecifications(){

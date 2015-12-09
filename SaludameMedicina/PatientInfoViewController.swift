@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-class PatientInfoViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class PatientInfoViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate {
     
     var managedObjectContext: NSManagedObjectContext!
     let identificationTypeToast = NSLocalizedString("identificationTypeToast", tableName: "localization",
@@ -66,16 +66,19 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
     }
     @IBOutlet weak var textFieldIdentification: UITextField!{
         didSet{
+            textFieldIdentification?.delegate = self
             textFieldIdentification?.text = patient?.identification ?? ""
         }
     }
     @IBOutlet weak var textFieldName: UITextField!{
         didSet{
+            textFieldName?.delegate = self
             textFieldName?.text = patient?.name ?? ""
         }
     }
     @IBOutlet weak var textFieldLastName: UITextField!{
         didSet{
+            textFieldLastName?.delegate = self
             textFieldLastName?.text = patient?.lastName ?? ""
         }
     }
@@ -199,5 +202,12 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
             popover?.backgroundColor = UIColor.whiteColor()
             self.presentViewController(pickDocumentTypePatientViewController, animated: true, completion: nil)
         }
+    }
+    func textViewDidEndEditing(textView: UITextView) {
+        textView.resignFirstResponder()
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

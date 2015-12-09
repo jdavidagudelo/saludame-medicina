@@ -50,6 +50,14 @@ class Patient: NSManagedObject {
         }
         return nil
     }
+    class func testPatient(moc: NSManagedObjectContext) -> Bool{
+        if let patient = getPatient(moc){
+            return !(patient.identification?.isEmpty ?? true) && !(patient.identificationType?.isEmpty ?? true) &&
+                !(patient.name?.isEmpty ?? true) && !(patient.lastName?.isEmpty ?? true) && !(patient.sex?.isEmpty ?? true) &&
+                patient.birthDate != nil
+        }
+        return false
+    }
     class func createInManagedObjectContext(moc: NSManagedObjectContext,
         identificationType: String?,
         identification: String?,

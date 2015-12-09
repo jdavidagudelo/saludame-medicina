@@ -14,6 +14,8 @@ import AudioToolbox
 class DashboardViewController: UIViewController, UIPopoverPresentationControllerDelegate, AVAudioPlayerDelegate {
     @IBOutlet weak var buttonCurrentAction: CustomButton!
     @IBOutlet weak var buttonNewAppointment: CustomButton!
+    let requiredText = NSLocalizedString("requiredPatientInfoText", tableName: "localization",comment: "Required patient information text")
+
     @IBOutlet weak var labelAppointment: UILabel!{
         didSet{
             if appointment != nil{
@@ -49,7 +51,22 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
             }
         }
     }
-    
+    private func showToast(text: String, sender : UIView)
+    {
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let toastViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.CustomToastViewId) as? CustomToastUIViewController)
+        {
+            
+            toastViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            toastViewController.currentText = text
+            let popover = toastViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.permittedArrowDirections = [.Up, .Down]
+            popover?.sourceView = sender
+            popover?.backgroundColor = UIColor.blackColor()
+            self.presentViewController(toastViewController, animated: true, completion: nil)
+        }
+    }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
@@ -74,11 +91,29 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         self.updateViewConstraints()
     }
     @IBAction func showDiary(sender: UIButton){
-        performSegueWithIdentifier(SegueIdentifier.IdentifierShowDiary, sender: sender)
+        if Patient.testPatient(managedObjectContext){
+            performSegueWithIdentifier(SegueIdentifier.IdentifierShowDiary, sender: sender)
+        }
+        else{
+            showToast(requiredText, sender: sender)
+        }
     }
     @IBAction func showTratamiento(sender: CustomButton)
     {
-        performSegueWithIdentifier(SegueIdentifier.IdentifierShowTratamiento, sender: sender)
+        if Patient.testPatient(managedObjectContext){
+            performSegueWithIdentifier(SegueIdentifier.IdentifierShowTratamiento, sender: sender)
+        }
+        else{
+            showToast(requiredText, sender: sender)
+        }
+    }
+    @IBAction func showNotificationPreferences(sender: UIButton){
+        if Patient.testPatient(managedObjectContext){
+            performSegueWithIdentifier(SegueIdentifier.IdentifierShowNotificationPreferences, sender: sender)
+        }
+        else{
+            showToast(requiredText, sender: sender)
+        }
     }
     @IBAction func showMedicationaction(sender: UIButton){
         if event?.medicamento != nil{

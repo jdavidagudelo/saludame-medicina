@@ -32,4 +32,5 @@ struct SegueIdentifier{
     static let IdentifierShowListAppointments = "List Appointmets"
     static let IdentifierCreateNewAppointment = "Edit Appointment"
     static let IdentifierShowListFormulas = "Show List Formulas"
+    static let IdentifierShowNotificationPreferences = "Show Notification Preferences"
 }
