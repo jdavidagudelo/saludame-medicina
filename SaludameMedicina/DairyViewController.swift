@@ -50,6 +50,7 @@ class DairyViewController: UIViewController, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("DiaryCustomButtonCell", forIndexPath: indexPath) as? CustomButtonCell
         cell?.information = customButtons?[indexPath.row]
+        cell?.backgroundColor = UIColor.clearColor()
         return cell!
     }
     

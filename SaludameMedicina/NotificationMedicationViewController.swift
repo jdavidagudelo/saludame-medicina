@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreData
+import AVFoundation
+
 class NotificationMedicationViewController: UIViewController, UIPopoverPresentationControllerDelegate {
    
     var cancelled: Bool = false
+    var alarmSoundCode = 1005
     @IBInspectable var notificationTimeSeconds = 60
     let dosePrefix = NSLocalizedString("dosePrefix", tableName: "localization",
         comment: "The dose prefix")
@@ -84,6 +87,7 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         Medicamento.validateMedicationEnded(managedObjectContext, medicamento: event?.medicamento)
         Notifier.updateNotifications(managedObjectContext)
+      
     }
     
     override func didReceiveMemoryWarning() {

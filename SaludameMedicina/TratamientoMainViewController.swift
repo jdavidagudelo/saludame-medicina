@@ -35,10 +35,7 @@ class TratamientoMainViewController: UIViewController, UITableViewDataSource {
     }
     @IBOutlet var tableView: UITableView!{
         didSet{
-            let separator = UIView(frame: CGRectZero)
             tableView?.dataSource = self
-            tableView?.tableFooterView = separator
-            tableView?.tableHeaderView = separator
         }
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -55,6 +52,7 @@ class TratamientoMainViewController: UIViewController, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("TratamientoCustomButtonCell", forIndexPath: indexPath) as? CustomButtonCell
         cell?.information = customButtons?[indexPath.row]
+        cell?.backgroundColor = UIColor.clearColor()
         return cell!
     }
     

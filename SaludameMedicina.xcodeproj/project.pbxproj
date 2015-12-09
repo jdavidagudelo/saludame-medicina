@@ -92,6 +92,7 @@
 		597F56F21BF2566800BA83CA /* Medicamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F01BF2566800BA83CA /* Medicamento.swift */; };
 		597F56F41BF28A0600BA83CA /* ListMedicamentosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */; };
 		597F56F61BF298DE00BA83CA /* CreateMedicamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597F56F51BF298DE00BA83CA /* CreateMedicamentoViewController.swift */; };
+		598392A11C0F8C5400187BA5 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 598392A01C0F8C5400187BA5 /* alarm.mp3 */; };
 		5998BA541BF60CA3007269EC /* PickStartTimeScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA531BF60CA3007269EC /* PickStartTimeScheduleViewController.swift */; };
 		5998BA561BF6138E007269EC /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA551BF6138E007269EC /* EventType.swift */; };
 		5998BA581BF613E8007269EC /* EventState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998BA571BF613E8007269EC /* EventState.swift */; };
@@ -238,6 +239,7 @@
 		597F56F01BF2566800BA83CA /* Medicamento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Medicamento.swift; path = ../Medicamento.swift; sourceTree = "<group>"; };
 		597F56F31BF28A0600BA83CA /* ListMedicamentosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMedicamentosViewController.swift; sourceTree = "<group>"; };
 		597F56F51BF298DE00BA83CA /* CreateMedicamentoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMedicamentoViewController.swift; sourceTree = "<group>"; };
+		598392A01C0F8C5400187BA5 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = alarm.mp3; path = "../../../../Downloads/1753-Alien_Siren-KevanGC-610357990/mp3/alarm.mp3"; sourceTree = "<group>"; };
 		5998BA531BF60CA3007269EC /* PickStartTimeScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickStartTimeScheduleViewController.swift; sourceTree = "<group>"; };
 		5998BA551BF6138E007269EC /* EventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
 		5998BA571BF613E8007269EC /* EventState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventState.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 		592973611BDE6DE60040ED95 /* SaludameMedicina */ = {
 			isa = PBXGroup;
 			children = (
+				5983929F1C0F8C4200187BA5 /* sounds */,
 				592AE7881BFCAA8E00B8F22B /* json */,
 				596BCF0B1BF52C6000BE72D3 /* playgrounds */,
 				596BCF061BF5174800BE72D3 /* util */,
@@ -520,6 +523,14 @@
 			name = playgrounds;
 			sourceTree = "<group>";
 		};
+		5983929F1C0F8C4200187BA5 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				598392A01C0F8C5400187BA5 /* alarm.mp3 */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -588,7 +599,7 @@
 				TargetAttributes = {
 					5929735E1BDE6DE60040ED95 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = U9F5EB5RKY;
+						DevelopmentTeam = 3CK9N35Q73;
 					};
 					592973751BDE6DE60040ED95 = {
 						CreatedOnToolsVersion = 7.1;
@@ -633,6 +644,7 @@
 				592973681BDE6DE60040ED95 /* Main.storyboard in Resources */,
 				592AE79A1BFCBF3700B8F22B /* reference_names_patient.json in Resources */,
 				592AE7981BFCBEB200B8F22B /* prefixes.json in Resources */,
+				598392A11C0F8C5400187BA5 /* alarm.mp3 in Resources */,
 				592AE7A91BFCF42700B8F22B /* specifications.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -916,12 +928,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SaludameMedicina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.artica.udea.iys.saludame.medicina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artica.udea.iys.saludame.medicina.v1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -931,13 +944,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SaludameMedicina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.artica.udea.iys.saludame.medicina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artica.udea.iys.saludame.medicina.v1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Evento.updateEvents(self.managedObjectContext)
             Notifier.updateNotifications(self.managedObjectContext)
         }
-        
+        print("APP LAUNCHED")
         return true
     }
     func loadSpecifications(){
@@ -101,19 +101,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+
    func application(application: UIApplication,
         didReceiveLocalNotification notification: UILocalNotification)
    {
+        UIApplication.sharedApplication().cancelLocalNotification(notification)
         let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = mainStoryboardIpad.instantiateViewControllerWithIdentifier("NotificationMedicationViewController") as? NotificationMedicationViewController
         if let info = notification.userInfo{
             let eventId = NSURL(string: (info[Notifications.EventNotificationIdKey] as? String) ?? "")
-            print ("eventId = \(eventId)")
             initialViewController?.eventId = eventId
+            if eventId != nil{
+                if let id = managedObjectContext.persistentStoreCoordinator?.managedObjectIDForURIRepresentation(eventId!)
+                {
+                    let events = Evento.getEventsSameDate(managedObjectContext, id: id)
+                    if events.isEmpty{
+                        self.window?.makeKeyAndVisible()
+                        return
+                    }
+                }
+            }
         }
         if let root = self.window?.rootViewController {
             if initialViewController != nil{
-                Notifier.cancelAllNotifications()
                 initialViewController!.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
                 root.presentViewController(initialViewController!, animated: true, completion: nil)
             }

@@ -129,3 +129,7 @@
 "appointmentsDescription" = "Organice las citas médicas";
 "historicTitle" = "Historiales";
 "historicDescription" = "Consulte como le ha ido en su tratamiento";
+"pickAppointmentDateTitle" = "Appointment date";
+"pickAppointmentTimeTitle" = "Apointment time";
+"eventNotificationBody" = "Remember to take your dose of ";
+"eventNotificationAction" = "Say if you take your medication";

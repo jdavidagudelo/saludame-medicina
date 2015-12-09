@@ -13,13 +13,13 @@ class Notifier{
     class func createNotification(evento:Evento){
         let date = TimeUtil.dateFromMinutesOfDay(Int((evento.time) ?? 0), date: NSDate())
         let notification = UILocalNotification()
-        let uuid : String? = (NSUserDefaults.standardUserDefaults().objectForKey(Notifications.NotificationIdKey) as? String) ?? NSUUID().UUIDString
-        NSUserDefaults.standardUserDefaults().setObject(uuid, forKey: Notifications.NotificationIdKey)
-        notification.alertBody = "Notificacion de medicamento" // text that will be displayed in the notification
-        notification.alertAction = "Abrir" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        let uuid = "\(evento.objectID.URIRepresentation())"
+        //NSUserDefaults.standardUserDefaults().setObject(uuid, forKey: Notifications.NotificationIdKey)
+        notification.alertBody = "\(NSLocalizedString("eventNotificationBody", tableName: "localization",comment: "Event notification title"))\(evento.medicamento?.nombre ?? "")"
+        notification.alertAction = NSLocalizedString("eventNotificationAction", tableName: "localization",comment: "Event notification action")
         notification.fireDate = date ?? NSDate()
+        notification.applicationIconBadgeNumber = 1
         notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-        print("\(evento.objectID.URIRepresentation())")
         notification.userInfo = [Notifications.NotificationIdKey: uuid ?? "",
             Notifications.EventNotificationIdKey: "\(evento.objectID.URIRepresentation())"]
         notification.category = "MEDICATION_CATEGORY"
@@ -29,12 +29,10 @@ class Notifier{
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
-    class func cancelEventNotification(){
-        let uuid : String? = (NSUserDefaults.standardUserDefaults().objectForKey(Notifications.NotificationIdKey) as? String) ?? nil
-        print("the uuid = \(uuid)")
+    class func cancelEventNotification(event: Evento){
+        let uuid : String? = "\(event.objectID.URIRepresentation())"
         if uuid != nil{
             for notification in UIApplication.sharedApplication().scheduledLocalNotifications! as [UILocalNotification] {
-                print (notification.userInfo![Notifications.NotificationIdKey] as? String == uuid)
                 if (notification.userInfo![Notifications.NotificationIdKey] as? String == uuid) {
                     UIApplication.sharedApplication().cancelLocalNotification(notification)
                 }
@@ -46,7 +44,7 @@ class Notifier{
         if var events = Evento.getEventsFromMinute(managedObjectContext, date: NSDate()){
             if !events.isEmpty
             {
-                cancelEventNotification()
+                //cancelEventNotification()
                 let event = events[0]
                 createNotification(event)
             }

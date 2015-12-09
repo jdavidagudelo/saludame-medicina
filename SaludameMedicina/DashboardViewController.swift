@@ -8,7 +8,10 @@
 
 import UIKit
 import CoreData
-class DashboardViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+import AVFoundation
+import AudioToolbox
+
+class DashboardViewController: UIViewController, UIPopoverPresentationControllerDelegate, AVAudioPlayerDelegate {
     @IBOutlet weak var buttonCurrentAction: CustomButton!
     @IBOutlet weak var buttonNewAppointment: CustomButton!
     @IBOutlet weak var labelAppointment: UILabel!{
@@ -25,6 +28,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
             }
         }
     }
+    
     @IBOutlet var labelEventText: UILabel!{
         didSet{
             labelEventText?.text = event?.description ?? NSLocalizedString("noEventAvailable", tableName: "localization",comment: "No event available information")
@@ -33,6 +37,16 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     private var event: Evento?{
         didSet{
             labelEventText?.text = event?.description ?? NSLocalizedString("noEventAvailable", tableName: "localization",comment: "No event available information")
+            let events = Evento.getEventsWithDate(managedObjectContext, date: NSDate())
+            if !events.isEmpty{
+                let e = events[0]
+                let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = mainStoryboardIpad.instantiateViewControllerWithIdentifier("NotificationMedicationViewController") as? NotificationMedicationViewController
+                initialViewController?.eventId = NSURL(fileURLWithPath: "\(e.objectID.URIRepresentation())")
+                if initialViewController != nil{
+                    presentViewController(initialViewController!, animated: true, completion: nil)
+                }
+            }
         }
     }
     
@@ -48,11 +62,16 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         Evento.updateEvents(managedObjectContext)
         Notifier.updateNotifications(managedObjectContext)
+       
+       
     }
+    var audioPlayer:AVAudioPlayer!
+  
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         event = Evento.getNextEvent(managedObjectContext)
         appointment = Appointment.getNextAppointment(managedObjectContext)
+        self.updateViewConstraints()
     }
     @IBAction func showDiary(sender: UIButton){
         performSegueWithIdentifier(SegueIdentifier.IdentifierShowDiary, sender: sender)
@@ -109,5 +128,17 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
             self.presentViewController(viewMedicationViewController, animated: true, completion: nil)
         }
     }
- 
+    @IBAction func playSound(sender: UIButton) {
+        let fileUrl = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/shake.caf")
+        //let audioFilePath = NSBundle.mainBundle().pathForResource("alarm", ofType: "mp3")
+        var mySound: SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(fileUrl, &mySound)
+        // Play
+        AudioServicesPlaySystemSound(mySound);
+        
+    }
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        print("Playing is over")
+        audioPlayer = nil
+    }
 }

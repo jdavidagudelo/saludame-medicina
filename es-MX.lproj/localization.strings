@@ -132,3 +132,7 @@
 "historicTitle" = "Historiales";
 "historicDescription" = "Consulte como le ha ido en su tratamiento";
 
+"pickAppointmentDateTitle" = "Fecha de la cita";
+"pickAppointmentTimeTitle" = "Hora de la cita";
+"eventNotificationBody" = "Recuerde tomar su dosis de ";
+"eventNotificationAction" = "Indicar si ya tomó el medicamento";

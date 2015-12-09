@@ -63,7 +63,7 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
     }
     @IBAction func showCreateTratamiento(sender: UIButton)
     {
-        performSegueWithIdentifier(SegueIdentifier.IdentifierCreateMedicamento, sender: sender)
+        performSegueWithIdentifier(SegueIdentifier.IdentifierEditMedicamento, sender: sender)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

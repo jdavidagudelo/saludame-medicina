@@ -43,7 +43,7 @@ class ViewFormulaViewController: UIViewController, UITableViewDataSource {
             return ""
         }
     }
-    override var preferredContentSize: CGSize {
+   /* override var preferredContentSize: CGSize {
         get{
             if  presentingViewController != nil {
                 return CGSize(width: super.preferredContentSize.width, height: popoverHeight)
@@ -53,7 +53,7 @@ class ViewFormulaViewController: UIViewController, UITableViewDataSource {
             }
         }
         set{super.preferredContentSize = newValue}
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-class CreateAppointmentViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class CreateAppointmentViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate {
     var appointment: Appointment?{
         didSet{
             textFieldDoctorName?.text = appointment?.doctorName
@@ -17,16 +17,20 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
             date = appointment?.date ?? NSDate()
         }
     }
+    let pickDateTitle = NSLocalizedString("pickAppointmentDateTitle", tableName: "localization",comment: "Pick Appointment Date Title")
+    let pickTimeTitle = NSLocalizedString("pickAppointmentTimeTitle", tableName: "localization",comment: "PickAppointment Time Title")
     @IBOutlet weak var labelDoctorName: UILabel!
     @IBOutlet weak var labelPlace: UILabel!
     @IBOutlet weak var textFieldDoctorName: UITextField!{
         didSet{
+            textFieldDoctorName?.delegate = self
             textFieldDoctorName?.text = appointment?.doctorName
         }
     }
     @IBOutlet weak var textFieldPlace: UITextField!{
         didSet{
             textFieldPlace?.text = appointment?.place
+            textFieldPlace?.delegate = self
         }
     }
     @IBOutlet weak var labelDate: UILabel!{
@@ -55,6 +59,7 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
     @IBOutlet weak var textFieldDescription: UITextField!{
         didSet{
             textFieldDescription?.text = appointment?.descriptionText
+            textFieldDescription?.delegate = self
         }
     }
     var managedObjectContext: NSManagedObjectContext!
@@ -112,18 +117,19 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
         navigationController?.popViewControllerAnimated(true)
     }
     @IBAction func showDatePicker(sender: UIButton){
-        showDatePicker(sender, date: date ?? NSDate(), saveDate: saveDate, datePickerMode: UIDatePickerMode.Date)
+        showDatePicker(sender, date: date ?? NSDate(), saveDate: saveDate, datePickerMode: UIDatePickerMode.Date, title: pickDateTitle)
     }
     @IBAction func showTimePicker(sender: UIButton){
-        showDatePicker(sender, date: date ?? NSDate(), saveDate: saveTime, datePickerMode: UIDatePickerMode.Time)
+        showDatePicker(sender, date: date ?? NSDate(), saveDate: saveTime, datePickerMode: UIDatePickerMode.Time, title: pickTimeTitle)
     }
-    func showDatePicker(sender: UIButton, date: NSDate, saveDate: ((date: NSDate) -> Void)?, datePickerMode: UIDatePickerMode)
+    func showDatePicker(sender: UIButton, date: NSDate, saveDate: ((date: NSDate) -> Void)?, datePickerMode: UIDatePickerMode, title: String?)
     {
         let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
         if let pickAppointmentDateViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.PickAppointmentDateViewId) as? PickAppointmentDateViewController)
         {
             pickAppointmentDateViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             pickAppointmentDateViewController.date = date
+            pickAppointmentDateViewController.titleText = title
             pickAppointmentDateViewController.saveDate = saveDate
             pickAppointmentDateViewController.datePickerMode = datePickerMode
             let popover = pickAppointmentDateViewController.popoverPresentationController
@@ -132,5 +138,9 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
             popover?.backgroundColor = UIColor.whiteColor()
             self.presentViewController(pickAppointmentDateViewController, animated: true, completion: nil)
         }
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
