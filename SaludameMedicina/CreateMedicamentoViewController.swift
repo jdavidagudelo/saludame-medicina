@@ -48,9 +48,9 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
     
     @IBOutlet weak var textFieldPeriod: UITextField!{
         didSet{
+            textFieldPeriod?.delegate = self
             if let periodicidad = medicamento?.periodicidad{
                 textFieldPeriod?.text = "\(periodicidad)"
-                textFieldPeriod?.delegate = self
             }
         }
     }
@@ -71,6 +71,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
     
     @IBOutlet weak var textFieldDuration: UITextField!{
         didSet{
+            
             if let duracion = medicamento?.duracion{
                 textFieldDuration?.text = "\(duracion)"
             }
@@ -293,6 +294,21 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        switch textField{
+            case textFieldName:
+                textFieldPresentation?.becomeFirstResponder()
+            case textFieldPresentation:
+                textFieldDose?.becomeFirstResponder()
+            case textFieldDose:
+                textFieldPeriod?.becomeFirstResponder()
+            case textFieldPeriod:
+                textFieldDuration?.becomeFirstResponder()
+            case textFieldDuration:
+                textFieldRecommendations?.becomeFirstResponder()
+            case textFieldRecommendations:
+                fallthrough
+            default: break
+        }
         return true
     }
 }

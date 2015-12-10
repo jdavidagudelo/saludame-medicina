@@ -9,10 +9,35 @@
 import UIKit
 
 class NotificationPreferencesViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+    @IBOutlet var labelProtocol: UILabel!{
+        didSet{
+            let currentProtocol : NSNumber! = (NSUserDefaults.standardUserDefaults().objectForKey(NotificationPreferences.ProtocolPreferenceKey) as? NSNumber)
+            var protocolText : String? = ""
+            switch currentProtocol{
+            case Protocol.Formal:
+                protocolText = Protocol.FormalText
+            case Protocol.Informal:
+                protocolText = Protocol.InformalText
+            case Protocol.Neutral:
+                protocolText = Protocol.NeutralText
+            default: break
+            }
+            labelProtocol?.text = protocolText
+        }
+    }
+    @IBOutlet var labelNickname: UILabel!{
+        didSet{
+            labelNickname?.text = (NSUserDefaults.standardUserDefaults().objectForKey(NotificationPreferences.NicknamePreferenceKey) as? String) ?? ""
+        }
+    }
+    func saveProtocol(protocolText : String?){
+        labelProtocol?.text = protocolText
+    }
+    func saveNickname(nickname: String?){
+        labelNickname?.text = nickname
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -28,6 +53,7 @@ class NotificationPreferencesViewController: UIViewController, UIPopoverPresenta
         if let pickProtocolPreferenceViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.PickProtocolPreferenceViewId) as? PickProtocolPreferenceViewController)
         {
             pickProtocolPreferenceViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            pickProtocolPreferenceViewController.saveProtocol = saveProtocol
             let popover = pickProtocolPreferenceViewController.popoverPresentationController
             popover?.delegate = self
             popover?.sourceView = sender
@@ -41,6 +67,7 @@ class NotificationPreferencesViewController: UIViewController, UIPopoverPresenta
         if let pickNicknameViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.PickNicknamePreferenceViewId) as? PickNicknameViewController)
         {
             pickNicknameViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            pickNicknameViewController.saveNickname = saveNickname
             let popover = pickNicknameViewController.popoverPresentationController
             popover?.delegate = self
             popover?.sourceView = sender

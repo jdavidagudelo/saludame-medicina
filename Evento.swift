@@ -14,6 +14,7 @@ class Evento: NSManagedObject {
     
     class func delete(moc: NSManagedObjectContext, evento: Evento){
         do {
+            Notifier.cancelEventNotification(evento)
             moc.deleteObject(evento)
             try moc.save()
         } catch {
@@ -221,7 +222,7 @@ class Evento: NSManagedObject {
             else{
                 event.state = EventState.Archived
             }
-            
+            Notifier.cancelEventNotification(event)
         }
         save(moc)
     }
@@ -232,6 +233,9 @@ class Evento: NSManagedObject {
             event?.state = EventState.Deleted
         }else{
             event?.state = EventState.Archived
+        }
+        if event != nil{
+            Notifier.cancelEventNotification(event!)
         }
         Evento.save(moc)
     }

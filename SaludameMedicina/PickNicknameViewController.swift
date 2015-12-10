@@ -11,6 +11,7 @@ import UIKit
 class PickNicknameViewController: UIViewController {
     @IBInspectable
     var popoverHeight : CGFloat = CGFloat(200.0)
+    var saveNickname: ((String?) -> Void)?
     @IBOutlet var textFieldNickname: UITextField!{
         didSet{
             textFieldNickname?.text = (NSUserDefaults.standardUserDefaults().objectForKey(NotificationPreferences.NicknamePreferenceKey) as? String) ?? ""
@@ -19,6 +20,7 @@ class PickNicknameViewController: UIViewController {
     @IBAction func save(sender: UIButton){
         NSUserDefaults.standardUserDefaults().setObject(textFieldNickname?.text, forKey: NotificationPreferences.NicknamePreferenceKey)
         dismissViewControllerAnimated(true, completion: nil)
+        saveNickname?(textFieldNickname?.text)
     }
     override var preferredContentSize: CGSize {
         get{

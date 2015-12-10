@@ -9,7 +9,16 @@
 import UIKit
 
 class SleepTimeViewController: UIViewController, UIPopoverPresentationControllerDelegate {
-    var df = NSDateFormatter()
+    @IBOutlet var wakeUpTimeLabel: UILabel!{
+        didSet{
+            wakeUpTimeLabel?.text = TimeUtil.getTimeFormatted(wakeUpTime ?? NSDate())
+        }
+    }
+    @IBOutlet var sleepTimeLabel: UILabel!{
+        didSet{
+            sleepTimeLabel?.text = TimeUtil.getTimeFormatted(sleepTime ?? NSDate())
+        }
+    }
     var sleepTime: NSDate?{
         get{
             if let dateString = NSUserDefaults.standardUserDefaults().objectForKey(SleepPreferences.GoToSleepTimePreferenceKey) as? String
@@ -21,6 +30,7 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
         }
         
         set{
+            sleepTimeLabel?.text = TimeUtil.getTimeFormatted(sleepTime ?? NSDate())
             if let date = newValue{
                 let dateString = TimeUtil.getStringFromTime(date)
                 NSUserDefaults.standardUserDefaults().setObject(dateString, forKey: SleepPreferences.GoToSleepTimePreferenceKey)
@@ -38,6 +48,7 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
         }
         
         set{
+            wakeUpTimeLabel?.text = TimeUtil.getTimeFormatted(wakeUpTime ?? NSDate())
             if let date = newValue{
                 let dateString = TimeUtil.getStringFromTime(date)
                 NSUserDefaults.standardUserDefaults().setObject(dateString, forKey: SleepPreferences.WakeUpTimePreferenceKey)

@@ -8,19 +8,29 @@
 
 import UIKit
 
-class CompanionInfoViewController: UIViewController {
+class CompanionInfoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldName: UITextField!{
         didSet{
+            textFieldName?.delegate = self
             textFieldName?.text = (NSUserDefaults.standardUserDefaults().objectForKey(CompanionPreferences.Name) as? String) ?? ""
         }
     }
+    func textViewDidEndEditing(textView: UITextView) {
+        textView.resignFirstResponder()
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     @IBOutlet weak var textFieldCellPhone: UITextField!{
         didSet{
+            textFieldCellPhone?.delegate = self
             textFieldCellPhone?.text = (NSUserDefaults.standardUserDefaults().objectForKey(CompanionPreferences.Cellphone) as? String) ?? ""
         }
     }
     @IBOutlet weak var textFieldEmail: UITextField!{
         didSet{
+            textFieldEmail?.delegate = self
             textFieldEmail?.text = (NSUserDefaults.standardUserDefaults().objectForKey(CompanionPreferences.Email) as? String) ?? ""
         }
     }

@@ -23,6 +23,9 @@ class Notifier{
         notification.userInfo = [Notifications.NotificationIdKey: uuid ?? "",
             Notifications.EventNotificationIdKey: "\(evento.objectID.URIRepresentation())"]
         notification.category = "MEDICATION_CATEGORY"
+        if evento.medicamento?.unidadTiempoPeriodicidad == IntervalConstants.HoursInterval{
+            notification.repeatInterval = .Day
+        }
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     class func cancelAllNotifications(){

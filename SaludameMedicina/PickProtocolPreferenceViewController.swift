@@ -11,6 +11,10 @@ import UIKit
 class PickProtocolPreferenceViewController: UIViewController {
     @IBInspectable
     var popoverHeight : CGFloat = CGFloat(200.0)
+    var saveProtocol: ((String?) -> Void)?
+    @IBOutlet var labelFormal: UILabel!
+    @IBOutlet var labelInformal: UILabel!
+    @IBOutlet var labelNeutral: UILabel!
     @IBOutlet var switchFormalProtocol: UISwitch!{
         didSet{
             switchFormalProtocol?.on =
@@ -68,8 +72,20 @@ class PickProtocolPreferenceViewController: UIViewController {
         else if switchInformalProtocol?.on ?? false{
             currentProtocol = Protocol.Informal
         }
+        var protocolText : String? = ""
+        switch currentProtocol{
+        case Protocol.Formal:
+            protocolText = Protocol.FormalText
+        case Protocol.Informal:
+            protocolText = Protocol.InformalText
+        case Protocol.Neutral:
+            protocolText = Protocol.NeutralText
+        default: break
+        }
+        saveProtocol?(protocolText)
         NSUserDefaults.standardUserDefaults().setObject(currentProtocol, forKey: NotificationPreferences.ProtocolPreferenceKey)
         dismissViewControllerAnimated(true, completion: nil)
+        
     }
     @IBAction func cancel(sendet: UIButton){
         dismissViewControllerAnimated(true, completion: nil)

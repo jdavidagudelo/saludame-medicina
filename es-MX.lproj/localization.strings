@@ -137,3 +137,7 @@
 "eventNotificationBody" = "Recuerde tomar su dosis de ";
 "eventNotificationAction" = "Indicar si ya tomó el medicamento";
 "requiredPatientInfoText" = "Debe registrar primero un paciente. Para ello diríjase a Paciente -> Información Paciente";
+
+"formalProtocolText" = "Formal";
+"informalProtocolText" = "Informal";
+"neutralProtocolText" = "Neutro";

@@ -14,6 +14,7 @@ import AudioToolbox
 class DashboardViewController: UIViewController, UIPopoverPresentationControllerDelegate, AVAudioPlayerDelegate {
     @IBOutlet weak var buttonCurrentAction: CustomButton!
     @IBOutlet weak var buttonNewAppointment: CustomButton!
+    @IBInspectable var imageNavigationBar: UIImage?
     let requiredText = NSLocalizedString("requiredPatientInfoText", tableName: "localization",comment: "Required patient information text")
 
     @IBOutlet weak var labelAppointment: UILabel!{
@@ -79,6 +80,8 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         Evento.updateEvents(managedObjectContext)
         Notifier.updateNotifications(managedObjectContext)
+        self.navigationController?.navigationBar.translucent = true
+        //navigationController?.navigationBar.setBackgroundImage(imageNavigationBar, forBarMetrics: .Default)
        
        
     }

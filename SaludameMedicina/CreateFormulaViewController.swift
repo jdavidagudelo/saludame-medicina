@@ -23,6 +23,13 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        switch textField{
+        case textFieldInstitution:
+            textFieldNumberFormula?.becomeFirstResponder()
+        case textFieldNumberFormula:
+            textFieldDoctorName?.becomeFirstResponder()
+        default: break
+        }
         return true
     }
     private func showToast(text: String, sender : UIView)

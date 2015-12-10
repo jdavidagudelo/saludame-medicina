@@ -600,6 +600,11 @@
 					5929735E1BDE6DE60040ED95 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 3CK9N35Q73;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					592973751BDE6DE60040ED95 = {
 						CreatedOnToolsVersion = 7.1;
