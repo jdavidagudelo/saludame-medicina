@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func application(application: UIApplication,
         didReceiveLocalNotification notification: UILocalNotification)
    {
-        UIApplication.sharedApplication().cancelLocalNotification(notification)
+        //UIApplication.sharedApplication().cancelLocalNotification(notification)
         let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = mainStoryboardIpad.instantiateViewControllerWithIdentifier("NotificationMedicationViewController") as? NotificationMedicationViewController
         if let info = notification.userInfo{

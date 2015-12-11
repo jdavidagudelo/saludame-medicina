@@ -97,10 +97,6 @@
 "dosePrefix" = "Dosis: ";
 "patientDefaultName" = "Paciente";
 
-
-
-
-
 "registerFormulasTitle" = "Registrar";
 "registerFormulasDescription" = "Gestionar las fórmulas médicas";
 "formulasTitle" = "Fórmulas médicas";

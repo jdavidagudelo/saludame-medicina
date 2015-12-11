@@ -16,7 +16,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     @IBOutlet weak var buttonNewAppointment: CustomButton!
     @IBInspectable var imageNavigationBar: UIImage?
     let requiredText = NSLocalizedString("requiredPatientInfoText", tableName: "localization",comment: "Required patient information text")
-
     @IBOutlet weak var labelAppointment: UILabel!{
         didSet{
             if appointment != nil{
@@ -57,7 +56,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
         if let toastViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.CustomToastViewId) as? CustomToastUIViewController)
         {
-            
             toastViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             toastViewController.currentText = text
             let popover = toastViewController.popoverPresentationController
@@ -74,7 +72,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
-    
         buttonCurrentAction?.backgroundColor = buttonCurrentAction?.backgroundColorDefault
         buttonNewAppointment?.backgroundColor = buttonNewAppointment?.backgroundColorDefault
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+
 class Notifier{
     class func createNotification(evento:Evento){
         let date = TimeUtil.dateFromMinutesOfDay(Int((evento.time) ?? 0), date: NSDate())
@@ -18,7 +19,7 @@ class Notifier{
         notification.alertBody = "\(NSLocalizedString("eventNotificationBody", tableName: "localization",comment: "Event notification title"))\(evento.medicamento?.nombre ?? "")"
         notification.alertAction = NSLocalizedString("eventNotificationAction", tableName: "localization",comment: "Event notification action")
         notification.fireDate = date ?? NSDate()
-        notification.applicationIconBadgeNumber = 1
+        notification.applicationIconBadgeNumber = 0
         notification.soundName = UILocalNotificationDefaultSoundName // play default sound
         notification.userInfo = [Notifications.NotificationIdKey: uuid ?? "",
             Notifications.EventNotificationIdKey: "\(evento.objectID.URIRepresentation())"]
@@ -44,11 +45,9 @@ class Notifier{
     }
     class func updateNotifications(managedObjectContext: NSManagedObjectContext){
         //remaining events this day
-        if var events = Evento.getEventsFromMinute(managedObjectContext, date: NSDate()){
-            if !events.isEmpty
+        if let events = Evento.getEventsFromMinute(managedObjectContext, date: NSDate()){
+            for event in events
             {
-                //cancelEventNotification()
-                let event = events[0]
                 createNotification(event)
             }
         }

@@ -138,8 +138,8 @@ class Evento: NSManagedObject {
             updateNextEvent(moc, event: event)
         }
     }
-    class func deleteEventsArchivedUntilMinute(moc: NSManagedObjectContext, date: NSDate!, startDate: NSDate!, endDate: NSDate!){
-        for event in getEventsArchivedUntilMinute(moc, date: date) ?? []{
+    class func deleteEventsArchivedUntilMinute(moc: NSManagedObjectContext, date: NSDate!, startDate: NSDate!, endDate: NSDate!, medication: Medicamento?){
+        for event in getEventsArchivedUntilMinute(moc, date: date, medication: medication) ?? []{
             event.state = EventState.Deleted
         }
         save(moc)
@@ -159,9 +159,12 @@ class Evento: NSManagedObject {
             return []
         }
     }
-    class func getEventsArchivedUntilMinute(moc: NSManagedObjectContext, date: NSDate!)->[Evento]?{
+    class func getEventsArchivedUntilMinute(moc: NSManagedObjectContext, date: NSDate!, medication: Medicamento?)->[Evento]?{
         let fetchRequest = NSFetchRequest(entityName: "Evento")
-        let predicates = [NSPredicate(format:"eventDate < %@", date), NSPredicate(format: "state == %@", EventState.Archived), NSPredicate(format: "response == %@", EventAnswer.Pending)]
+        var predicates = [NSPredicate(format:"eventDate < %@", date), NSPredicate(format: "state == %@", EventState.Archived), NSPredicate(format: "response == %@", EventAnswer.Pending)]
+        if medication != nil{
+            predicates += [NSPredicate(format:"medicamento == %@", medication!)]
+        }
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         fetchRequest.predicate = compoundPredicate
         do{
