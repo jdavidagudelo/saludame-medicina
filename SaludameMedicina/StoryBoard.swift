@@ -30,4 +30,5 @@ struct StoryBoard{
     static let PickHistoryDateViewId = "PickHistoryDateViewController"
     static let AppointmentItemOptionsViewId = "AppointmentOptionsViewController"
     static let PickAppointmentDateViewId = "PickAppointmentDateViewController"
+    static let AboutViewId = "AboutViewController"
 }

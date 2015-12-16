@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 
 class ListMedicamentosViewController: UIViewController, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
-    
-    
     @IBOutlet weak var labelMenu : UILabel!
     var managedObjectContext: NSManagedObjectContext!
     var currentMedicamento: Medicamento?
@@ -183,7 +181,6 @@ class ListMedicamentosViewController: UIViewController, UITableViewDataSource, U
         if let viewMedicationViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.ViewMedicationId) as? ViewMedicationViewController)
         {
             viewMedicationViewController.medication = medication
-            
             viewMedicationViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             let popover = viewMedicationViewController.popoverPresentationController
             popover?.delegate = self

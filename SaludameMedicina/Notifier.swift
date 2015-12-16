@@ -12,7 +12,11 @@ import CoreData
 
 class Notifier{
     class func createNotification(evento:Evento){
-        let date = TimeUtil.dateFromMinutesOfDay(Int((evento.time) ?? 0), date: NSDate())
+        
+        var date : NSDate? = TimeUtil.dateFromMinutesOfDay(Int((evento.time) ?? 0), date: NSDate())
+        if evento.medicamento?.unidadTiempoPeriodicidad == IntervalConstants.DaysInterval{
+            date = evento.eventDate
+        }
         let notification = UILocalNotification()
         let uuid = "\(evento.objectID.URIRepresentation())"
         //NSUserDefaults.standardUserDefaults().setObject(uuid, forKey: Notifications.NotificationIdKey)
@@ -44,6 +48,7 @@ class Notifier{
         }
     }
     class func updateNotifications(managedObjectContext: NSManagedObjectContext){
+        cancelAllNotifications()
         //remaining events this day
         if let events = Evento.getEventsFromMinute(managedObjectContext, date: NSDate()){
             for event in events

@@ -13,9 +13,7 @@ import Foundation
 import CoreData
 
 extension ReferenceNamePatient {
-
     @NSManaged var id: NSNumber?
     @NSManaged var parameterId: NSNumber?
     @NSManaged var prefix: Prefix?
-
 }

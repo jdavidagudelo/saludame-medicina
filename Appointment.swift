@@ -86,7 +86,6 @@ class Appointment: NSManagedObject {
         }
     }
     class func save(moc: NSManagedObjectContext, doctorName: String?, place: String?, date: NSDate?, description: String?) -> Appointment?{
-        
         let appointment = NSEntityDescription.insertNewObjectForEntityForName("Appointment", inManagedObjectContext: moc) as? Appointment
         appointment?.doctorName = doctorName
         appointment?.place = place

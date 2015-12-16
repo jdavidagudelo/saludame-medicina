@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 class CreateFormulaViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
+    @IBOutlet var scrollView: UIScrollView!
+    
     var formula: Formula?{
         didSet{
             textFieldDoctorName?.text = formula?.nombreMedico ?? ""
@@ -17,6 +19,18 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
             textViewRecommendations?.text = formula?.recomendaciones ?? ""
             date = formula?.fecha ?? NSDate()
         }
+    }
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        let view = labelsMap[textField]
+        let scrollPoint = CGPointMake(0, view?.frame.origin.y ?? 0)
+        scrollView?.setContentOffset(scrollPoint, animated: true)
+        return true
+    }
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        let view = labelsMap[textView]
+        let scrollPoint = CGPointMake(0, view?.frame.origin.y ?? 0)
+        scrollView?.setContentOffset(scrollPoint, animated: true)
+        return true
     }
     func textViewDidEndEditing(textView: UITextView) {
         textView.resignFirstResponder()
@@ -79,6 +93,9 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     }
     @IBOutlet weak var labelInstitution: UILabel!
     @IBOutlet weak var labelNumberFormula: UILabel!
+    @IBOutlet weak var labelRecommendations: UILabel!
+    @IBOutlet weak var labelDoctorName: UILabel!
+    var labelsMap = [UIView: UILabel]()
     var managedObjectContext: NSManagedObjectContext!
     @IBAction func cancel(sender: UIButton){
         navigationController?.popViewControllerAnimated(true)
@@ -138,6 +155,12 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
     override func viewDidLoad() {
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        loadLabelsMap()
+    }
+    private func loadLabelsMap(){
+        labelsMap = [textFieldInstitution: labelInstitution, textFieldNumberFormula: labelNumberFormula,
+            textViewRecommendations: labelRecommendations, textFieldDoctorName: labelDoctorName]
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

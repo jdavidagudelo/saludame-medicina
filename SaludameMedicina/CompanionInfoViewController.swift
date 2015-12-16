@@ -20,8 +20,30 @@ class CompanionInfoViewController: UIViewController, UITextFieldDelegate {
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        switch textField{
+        case textFieldName:
+            textFieldCellPhone?.becomeFirstResponder()
+        case textFieldCellPhone:
+            textFieldEmail?.becomeFirstResponder()
+        default: break
+        }
         return true
     }
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        let view = labelsMap[textField]
+        let scrollPoint = CGPointMake(0, view?.frame.origin.y ?? 0)
+        scrollView?.setContentOffset(scrollPoint, animated: true)
+        return true
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initLabels()
+    }
+    private func initLabels(){
+        labelsMap = [textFieldName: labelName, textFieldCellPhone: labelMobile, textFieldEmail: labelEmail]
+    }
+    private var labelsMap = [UIView: UILabel]()
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textFieldCellPhone: UITextField!{
         didSet{
             textFieldCellPhone?.delegate = self
@@ -35,6 +57,8 @@ class CompanionInfoViewController: UIViewController, UITextFieldDelegate {
         }
     }
     @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelMobile: UILabel!
+    @IBOutlet weak var labelEmail: UILabel!
     @IBAction func cancel(sender: UIButton){
         navigationController?.popViewControllerAnimated(true)
     }

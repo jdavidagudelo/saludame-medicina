@@ -13,14 +13,19 @@ class NotificationPreferencesViewController: UIViewController, UIPopoverPresenta
         didSet{
             let currentProtocol : NSNumber! = (NSUserDefaults.standardUserDefaults().objectForKey(NotificationPreferences.ProtocolPreferenceKey) as? NSNumber)
             var protocolText : String? = ""
-            switch currentProtocol{
-            case Protocol.Formal:
+            if currentProtocol != nil{
+                switch currentProtocol{
+                    case Protocol.Formal:
+                        protocolText = Protocol.FormalText
+                case Protocol.Informal:
+                    protocolText = Protocol.InformalText
+                case Protocol.Neutral:
+                    protocolText = Protocol.NeutralText
+                default: break
+                }
+            }
+            else{
                 protocolText = Protocol.FormalText
-            case Protocol.Informal:
-                protocolText = Protocol.InformalText
-            case Protocol.Neutral:
-                protocolText = Protocol.NeutralText
-            default: break
             }
             labelProtocol?.text = protocolText
         }

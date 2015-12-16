@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 import AVFoundation
 import AudioToolbox
-
-class DashboardViewController: UIViewController, UIPopoverPresentationControllerDelegate, AVAudioPlayerDelegate {
+import MessageUI
+class DashboardViewController: UIViewController, UIPopoverPresentationControllerDelegate, AVAudioPlayerDelegate, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var buttonCurrentAction: CustomButton!
     @IBOutlet weak var buttonNewAppointment: CustomButton!
     @IBInspectable var imageNavigationBar: UIImage?
@@ -30,7 +30,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
             }
         }
     }
-    
     @IBOutlet var labelEventText: UILabel!{
         didSet{
             labelEventText?.text = event?.description ?? NSLocalizedString("noEventAvailable", tableName: "localization",comment: "No event available information")
@@ -39,7 +38,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     private var event: Evento?{
         didSet{
             labelEventText?.text = event?.description ?? NSLocalizedString("noEventAvailable", tableName: "localization",comment: "No event available information")
-            let events = Evento.getEventsWithDate(managedObjectContext, date: NSDate())
+            /*let events = Evento.getEventsWithDate(managedObjectContext, date: NSDate())
             if !events.isEmpty{
                 let e = events[0]
                 let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -48,7 +47,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
                 if initialViewController != nil{
                     presentViewController(initialViewController!, animated: true, completion: nil)
                 }
-            }
+            }*/
         }
     }
     private func showToast(text: String, sender : UIView)
@@ -62,6 +61,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
             popover?.delegate = self
             popover?.permittedArrowDirections = [.Up, .Down]
             popover?.sourceView = sender
+            popover?.sourceRect = sender.bounds
             popover?.backgroundColor = UIColor.blackColor()
             self.presentViewController(toastViewController, animated: true, completion: nil)
         }
@@ -70,7 +70,21 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         return UIModalPresentationStyle.None
     }
     var managedObjectContext: NSManagedObjectContext!
-    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        switch result.rawValue {
+        case MFMailComposeResultCancelled.rawValue:
+            print("Mail Cancelled")
+        case MFMailComposeResultSaved.rawValue:
+            print("Mail Saved")
+        case MFMailComposeResultSent.rawValue:
+            print("Mail Sent")
+        case MFMailComposeResultFailed.rawValue:
+            print("Mail Failed")
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
     override func viewDidLoad() {
         buttonCurrentAction?.backgroundColor = buttonCurrentAction?.backgroundColorDefault
         buttonNewAppointment?.backgroundColor = buttonNewAppointment?.backgroundColorDefault
@@ -79,7 +93,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         Notifier.updateNotifications(managedObjectContext)
         self.navigationController?.navigationBar.translucent = true
         //navigationController?.navigationBar.setBackgroundImage(imageNavigationBar, forBarMetrics: .Default)
-       
        
     }
     var audioPlayer:AVAudioPlayer!
@@ -115,6 +128,9 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
             showToast(requiredText, sender: sender)
         }
     }
+    @IBAction func showAbout(sender: UIButton){
+        showAboutView(sender)
+    }
     @IBAction func showMedicationaction(sender: UIButton){
         if event?.medicamento != nil{
             showMedication(sender, medication: event?.medicamento)
@@ -148,6 +164,19 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
             popover?.sourceView = sender
             popover?.backgroundColor = UIColor.whiteColor()
             self.presentViewController(viewAppointmentViewController, animated: true, completion: nil)
+        }
+    }
+    func showAboutView(sender: UIButton   ){
+        let mainStoryboardId = UIStoryboard(name: "Main", bundle: nil)
+        if let aboutViewController = (mainStoryboardId.instantiateViewControllerWithIdentifier(StoryBoard.AboutViewId) as? AboutViewController)
+        {
+            aboutViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            let popover = aboutViewController.popoverPresentationController
+            popover?.delegate = self
+            popover?.sourceView = sender
+            popover?.permittedArrowDirections = [.Up]
+            popover?.backgroundColor = UIColor.whiteColor()
+            self.presentViewController(aboutViewController, animated: true, completion: nil)
         }
     }
     func showMedication(sender: UIButton, medication: Medicamento?){

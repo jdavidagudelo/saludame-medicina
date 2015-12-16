@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 class CreateAppointmentViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate {
+    @IBOutlet var scrollView: UIScrollView!
     var appointment: Appointment?{
         didSet{
             textFieldDoctorName?.text = appointment?.doctorName
@@ -19,6 +20,8 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
     }
     let pickDateTitle = NSLocalizedString("pickAppointmentDateTitle", tableName: "localization",comment: "Pick Appointment Date Title")
     let pickTimeTitle = NSLocalizedString("pickAppointmentTimeTitle", tableName: "localization",comment: "PickAppointment Time Title")
+    var labelsMap = [UIView: UILabel]()
+    @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var labelDoctorName: UILabel!
     @IBOutlet weak var labelPlace: UILabel!
     @IBOutlet weak var textFieldDoctorName: UITextField!{
@@ -67,6 +70,10 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
     override func viewDidLoad() {
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        initLabels()
+    }
+    private func initLabels(){
+        labelsMap = [textFieldDoctorName: labelDoctorName, textFieldPlace: labelPlace, textFieldDescription: labelDescription]
     }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
@@ -139,8 +146,22 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
             self.presentViewController(pickAppointmentDateViewController, animated: true, completion: nil)
         }
     }
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        let view = labelsMap[textField]
+        let scrollPoint = CGPointMake(0, view?.frame.origin.y ?? 0)
+        scrollView?.setContentOffset(scrollPoint, animated: true)
+        return true
+    }
+   
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        switch textField{
+        case textFieldDoctorName:
+            textFieldPlace?.becomeFirstResponder()
+        case textFieldPlace:
+            textFieldDescription?.becomeFirstResponder()
+        default: break
+        }
         return true
     }
 }

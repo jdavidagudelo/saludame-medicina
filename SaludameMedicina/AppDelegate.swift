@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func application(application: UIApplication,
         didReceiveLocalNotification notification: UILocalNotification)
    {
-        //UIApplication.sharedApplication().cancelLocalNotification(notification)
+        UIApplication.sharedApplication().cancelLocalNotification(notification)
         let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = mainStoryboardIpad.instantiateViewControllerWithIdentifier("NotificationMedicationViewController") as? NotificationMedicationViewController
         if let info = notification.userInfo{
@@ -113,6 +113,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if eventId != nil{
                 if let id = managedObjectContext.persistentStoreCoordinator?.managedObjectIDForURIRepresentation(eventId!)
                 {
+                    let date = NSDate()
+                    let event = Evento.getEventById(managedObjectContext, id: id)
+                    //the treatment for this notification is over
+                    if event?.medicamento?.unidadTiempoPeriodicidad != IntervalConstants.HoursInterval{
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    }
+                    if date.compare(event?.medicamento?.fechaFin ?? NSDate()) != .OrderedAscending
+                    {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    }
                     let events = Evento.getEventsSameDate(managedObjectContext, id: id)
                     if events.isEmpty{
                         self.window?.makeKeyAndVisible()

@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 class PatientInfoViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate {
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var labelIdentification: UILabel!
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelLastName: UILabel!
     
     var managedObjectContext: NSManagedObjectContext!
     let identificationTypeToast = NSLocalizedString("identificationTypeToast", tableName: "localization",
@@ -17,7 +21,6 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
         comment: "Info about the gender of the patient")
     let birthDateToast = NSLocalizedString("birthDateToast", tableName: "localization",
         comment: "Info about the birth date of the patient")
-    
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
@@ -30,6 +33,7 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
     @IBAction func showPatientGenderToast(sender: UIButton){
         showToast(identificationTypeToast, sender: sender)
     }
+    var labelsMap = [UIView: UILabel]()
     var patient: Patient?{
         didSet{
             birthDate = patient?.birthDate
@@ -43,6 +47,7 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
             switchMale?.on = patient?.sex == Genre.Male
         }
     }
+    
     var selectedSex : String?{
         get{
             var sex : String! = ""
@@ -63,6 +68,10 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         patient = Patient.getPatient(managedObjectContext)
+        initLabels()
+    }
+    private func initLabels(){
+        labelsMap = [textFieldIdentification: labelIdentification, textFieldName: labelName, textFieldLastName: labelLastName]
     }
     @IBOutlet weak var textFieldIdentification: UITextField!{
         didSet{
@@ -168,6 +177,7 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
             let popover = pickBirthDateViewController.popoverPresentationController
             popover?.delegate = self
             popover?.sourceView = sender
+            popover?.permittedArrowDirections = [.Down]
             popover?.backgroundColor = UIColor.whiteColor()
             self.presentViewController(pickBirthDateViewController, animated: true, completion: nil)
         }
@@ -203,11 +213,22 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
             self.presentViewController(pickDocumentTypePatientViewController, animated: true, completion: nil)
         }
     }
-    func textViewDidEndEditing(textView: UITextView) {
-        textView.resignFirstResponder()
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        let view = labelsMap[textField]
+        let scrollPoint = CGPointMake(0, view?.frame.origin.y ?? 0 )
+        scrollView?.setContentOffset(scrollPoint, animated: true)
+        return true
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        switch textField{
+        case textFieldIdentification:
+            textFieldName?.becomeFirstResponder()
+        case textFieldName:
+            textFieldLastName?.becomeFirstResponder()
+        default: break
+        }
         return true
     }
 }

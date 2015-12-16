@@ -11,6 +11,8 @@ import CoreData
 @IBDesignable
 class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    var labelsMap = [UIView: UILabel]()
     var medicamento: Medicamento? {
         didSet{
             formula = medicamento?.formula
@@ -18,9 +20,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
             if let periodicidad = medicamento?.periodicidad {
                 textFieldPeriod?.text = "\(periodicidad)"
             }
-            
             textFieldName?.text = medicamento?.nombre
-            
             textFieldPresentation?.text = medicamento?.presentacion
             if let duracion = medicamento?.duracion{
                 duration = Int(duracion)
@@ -33,11 +33,18 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
         }
     }
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        let view = labelsMap[textField]
+        let scrollPoint = CGPointMake(0, view?.frame.origin.y ?? 0)
+        scrollView?.setContentOffset(scrollPoint, animated: true)
+        return true
+    }
     @IBOutlet weak var labelDuration: UILabel!
     @IBOutlet weak var labelPeriod: UILabel!
     @IBOutlet weak var labelDose: UILabel!
     @IBOutlet weak var labelName: UILabel!
-    
+    @IBOutlet weak var labelPresentation: UILabel!
+    @IBOutlet weak var labelRecommendations: UILabel!
     @IBOutlet weak var textFieldRecommendations: UITextField!{
         didSet{
             textFieldRecommendations?.text = medicamento?.indicaciones
@@ -212,16 +219,22 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
         }
     }
     private func initPeriodUnit(){
-        periodUnit = IntervalConstants.HoursInterval
+        if periodUnit == nil{
+            periodUnit = IntervalConstants.HoursInterval
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         initPeriodUnit()
+        initLabelsMap()
         // Do any additional setup after loading the view.
     }
-
+    private func initLabelsMap(){
+        labelsMap = [textFieldName: labelName, textFieldPresentation: labelPresentation, textFieldDose: labelDose,
+            textFieldPeriod: labelPeriod, textFieldDuration: labelDuration, textFieldRecommendations: labelRecommendations]
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

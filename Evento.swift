@@ -176,6 +176,7 @@ class Evento: NSManagedObject {
             return []
         }
     }
+    
     class func getEventsUntilMinute(moc: NSManagedObjectContext, date: NSDate!)->[Evento]?{
         let fetchRequest = NSFetchRequest(entityName: "Evento")
         let predicates = [NSPredicate(format:"eventDate < %@", date), NSPredicate(format: "state == %@", EventState.Active), NSPredicate(format: "response == %@", EventAnswer.Pending)]
@@ -385,6 +386,31 @@ class Evento: NSManagedObject {
             return []
         }
     }
+    class func eventsUpdate(events: [Evento]?, moc: NSManagedObjectContext){
+        let date = NSDate()
+        var lastEvents = [Medicamento: Evento]()
+        for event in events ?? []{
+            if date.compare(event.eventDate ?? NSDate()) != .OrderedAscending
+            {
+                if event.response == EventAnswer.Pending{
+                    if event.medicamento != nil{
+                        lastEvents[event.medicamento!] = event
+                    }
+                    event.response = EventAnswer.Rejected
+                    event.responseTime = date
+                }
+                else{
+                    if event.medicamento != nil{
+                        lastEvents[event.medicamento!] = nil
+                    }
+                }
+            }
+        }
+        for event in lastEvents{
+            event.1.response = EventAnswer.Pending
+        }
+        save(moc)
+    }
     class func getAllMedicationEventsBetween(moc: NSManagedObjectContext, startDate: NSDate, endDate: NSDate) -> [Evento]{
         let fetchRequest = NSFetchRequest(entityName: "Evento")
         let predicates = [NSPredicate(format:"eventDate > %@", startDate), NSPredicate(format:"eventDate < %@", endDate),
@@ -395,6 +421,7 @@ class Evento: NSManagedObject {
         do{
             var result =  try moc.executeFetchRequest(fetchRequest) as? [Evento]
             result?.sortInPlace(){e1,e2 in e1.eventDate!.compare(e2.eventDate!) == .OrderedAscending}
+            eventsUpdate(result, moc: moc)
             return result ?? []
         }
         catch{

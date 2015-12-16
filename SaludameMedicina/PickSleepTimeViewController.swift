@@ -10,7 +10,7 @@ import UIKit
 
 class PickSleepTimeViewController: UIViewController {
     
-    var sleepTimeViewController : SleepTimeViewController?
+    var saveSleepTime: ((NSDate?) -> Void)?
     var titleText: String?{
         didSet{
             labelTitle?.text = titleText
@@ -38,15 +38,7 @@ class PickSleepTimeViewController: UIViewController {
     }
     @IBAction func save(sender: UIButton){
         date = timePicker?.date
-        
-        if currentKey == SleepPreferences.GoToSleepTimePreferenceKey && date != nil
-        {
-            sleepTimeViewController?.sleepTime = date
-        }
-        else if currentKey == SleepPreferences.WakeUpTimePreferenceKey
-        {
-            sleepTimeViewController?.wakeUpTime = date
-        }
+        saveSleepTime?(date)
         dismissViewControllerAnimated(true, completion: nil)
     }
     

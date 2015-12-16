@@ -9,8 +9,6 @@
 import UIKit
 
 class TratamientoMainViewController: UIViewController, UITableViewDataSource {
- 
-
     func showMedicationSchedule(sender: UIButton){
         performSegueWithIdentifier(SegueIdentifier.IdentifierMedicationSchedule, sender: sender)
     }
@@ -42,12 +40,10 @@ class TratamientoMainViewController: UIViewController, UITableViewDataSource {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return customButtons?.count ?? 0
     }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("TratamientoCustomButtonCell", forIndexPath: indexPath) as? CustomButtonCell
@@ -55,13 +51,10 @@ class TratamientoMainViewController: UIViewController, UITableViewDataSource {
         cell?.backgroundColor = UIColor.clearColor()
         return cell!
     }
-    
     @IBInspectable var iconFormula: UIImage?
     @IBInspectable var iconMedication: UIImage?
     @IBInspectable var iconSchedule: UIImage?
     @IBInspectable var iconDevices: UIImage?
-  
- 
     private func initCustomButtons(){
         var currentCustomButtons : [(title: String?, description: String?, icon: UIImage?, action: ((sender: UIButton) -> Void)?)]
         currentCustomButtons = []

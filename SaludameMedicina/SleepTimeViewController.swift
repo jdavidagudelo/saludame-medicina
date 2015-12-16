@@ -19,6 +19,12 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
             sleepTimeLabel?.text = TimeUtil.getTimeFormatted(sleepTime ?? NSDate())
         }
     }
+    func saveSleepTime(date: NSDate?){
+        sleepTime = date
+    }
+    func saveWakeupTime(date: NSDate?){
+        wakeUpTime = date
+    }
     var sleepTime: NSDate?{
         get{
             if let dateString = NSUserDefaults.standardUserDefaults().objectForKey(SleepPreferences.GoToSleepTimePreferenceKey) as? String
@@ -30,7 +36,7 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
         }
         
         set{
-            sleepTimeLabel?.text = TimeUtil.getTimeFormatted(sleepTime ?? NSDate())
+            sleepTimeLabel?.text = TimeUtil.getTimeFormatted(newValue ?? NSDate())
             if let date = newValue{
                 let dateString = TimeUtil.getStringFromTime(date)
                 NSUserDefaults.standardUserDefaults().setObject(dateString, forKey: SleepPreferences.GoToSleepTimePreferenceKey)
@@ -48,7 +54,7 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
         }
         
         set{
-            wakeUpTimeLabel?.text = TimeUtil.getTimeFormatted(wakeUpTime ?? NSDate())
+            wakeUpTimeLabel?.text = TimeUtil.getTimeFormatted(newValue ?? NSDate())
             if let date = newValue{
                 let dateString = TimeUtil.getStringFromTime(date)
                 NSUserDefaults.standardUserDefaults().setObject(dateString, forKey: SleepPreferences.WakeUpTimePreferenceKey)
@@ -77,10 +83,13 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
         {
             pickSleepTimeViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             pickSleepTimeViewController.date = date
-            
-            pickSleepTimeViewController.currentKey = preferenceKey
+            if preferenceKey == SleepPreferences.GoToSleepTimePreferenceKey{
+                pickSleepTimeViewController.saveSleepTime = saveSleepTime
+            }
+            else{
+                pickSleepTimeViewController.saveSleepTime = saveWakeupTime
+            }
             pickSleepTimeViewController.titleText = title
-            pickSleepTimeViewController.sleepTimeViewController = self
             let popover = pickSleepTimeViewController.popoverPresentationController
             popover?.delegate = self
             popover?.sourceView = sender

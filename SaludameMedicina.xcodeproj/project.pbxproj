@@ -117,6 +117,7 @@
 		59A844841C0338580065A90E /* DairyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A844831C0338580065A90E /* DairyViewController.swift */; };
 		59A844861C033D8B0065A90E /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A844851C033D8B0065A90E /* EventsListViewController.swift */; };
 		59A844881C033F3F0065A90E /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A844871C033F3F0065A90E /* EventCell.swift */; };
+		59A93ED31C1F28FA00269331 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A93ED21C1F28FA00269331 /* AboutViewController.swift */; };
 		59AB26271BEA6329004202B5 /* TratamientoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB26261BEA6329004202B5 /* TratamientoMainViewController.swift */; };
 		59AB26291BEA8A10004202B5 /* FormulaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AB26281BEA8A10004202B5 /* FormulaMainViewController.swift */; };
 		59D2FB301BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D2FB2F1BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift */; };
@@ -267,6 +268,7 @@
 		59A844831C0338580065A90E /* DairyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DairyViewController.swift; sourceTree = "<group>"; };
 		59A844851C033D8B0065A90E /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		59A844871C033F3F0065A90E /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		59A93ED21C1F28FA00269331 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		59AB26261BEA6329004202B5 /* TratamientoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TratamientoMainViewController.swift; sourceTree = "<group>"; };
 		59AB26281BEA8A10004202B5 /* FormulaMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormulaMainViewController.swift; sourceTree = "<group>"; };
 		59D2FB2F1BF35F91005AE72D /* PickFormulaMedicamentoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFormulaMedicamentoViewController.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				590A59D81C07A2A4005ECDF3 /* PickAppointmentDateViewController.swift */,
 				590A59DA1C07B6A3005ECDF3 /* AppointmentOptionsViewController.swift */,
 				597758AC1C087A2900121158 /* ViewAppointmentViewController.swift */,
+				59A93ED21C1F28FA00269331 /* AboutViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -599,7 +602,7 @@
 				TargetAttributes = {
 					5929735E1BDE6DE60040ED95 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 3CK9N35Q73;
+						DevelopmentTeam = U9F5EB5RKY;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -741,6 +744,7 @@
 				592AE7941BFCBD5500B8F22B /* GenreId.swift in Sources */,
 				596BCEF91BF4DF2B00BE72D3 /* SleepTimeViewController.swift in Sources */,
 				592973961BDEC9AC0040ED95 /* DashboardViewController.swift in Sources */,
+				59A93ED31C1F28FA00269331 /* AboutViewController.swift in Sources */,
 				597F56F61BF298DE00BA83CA /* CreateMedicamentoViewController.swift in Sources */,
 				5998BA6A1BF68E5C007269EC /* Genre.swift in Sources */,
 				59A1542A1BFB6A9D0014B780 /* Notifications.swift in Sources */,
@@ -939,9 +943,10 @@
 				INFOPLIST_FILE = SaludameMedicina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.artica.udea.iys.saludame.medicina.v1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artica.udea.iys.saludame.medicina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -956,9 +961,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.artica.udea.iys.saludame.medicina.v1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artica.udea.iys.saludame.medicina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

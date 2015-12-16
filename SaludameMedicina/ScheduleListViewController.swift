@@ -136,7 +136,7 @@ class ScheduleListViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("EventHourCell", forIndexPath: indexPath) as? EventHourCell
-        if indexPath.section < events.count && indexPath.row < events[0].count{
+        if indexPath.section < events.count && indexPath.row < events[indexPath.section].count{
             cell?.dateText = TimeUtil.getTimeFormatted(events[indexPath.section][indexPath.row].eventDate ?? NSDate())
         }
         return cell!
