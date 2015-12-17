@@ -69,6 +69,7 @@ class PatientInfoViewController: UIViewController, UIPopoverPresentationControll
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         patient = Patient.getPatient(managedObjectContext)
         initLabels()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
     private func initLabels(){
         labelsMap = [textFieldIdentification: labelIdentification, textFieldName: labelName, textFieldLastName: labelLastName]

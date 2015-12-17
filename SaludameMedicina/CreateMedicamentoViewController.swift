@@ -229,6 +229,7 @@ class CreateMedicamentoViewController: UIViewController, UIPopoverPresentationCo
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         initPeriodUnit()
         initLabelsMap()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         // Do any additional setup after loading the view.
     }
     private func initLabelsMap(){

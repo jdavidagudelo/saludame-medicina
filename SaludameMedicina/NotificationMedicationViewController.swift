@@ -87,6 +87,7 @@ class NotificationMedicationViewController: UIViewController, UIPopoverPresentat
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         Medicamento.validateMedicationEnded(managedObjectContext, medicamento: event?.medicamento)
         Notifier.updateNotifications(managedObjectContext)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
       
     }
     

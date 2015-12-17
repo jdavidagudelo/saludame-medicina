@@ -38,6 +38,7 @@ class CompanionInfoViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initLabels()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
     private func initLabels(){
         labelsMap = [textFieldName: labelName, textFieldCellPhone: labelMobile, textFieldEmail: labelEmail]

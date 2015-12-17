@@ -156,6 +156,7 @@ class CreateFormulaViewController: UIViewController, UIPopoverPresentationContro
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         loadLabelsMap()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
     private func loadLabelsMap(){
         labelsMap = [textFieldInstitution: labelInstitution, textFieldNumberFormula: labelNumberFormula,

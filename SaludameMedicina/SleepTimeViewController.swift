@@ -67,6 +67,7 @@ class SleepTimeViewController: UIViewController, UIPopoverPresentationController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
     @IBAction func editSleepTime(sender: UIButton){
         showDatePicker(sender, preferenceKey: SleepPreferences.GoToSleepTimePreferenceKey, title: NSLocalizedString("goToSleepTimeTitle", tableName: "localization",

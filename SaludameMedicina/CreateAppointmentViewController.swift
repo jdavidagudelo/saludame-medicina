@@ -71,6 +71,7 @@ class CreateAppointmentViewController: UIViewController, UIPopoverPresentationCo
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         initLabels()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
     private func initLabels(){
         labelsMap = [textFieldDoctorName: labelDoctorName, textFieldPlace: labelPlace, textFieldDescription: labelDescription]

@@ -18,6 +18,10 @@ class PatientMainViewController: UIViewController, UITableViewDataSource {
     func showCompanionInfo(sender : UIButton){
         performSegueWithIdentifier(SegueIdentifier.IdentifierCompanionInfo, sender: sender)
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         initCustomButtons()

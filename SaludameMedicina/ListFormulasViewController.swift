@@ -100,6 +100,7 @@ class ListFormulasViewController: UIViewController, UITableViewDataSource, UIPop
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         fetchFormulas()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {

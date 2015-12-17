@@ -92,6 +92,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         Evento.updateEvents(managedObjectContext)
         Notifier.updateNotifications(managedObjectContext)
         self.navigationController?.navigationBar.translucent = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         //navigationController?.navigationBar.setBackgroundImage(imageNavigationBar, forBarMetrics: .Default)
        
     }

@@ -47,6 +47,7 @@ class ScheduleListViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         initMedications()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
     }
     override func viewWillAppear(animated: Bool) {

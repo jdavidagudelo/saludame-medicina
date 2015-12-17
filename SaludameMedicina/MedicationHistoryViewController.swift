@@ -81,6 +81,7 @@ class MedicationHistoryViewController: UIViewController, UITableViewDataSource ,
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         initIcons()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
     override func viewWillAppear(animated: Bool) {
         fetchEvents()

@@ -131,6 +131,7 @@ class ScheduleMedicationViewController: UIViewController, UITableViewDataSource,
         super.viewDidLoad()
         managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         fetchEvents()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
